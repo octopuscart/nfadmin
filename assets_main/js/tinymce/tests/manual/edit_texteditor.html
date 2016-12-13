@@ -1,0 +1,88 @@
+
+<script src="../admin/tinymce/js/tinymce/tinymce.dev.js"></script>
+<script src="../admin/tinymce/js/tinymce/plugins/table/plugin.dev.js"></script>
+<script src="../admin/tinymce/js/tinymce/plugins/paste/plugin.dev.js"></script>
+<script src="../admin/tinymce/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
+<script>
+	tinymce.init({
+		selector: "textarea#elm1",
+		theme: "modern",
+		plugins: [
+			"advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+			"save table contextmenu directionality emoticons template textcolor paste fullpage textcolor"
+		],
+		external_plugins: {
+		},
+		content_css: "tinymce/tests/manual/css/development.css",
+		add_unload_trigger: false,
+		autosave_ask_before_unload: false,
+
+		toolbar1: "save newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+		toolbar2: "cut copy paste pastetext | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media help code | inserttime preview | forecolor backcolor",
+		toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft | insertfile insertimage",
+		menubar: false,
+		toolbar_items_size: 'small',
+
+		style_formats: [
+			{title: 'Bold text', inline: 'b'},
+			{title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+			{title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+			{title: 'Example 1', inline: 'span', classes: 'example1'},
+			{title: 'Example 2', inline: 'span', classes: 'example2'},
+			{title: 'Table styles'},
+			{title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+		]
+	});
+</script>
+<style>
+.mce-fullscreen {
+	border: 0; padding: 0; margin: 0;
+	overflow: hidden;
+	background: #FFF;
+	height: 100%;
+}
+
+div.mce-fullscreen {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	height: auto;
+}
+
+.mce-tinymce {
+	display: block;
+	border-radius: 2px;
+}
+
+.mce-wordcount {
+	float: right;
+	padding: 8px;
+}
+
+.mce-iframe {
+	background: #FFF;
+	filter: none;
+}
+
+.mce-statusbar {
+	position: relative;
+}
+
+.mce-statusbar .mce-container-body {
+	position: relative;
+}
+</style>
+
+	<div>
+		<div>
+			<textarea id="elm1" name="elm1" rows="8" cols="80" style="width: 80%">
+		         <?php echo $row4['specification'];?>
+			</textarea>
+			
+
+			
+		</div>
+
+		
+	</div>

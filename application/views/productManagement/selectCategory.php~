@@ -1,0 +1,161 @@
+<?php
+$this->load->view('layout/layoutTop');
+?>
+<style>
+    #continue {margin:0px 0;}
+    #continue a {margin:10px 0;}
+    .selectItem{
+        cursor: pointer;
+    }
+
+    .selectItem:hover{
+        background: #ccc;
+    }
+
+    .categoryDiv li{
+        cursor: pointer;
+        color: #000;
+        list-style: none;
+        padding: 5px;
+        margin: 2px;
+    }
+    .categoryDiv li a{
+        font-size: 15px;
+        color: blue;
+    }
+    hr{
+        border: 0;
+        border-top: 1px solid #ccc; 
+        width: 93%;
+        margin: 10px 0 10px 0;
+    }
+
+</style>
+
+<div class="col-md-12">
+    <div class="panel panel-inverse" data-sortable-id="index-5">
+        <div class="panel-heading">
+            <h4 class="panel-title">Select Category For Add Product</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <ul class="list-group">
+                        <?php
+                        foreach ($main_category as $key => $value) {
+                            echo '<li id="' . $value['id'] . '" class="list-group-item selectItem checkClick"  onclick =get_subCategory(' . $value['id'] . ')>' . $value['name'] . '</li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <div  class="categoryHandler" style="height:200px;overflow:auto;">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <?php
+                $data = $this->Product_model->parent_get('0');
+                foreach ($data as $key => $value) {
+                    if ($value) {
+                        echo '<ul>';
+                        echo '<li>' . $value['name'] . '</li>';
+                        echo '</ul>';
+                    }
+                }
+                ?>
+            </div>
+            <!-- begin col-6 -->
+            <div class="col-md-6">
+                <div class="panel panel-inverse" data-sortable-id="tree-view-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                        </div>
+                        <h4 class="panel-title">Default Tree</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div id="jstree-default">
+                            <ul>
+                                <li data-jstree='{"opened":true}' >
+                                    Root node 1
+                                    <ul>
+                                        <li data-jstree='{"opened":true, "selected":true }'>Initially Selected</li>
+                                        <li>Folder 1</li>
+                                        <li>Folder 2</li>
+                                        <li>Folder 3</li>
+                                        <li data-jstree='{"opened":true}' >
+                                            Initially open
+                                            <ul>
+                                                <li data-jstree='{"disabled":true}' >Disabled node</li>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                        <li data-jstree='{ "icon" : "fa fa-warning fa-lg text-danger" }'>custom icon class (fontawesome)</li>
+                                        <li data-jstree='{ "icon" : "fa fa-link fa-lg text-primary" }'><a href="http://www.jstree.com">Clickable link node</a></li>
+                                    </ul>
+                                </li>
+                                <li>Root node 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-6 -->
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // FIX: declaring it here will not make it global to your js.
+        var category = []; // no var because that makes it global, right?
+    });
+
+    function get_subCategory(id) {
+
+        var productId = id;
+
+        var check = $("#" + id).hasClass('checkClick');
+        console.log(check);
+        if ($("#" + id).hasClass('checkClick')) {
+            $("#" + id).removeClass('checkClick');
+            $.ajax({
+                url: '<?php echo base_url() . 'index.php/ProductHandler/ajaxSubCategoryInformation'; ?>',
+                data: {'id': id},
+                type: 'GET',
+                success: function (data) {
+
+                    var jsonData = jQuery.parseJSON(data);
+                    console.log(jsonData, 'rahul');
+                    $("#" + id).parent().children().each(function () {
+                        $(this).css("display", "none")
+                    });
+                    $("#" + id).css("display", "block");
+
+                    var htmls = '';
+                    htmls += '<ul class="list-group">';
+                    if (jsonData) {
+                        for (var i in jsonData)
+                        {
+                            htmls += '<li id="' + jsonData[i]['id'] + '" class="list-group-item selectItem checkClick"  onclick ="get_subCategory(' + jsonData[i]['id'] + ')">' + jsonData[i]['name'] + '</li>';
+                        }
+                        htmls += '</ul>';
+                        $('.categoryHandler').append(htmls);
+                    } else {
+                        var htmlButton = '';
+                        htmlButton += '<a class="btn btn-info" href="<?php echo base_url(); ?>index.php/ProductHandler/add_product_information/' + productId + '/new">Add Product</a>';
+                        $('.categoryHandler').append(htmlButton);
+                    }
+                } // End of success function of ajax form
+            }); // End of ajax call 
+        } else {
+            alert('Select Next Category');
+        }
+
+    }
+
+</script>
+<?php
+$this->load->view('layout/layoutBottom');
+?> 

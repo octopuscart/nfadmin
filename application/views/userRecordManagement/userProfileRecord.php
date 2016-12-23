@@ -9,9 +9,9 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
             <h4 class="panel-title" style ="font-size:17px; font-weight:500; "> 
                 Active Client Information
                 <div class="btn-group btn-group-sm pull-right" >
-                    <a class="btn btn-success"  data-toggle="" data-placement="left" title="View XLS"     href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record_xls') ?>" target="_blank"><i class="fa fa-file-excel-o"></i> </a>
-                    <a class="btn btn-primary"  data-toggle="" data-placement="left" title="View Pdf"     href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record_pdf/I') ?>" target="_blank"><i class="fa fa-file-pdf-o"></i> </a>
-                    <a class="btn btn-success"  data-toggle="" data-placement="left" title="Download Pdf" href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record_pdf/D') ?>" target="_blank"><i class="fa fa-download"></i> </a>
+                    <a class="btn btn-success"  data-toggle="" data-placement="left" title="View XLS"     href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record_xls/0') ?>" target="_blank"><i class="fa fa-file-excel-o"></i> </a>
+                    <a class="btn btn-primary"  data-toggle="" data-placement="left" title="View Pdf"     href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record_pdf/I/0') ?>" target="_blank"><i class="fa fa-file-pdf-o"></i> </a>
+                    <a class="btn btn-success"  data-toggle="" data-placement="left" title="Download Pdf" href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record_pdf/D/0') ?>" target="_blank"><i class="fa fa-download"></i> </a>
                 </div>
             </h4>
         </div>

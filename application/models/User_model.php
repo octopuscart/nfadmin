@@ -89,16 +89,16 @@ class User_model extends CI_Model {
         }
 
 
-        $query = "SELECT op.user_info, op.shipping_id  as shipping, op.billing_id as billing ,SUBSTRING_INDEX(SUBSTRING_INDEX(op.shipping_id, '" . '"country":"' . "', -1), '" . '"' . "', 1 ) as country,
+        $query = "SELECT ncpo.coupon_code as coupon_code, ncpo.coupon_type as coupon_type, ncpo.value as coupon_value,  op.user_info, op.shipping_id  as shipping, op.billing_id as billing ,SUBSTRING_INDEX(SUBSTRING_INDEX(op.shipping_id, '" . '"country":"' . "', -1), '" . '"' . "', 1 ) as country,
             op.user_id, op.id as order_id,op.op_date,op.op_time,op.total_price,op.total_quantity,op.order_no,oi.invoice_no,op.user_info, ost.title, os.op_date_time as status_date
                    FROM `nfw_product_order` as op 
                     JOIN nfw_product_cart AS pc ON op.id = pc.order_id
-                     JOIN nfw_product AS p ON pc.product_id = p.id
-         
+                    JOIN nfw_product AS p ON pc.product_id = p.id
                     join nfw_order_invoice as oi on op.id = oi.order_id
                     join auth_user as au on op.user_id = au.id
                     join nfw_order_status as os on op.id = os.order_id
                     join nfw_order_status_tag as ost on os.status = ost.id
+                    left join nfw_coupon as ncpo on ncpo.id = op.coupon_id
                     where op.op_date between $dateDiff1 $uq $sq GROUP BY op.id order by op.id desc";
 
 

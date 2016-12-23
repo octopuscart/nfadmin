@@ -27,7 +27,7 @@ class AllXlsReport extends CI_Controller {
         $orderList = $this->User_model->order_full_detail5($dateRange1, $orderstatus, $user_id);
 
         //print_r($orderList);
-        $headers = array('S.No.', 'Client Code', 'First Name', 'Middle Name', 'Last Name', 'Mobile No.', 'Telephone No.', 'Fax No.', 'Email', 'Shipping Address', 'Shipping Country', 'Billing Address', 'Order No', 'Item Code - Item Name - Quantity', 'Payment Method ', 'Invoice No', 'Quantity', 'Price', 'Date/Time', 'Status', 'Status Update On');
+        $headers = array('S.No.', 'Client Code', 'First Name', 'Middle Name', 'Last Name', 'Mobile No.', 'Telephone No.', 'Fax No.', 'Email', 'Shipping Address', 'Shipping Country', 'Billing Address', 'Order No', 'Item Code - Item Name - Quantity', 'Payment Method ', 'Invoice No', 'Quantity', 'Coupon Information', 'Price', 'Date/Time', 'Status', 'Status Update On');
         $filename = 'order_list';
 
         function cleanData(&$str) {
@@ -41,7 +41,7 @@ class AllXlsReport extends CI_Controller {
         $filename = $filename . "_" . date('Ymd') . ".xls";
 
         header("Content-Disposition: attachment; filename='$filename'");
-        header("Content-Type: application/vnd.ms-excel");
+         header("Content-Type: application/vnd.ms-excel");
 
         $flag = false;
 
@@ -72,18 +72,18 @@ class AllXlsReport extends CI_Controller {
 
             echo $value['email'] . "\t";
 
-            $shipping =  $this->User_model->phpjsonstyle($value['shipping'], 'php');
+            $shipping = $this->User_model->phpjsonstyle($value['shipping'], 'php');
             $shipping_array = array_values($shipping);
-            
-            $billing =  $this->User_model->phpjsonstyle($value['billing'], 'php');
+
+            $billing = $this->User_model->phpjsonstyle($value['billing'], 'php');
             $billing_array = array_values($billing);
-            
-            
+
+
             echo implode(" ", $shipping_array) . "\t";
             //print_r($value['shipping_cont']);
             echo $value['country'] . "\t";
-            echo implode(" ", $billing_array)  . "\t";
-            
+            echo implode(" ", $billing_array) . "\t";
+
             echo $value['order_no'] . "\t";
             $skudata = $this->User_model->xls_report_data($value['order_id']);
             $temp = [];
@@ -99,10 +99,16 @@ class AllXlsReport extends CI_Controller {
             echo 'Card' . "\t";
             echo $value['invoice_no'] . "\t";
             echo $value['total_quantity'] . "\t";
+
+            if ($value['coupon_code']) {
+                echo $value['coupon_code'] . '/' . $value['coupon_type'] . '/$' . $value['coupon_value'] . "\t";
+            } else {
+                echo "\t";
+            }
             echo $value['total_price'] . "\t";
             echo $value['op_date'] . ' ' . $value['op_time'] . "\t";
             echo $value['title'] . "\t";
-            echo  $value['status_date']."\t";
+            echo $value['status_date'] . "\t";
             echo "\r\n";
             $count++;
         }

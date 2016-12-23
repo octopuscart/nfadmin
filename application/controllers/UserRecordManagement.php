@@ -112,7 +112,7 @@ class UserRecordManagement extends CI_Controller {
         }
         $data['userProfile'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership) and ' . $statusquery . ' order by id desc');
         $data['type'] = 'paf';
-        $data['usertype'] = 'Inactive';
+       
         $html = $this->load->view('userRecordManagement/userProfileRecordPdf', $data, TRUE);
         //echo $html;
         $this->load->library('M_pdf');

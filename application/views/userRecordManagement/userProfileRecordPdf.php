@@ -22,7 +22,7 @@
             <div class="panel panel-inverse" data-sortable-id="index-5">
                 <div style="background:#F5F5F5;width:100%;font-family:sans-serif;margin-top:5px;font-size:16px;border:1px solid rgb(157, 153, 150);">
                     <div style="padding:10px;text-align: center;">
-                        <span class="capitalize">Customers Report <?php echo $usertype;?></span>
+                        <span class="capitalize">Customers Report (<?php echo $usertype;?>)</span>
                     </div>
                 </div> 
                 <div class="panel-body">

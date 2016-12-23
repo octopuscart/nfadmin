@@ -100,7 +100,7 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
 
                             <?php
                             $count = 1;
-                            if ($userProfile) {
+                            if (count($userProfileInactive)) {
 
                                 //print_r($userProfile);
                                 foreach ($userProfileInactive as $key => $value) {

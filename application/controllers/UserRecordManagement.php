@@ -78,15 +78,23 @@ class UserRecordManagement extends CI_Controller {
         if ($option == 'I') {
             $pdf->Output($file_name, "I");
         }
-    } 
+    }
 
     public function user_profile_record() {
-        $data['userProfile'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership)');
+        $data['userProfileInactive'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership) and status = "Inactive" order by id desc');
+        $data['userProfile'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership) and status != "Inactive"  order by id desc');
         $this->load->view('userRecordManagement/userProfileRecord', $data);
     }
 
-    public function user_profile_record_xls() {
-        $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
+    public function user_profile_record_xls($user_type) {
+        $statusquery = 'status != "Inactive" ';
+         $data['usertype'] = 'Active';
+        if ($user_type == 'I') {
+            $statusquery = 'status = "Inactive" ';
+            $data['usertype'] = 'Inactive';
+        }
+
+        $data['userProfile'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership) and ' . $statusquery . ' order by id desc');
         $filename = 'customers_report' . "_" . date('Ymd') . ".xls";
         $html = $this->load->view('userRecordManagement/userProfileRecordPdf', $data, TRUE);
         ob_clean();
@@ -95,9 +103,16 @@ class UserRecordManagement extends CI_Controller {
         echo $html;
     }
 
-    function user_profile_record_pdf($option) {
-        $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
-        $data['type']='paf';
+    function user_profile_record_pdf($option, $user_type) {
+        $statusquery = 'status != "Inactive" ';
+         $data['usertype'] = 'Active';
+        if ($user_type == 'I') {
+            $statusquery = 'status = "Inactive" ';
+            $data['usertype'] = 'Inactive';
+        }
+        $data['userProfile'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership) and ' . $statusquery . ' order by id desc');
+        $data['type'] = 'paf';
+        $data['usertype'] = 'Inactive';
         $html = $this->load->view('userRecordManagement/userProfileRecordPdf', $data, TRUE);
         //echo $html;
         $this->load->library('M_pdf');
@@ -179,7 +194,7 @@ class UserRecordManagement extends CI_Controller {
         $data['shipping_info'] = $this->User_model->phpjsonstyle($orderDetail[0]['shipping_id'], 'php');
         //$data['card_data'] = $this->User_model->phpjsonstyle($orderDetail[0]['card_id'], 'php');
         $payment_method = $orderDetail[0]['payment_gateway'];
-        $data['incpayment'] =  $payment_method;
+        $data['incpayment'] = $payment_method;
         if ($payment_method == 'PayPal') {
             $dassss = $this->User_model->phpjsonstyle($orderDetail[0]['payment_gateway_return'], 'php');
             $temp_arry = array(
@@ -477,7 +492,7 @@ class UserRecordManagement extends CI_Controller {
         echo json_encode($data);
     }
 
-    public function user_registration() { 
+    public function user_registration() {
         if (isset($_POST['submit'])) {
             $fields = $this->db->list_fields('auth_user');
             $data = [];
@@ -569,7 +584,7 @@ class UserRecordManagement extends CI_Controller {
             $mail->IsSMTP();
             $mail->SMTPDebug = 1;  // debugging: 1 = errors and messages, 2 = messages only
             $mail->SMTPAuth = true;  // authentication enabled
-           // $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+            // $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
             $mail->Host = mail_host;
             $mail->Port = mail_port;
             $mail->Username = mail_username; //Username for SMTP authentication any valid email created in your domain
@@ -577,7 +592,7 @@ class UserRecordManagement extends CI_Controller {
             $mail->AddReplyTo(mail_reply_to, mail_tag); //reply-to address
             $mail->SetFrom(mail_from, mail_tag); //From address of the mail the mail
             // put your while loop here like below,
-             $mail->AddCC(mail_reply_to);
+            $mail->AddCC(mail_reply_to);
             $mail->AddBCC(mail_username);
             $mail->Subject = $subject; //Subject od your mail
             foreach ($email as $to_add) {
@@ -644,7 +659,7 @@ class UserRecordManagement extends CI_Controller {
             $mail->SetFrom(mail_from, mail_tag); //From address of the mail the mail
             // put your while loop here like below,
             $mail->Subject = $subject; //Subject od your mail
-             $mail->AddCC(mail_reply_to);
+            $mail->AddCC(mail_reply_to);
             $mail->AddBCC(mail_username);
             $mail->AddAddress($res2[0], "Nita Fashions");              // name is optional
 
@@ -832,11 +847,11 @@ class UserRecordManagement extends CI_Controller {
         $mail->Port = mail_port;
         $mail->Username = mail_username; //Username for SMTP authentication any valid email created in your domain
         $mail->Password = mail_password; //Password for SMTP authentication
-            $mail->AddReplyTo(mail_reply_to, mail_tag); //reply-to address
-            $mail->SetFrom(mail_from, mail_tag); //From address of the mail the mail
+        $mail->AddReplyTo(mail_reply_to, mail_tag); //reply-to address
+        $mail->SetFrom(mail_from, mail_tag); //From address of the mail the mail
         // put your while loop here like below,
-             $mail->AddCC(mail_reply_to);
-            $mail->AddBCC(mail_username);
+        $mail->AddCC(mail_reply_to);
+        $mail->AddBCC(mail_username);
         $mail->Subject = 'Your refund has been processed'; //Subject od your mail
         foreach ($email as $to_add) {
             $mail->AddAddress($to_add);              // name is optional
@@ -1029,5 +1044,5 @@ class UserRecordManagement extends CI_Controller {
     }
 
 }
- 
+
 ?> 

@@ -40,7 +40,7 @@ $this->load->view('typeahead.php');
 
     function isNumber(obj) {
         var inValue = $(obj).val();
-        if (Number(inValue) > 0) {
+        if (Number(inValue)>-1 ) {
         }
         else {
             if (inValue == '') {

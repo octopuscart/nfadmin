@@ -56,7 +56,7 @@
         <!---================================== Invoice header=================================----->
         <div style="background:#F5F5F5;width:100%;font-family:sans-serif;margin-top:5px;font-size:16px;border:1px solid rgb(157, 153, 150);">
             <div style="padding:10px;text-align: center;">
-                <span class="capitalize"> Order Reports from <?php echo $date1 ?></span>
+                <span class="capitalize"> Order Report from <?php echo $date1 ?></span>
             </div>
         </div> 
 

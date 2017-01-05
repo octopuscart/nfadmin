@@ -31,24 +31,15 @@
     <body >
 
         <div>
-            <div style="text-align:center;margin-bottom:0px"> 
-                <span style="font-family: sans-serif;font-size:30px;">
-                    Nita Fashions
-                </span>
-            </div>
-            <div style="margin-top:0px;text-align:center;font-family: sans-serif;font-size:12px">
-                <span style="">
-                    16 Mody Road, GF, T. S. T, Kowloon, Hong Kong<br>
-                    T: + (852) 27219990, 27219991,  F: +852 27234886, E: info@nitafashions.com, W: www.nitafashions.com  
-
-                </span>
-            </div>
+             <?php 
+            echo pdf_header;
+            ?>
         </div>   
         <hr></hr>
         <!---================================== Invoice header=================================----->
         <div style="background:#F5F5F5;width:100%;font-family:sans-serif;margin-top:5px;font-size:16px;border:1px solid rgb(157, 153, 150);">
             <div style="padding:10px;text-align: center">
-                Product Reports
+                Product Report
             </div>
         </div> 
 

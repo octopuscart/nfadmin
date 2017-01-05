@@ -473,11 +473,11 @@ class ProductHandler extends CI_Controller {
         $data['mainProduct'] = $this->Product_model->get_table_information('nfw_product');
 
         //$ignore = $this->Product_model->get_table_information('nfw_product_related');
-        
+
         $query = "SELECT * FROM nfw_product_related WHERE nfw_product_id  = $productId";
-        
+
         $ignore = $this->Product_model->query_exe($query);
-        
+
         $len = count($ignore);
         for ($i = 0; $i < $len; $i++) {
             $notIn[] = $ignore[$i]['nfw_related_product_id'];
@@ -947,27 +947,6 @@ where product_id = p.id), '</table>'
         $data = $this->Product_model->query_exe($query);
 
 
-  
-
-        
-
-        function get_parentReq($id) {
-            $query = mysql_query("select cd.id, cd.name as child_title, cd.parent as parent, pt.name as title  from nfw_category as cd
-                                     join nfw_category as pt on pt.id = cd.parent
-                                     where cd.id= '$id' ");
-
-            $test = $id;
-
-            while ($row = $this->Product_model->query_exe($query)) {
-                $cat = get_parentReq($row['parent']);
-                $test = $cat . "," . $test;
-                //$parent_array[$row['parent']] = $row['title'];
-            }
-
-            //print_r($parent_array);
-           ob_clean();
-            return $test;
-        }
 
         $temparray = array();
 
@@ -975,20 +954,10 @@ where product_id = p.id), '</table>'
 
             foreach ($data as $key => $value) {
                 $val = [];
-                $catarray = get_parentReq($value['product_category']);
-                $catarrays = explode(',', $catarray);
-                $categoryarray = [];
-                if ($catarray) {
-                    foreach ($catarrays as $k => $v) {
-                        $query = "select name from nfw_category where id = $v";
-                        $data = $this->Product_model->query_exe($query);
-                        $datat = end($data);
-                        $rr = $datat['name'];
-                        array_push($categoryarray, $rr);
-                    }
-                }
 
-                $val['category'] = implode(" -> ", $categoryarray);
+                $main_caegory = $this->Product_model->get_parent($value['product_category']);
+                $catarray = str_replace(", ", " => ", trim($main_caegory[0], ", "));
+                $val['category'] = $catarray;
                 $val["serial_number"] = $value["serial_number"];
                 $val["image"] = $value["image"];
                 $val["title"] = $value["title"];
@@ -1083,24 +1052,9 @@ where product_id = p.id), '</table>'
         $data = $this->Product_model->query_exe($query);
         $data1 = $this->Product_model->query_exe($query1);
 
-        
-
         function get_parentReq($obj, $id) {
-            $query ="select cd.id, cd.name as child_title, cd.parent as parent, pt.name as title  from nfw_category as cd
-                                     join nfw_category as pt on pt.id = cd.parent
-                                     where cd.id= '$id' ";
-
-            $test = $id;
-
-            while ($row = $obj->Product_model->query_exe($query)) {
-                $cat = get_parentReq($obj, $row['parent']);
-                $test = $cat . "," . $test;
-                //$parent_array[$row['parent']] = $row['title'];
-            }
-
-            //print_r($parent_array);
-
-            return $test;
+            $main_caegory = $obj->Product_model->get_parent($id);
+            return str_replace(", ", " => ", trim($main_caegory[0], ", "));
         }
 
         $temparray = array();
@@ -1109,20 +1063,11 @@ where product_id = p.id), '</table>'
 
             foreach ($data as $key => $value) {
                 $val = [];
-                $catarray = '';// get_parentReq($obj, $value['product_category']);
-                $catarrays = explode(',', $catarray);
-                $categoryarray = [];
-                if ($catarray) {
-                    foreach ($catarrays as $k => $v) {
-                        $query = "select name from nfw_category where id = $v";
-                        $data = $this->Product_model->query_exe($query);
-                        $datat = end($data);
-                        $rr = $datat['name'];
-                        array_push($categoryarray, $rr);
-                    }
-                }
 
-                $val['category'] = implode(" -> ", $categoryarray);
+
+                $catarray = get_parentReq($obj, $value['product_category']);
+
+                $val['category'] = $catarray;
                 $val["serial_number"] = $value["serial_number"];
                 $val["image"] = $value["image"];
                 $val["title"] = $value["title"];

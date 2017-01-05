@@ -8,9 +8,11 @@ $stockData = json_encode($stock_data);
 $imageId = $this->Product_model->get_last_id('nfw_product_images');
 $tagConnData = json_encode($tag_conn_data);
 //print_r($fabric_list);
-
 ?>
 <?php
+$database = $this->session->userdata('database');
+$conn = \mysql_connect($database['host_name'], $database['user_name'], $database['password']);
+mysql_select_db($database['database'], $conn);
 $main_caegory = $this->Product_model->get_parent($category[0]['id']);
 $mainParent_list = explode(", ", trim($main_caegory[1], ", "));
 $GLOBALS['parent_array'][] = $category[0]['name'];

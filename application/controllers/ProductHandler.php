@@ -57,6 +57,24 @@ class ProductHandler extends CI_Controller {
         $this->load->view('productManagement/selectCategory', $data);
     }
 
+    public function add_product_category_string() {
+
+        $query = "select id, product_category from nfw_product where id>2671 ";
+        $productdata = $this->Product_model->query_exe($query);
+        echo "<pre>";
+        foreach ($productdata as $key => $value) {
+            echo $value['product_category'];
+            $main_caegory = $this->Product_model->get_parent($value['product_category']);
+            $category_string = str_replace(", ", " => ", trim($main_caegory[0], ", "));
+            $productid = $value['id'];
+            $data = array('product_category_string' => $category_string);
+           // $this->db->where('id', $productid);
+           // $this->db->update('nfw_product', $data);
+            echo "</br>";
+        }
+//        print_r($productdata);
+    }
+
     public function ajaxSubCategoryInformation() {
         $id = $_GET['id'];
         $data = $this->Product_model->get_table_information('nfw_category', 'parent', $id);
@@ -129,9 +147,11 @@ class ProductHandler extends CI_Controller {
                     $productInfoArray[$field] = $this->input->post($field);
                 }
                 unset($productInfoArray['id']);
+                unset($productInfoArray['discount_tag']);
                 $productInfoArray['product_category'] = $id;
                 $productInfoArray['publishing'] = '1';
                 $productInfoArray['opt_date'] = date('Y-m-d');
+                $productInfoArray['product_category_string'] = $this->input->post('product_category_string1');
                 $this->db->insert('nfw_product', $productInfoArray);
                 $productId = $this->db->insert_id();
                 if (isset($_POST['color_id'])) {
@@ -261,7 +281,7 @@ class ProductHandler extends CI_Controller {
                 $productInfoArray['publishing'] = '1';
                 unset($productInfoArray['id']);
 
-
+                $productInfoArray['product_category_string'] = $this->input->post('product_category_string');
                 $this->User_model->tracking_data_insert('nfw_product', $id, 'update');
                 $this->db->where('id', $id);
                 $this->db->update('nfw_product', $productInfoArray);

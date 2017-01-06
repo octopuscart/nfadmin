@@ -37,7 +37,7 @@ $this->load->view('layout/layoutTop');
                                 <td><?php echo $i + 1 ?></td>
                                 <td><?php echo ucwords($res['name']) ?></td>
                                 <td><?php echo $res['coupon_code'] ?></td>
-                                <td><?php echo '$' . number_format($res['amount'], 2, '.', ''); ?></td>
+                                <td><?php echo '$' . number_format($res['amount']?$res['amount']:'0', 2, '.', ''); ?></td>
                                 <td><?php echo $res['payment_method'] ?></td>
                                 <td>
                                     <?php

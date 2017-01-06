@@ -382,6 +382,7 @@ class UserRecordManagement extends CI_Controller {
         if (isset($_POST['submit'])) {
             $data = $_POST;
             unset($data['submit']);
+            $data['coupon_type'] = 'Gift';
             $this->db->insert('nfw_coupon', $data);
             $lastId = $this->db->insert_id();
             $this->User_model->tracking_data_insert('nfw_coupon', $lastId, 'insert');

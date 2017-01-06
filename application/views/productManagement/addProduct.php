@@ -95,9 +95,10 @@ if (count($mainParent_list)) {
                                     <span class="product_category"> 
                                         <?php
                                         $main_caegory = $this->Product_model->get_parent($update_info['category']);
-                                        echo str_replace(", ", " => ", trim($main_caegory[0], ", "));
+                                        echo $category_string =  str_replace(", ", " => ", trim($main_caegory[0], ", "));
                                         ?></span>
                                     <input type="hidden" name ="product_category" class="form-control" placeholder="Product Category." required>
+                                    <input type="hidden" name ="product_category_string1" class="form-control" placeholder="Product Category." value="<?php echo $category_string?>" >
                                     <?php
                                     if ($update_info['operation'] == 'edit') {
                                         echo '<button id="change_category" type = "button" class = "btn btn-primary btn-xs pull-right" data-toggle = "modal" data-target = ".category_model">Change Category</button>';

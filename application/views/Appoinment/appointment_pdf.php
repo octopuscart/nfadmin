@@ -100,12 +100,8 @@
                         </td>
                         <td>
                             <?php
-                            $str = $res['address'];
-                            $words = explode(",", $str);
-                            array_splice($words, -1);
-
-                            $adda = implode(",", $words);
-                            echo $adda;
+                            echo $str = $res['address'];
+                           
                             ?>
                         </td>
                         <td><?php echo $res['schedule_date'] ?></td>

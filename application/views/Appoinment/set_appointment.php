@@ -18,14 +18,13 @@ $this->load->view('layout/layoutTop');
                 <thead>
                     <tr>
                         <th>SN.</th>
-                        <th>Customer Name</th>
-                        <th>No. Of Person</th>
-                        <th>Email</th>
-                        <th>Contact No.</th>
+                        <th>Country</th>
                         <th>City/State</th>
-                        <th>Hotel Address</th>
-                        <th>Booked Dates</th>
-                        <th>Booked Time</th>
+                        <th>Hotel Name & Address</th>
+                        <th>From Date - To Date</th>
+                        <th>Time</th>
+                        <th>Contact No.</th>
+                       
 
                     </tr>
                 </thead>
@@ -48,16 +47,15 @@ $this->load->view('layout/layoutTop');
 
                             <td>
                                 <?php
-                               echo $str = $res['address'];
-//                                $words = explode(",", $str);
-//                                array_splice($words, -1);
+                                $str = $res['address'];
+                                $words = explode(",", $str);
+                                array_splice($words, -1);
 
-//                                $adda = implode(",", $words);
-//                                echo $adda;
+                                $adda = implode(",", $words);
+                                echo $adda;
                                 ?>
                             </td>
-                            <td><?php echo $res['schedule_date'] ?></td>
-                            <td><?php echo $res['schedule_start_time'] . '-' . $res['schedule_end_time'] ?></td>
+                           
                         </tr>
 
 

@@ -5,7 +5,7 @@ ob_start();
 
 class Appointment extends CI_controller {
 
-    public function __construct() { 
+    public function __construct() {
         parent::__construct();
         $this->load->model('Product_model');
         $this->load->model('User_model');
@@ -150,6 +150,59 @@ class Appointment extends CI_controller {
         }
 
         $this->load->view('Appoinment/time_scheduler', $data);
+    }
+
+    function setAppointment() {
+
+
+
+        $startd = "2017-02-22";
+        $endd = "2017-02-24";
+
+        $tStartd = strtotime($startd);
+        $tEndd = strtotime($endd);
+        $tNowd = $tStartd;
+
+        while ($tNowd <= $tEndd) {
+            $ndated = date("Y-m-d", $tNowd);
+            $tNowd = strtotime('+1 day', $tNowd);
+            $start = "09:00 am";
+            $end = "08:00 pm";
+
+            $tStart = strtotime($start);
+            $tEnd = strtotime($end);
+            $tNow = $tStart;
+
+            while ($tNow <= $tEnd) {
+                $ntimed = date("h:i a", $tNow);
+                
+                $temp1 = array(
+                    'nfw_app_start_end_date_id' => 2,
+                    'schedule_date' => $ndated,
+                    'schedule_start_time' => $ntimed,
+                    'schedule_end_time' => $ntimed
+                );
+
+                $this->db->insert('nfw_app_time_schedule', $temp1);
+                
+                echo $ndated, $ntimed, "\n";
+                $tNow = strtotime('+30 minutes', $tNow);
+            }
+        }
+
+        $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,au.email,au.telephone, au.no_of_person,apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,asp.country, asp.state,asp.city,asp.address FROM `nfw_app_userlist` as au
+                                     join nfw_app_time_schedule as apt on au.nfw_time_schedule_id = apt.id
+                                     join nfw_app_start_end_date as sed on apt. nfw_app_start_end_date_id = sed.id
+                                     join nfw_app_set_appointment as asp on sed.nfw_set_appointment_id =  asp.id
+                                    order by au.id desc 
+                                    ");
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $data[] = $row;
+            }
+            $data['data'] = $data;
+        }
+        $this->load->view('Appoinment/appointment_set', $data);
     }
 
     function appointment_report() {

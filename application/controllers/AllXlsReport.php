@@ -79,7 +79,7 @@ class AllXlsReport extends CI_Controller {
             $billing_array = array_values($billing);
 
 
-            echo implode(" ", $shipping_array) . "\t";
+            echo implode(", ", $shipping_array) . "\t";
             //print_r($value['shipping_cont']);
             echo $value['country'] . "\t";
             echo implode(" ", $billing_array) . "\t";

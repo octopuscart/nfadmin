@@ -156,37 +156,67 @@ class Appointment extends CI_controller {
 
 
 
-        $startd = "2017-02-22";
-        $endd = "2017-02-24";
+        if (isset($_POST['location'])) {
+            $start_time1 = $this->input->post('start_time');
+            $end_time1 = $this->input->post('end_time');
+            $dates = $this->input->post('default-daterange');
+            $dates = explode("To", $dates);
+            $date1 = $dates[0];
+            $date2 = $dates[1];
 
-        $tStartd = strtotime($startd);
-        $tEndd = strtotime($endd);
-        $tNowd = $tStartd;
+            $startd = $date1;
+            $endd = $date2;
 
-        while ($tNowd <= $tEndd) {
-            $ndated = date("Y-m-d", $tNowd);
-            $tNowd = strtotime('+1 day', $tNowd);
-            $start = "09:00 am";
-            $end = "08:00 pm";
+            $tStartd = strtotime($startd);
+            $tEndd = strtotime($endd);
+            $tNowd = $tStartd;
+            $temp = array(
+                'place_id' => $this->input->post('place_id'),
+                'location' => $this->input->post('location'),
+                'address' => $this->input->post('address2'),
+                'country' => $this->input->post('country'),
+                'city' => $this->input->post('city'),
+                'state' => $this->input->post('state'),
+                'contact_no' => $this->input->post('contact_no'),
+                'total_days' => $this->input->post('total_days'),
+            );
 
-            $tStart = strtotime($start);
-            $tEnd = strtotime($end);
-            $tNow = $tStart;
+            $this->db->insert('nfw_app_set_appointment', $temp);
+            $nfw_set_appointment_id = $this->db->insert_id();
 
-            while ($tNow <= $tEnd) {
-                $ntimed = date("h:i a", $tNow);
-                
-                $temp1 = array(
-                    'nfw_app_start_end_date_id' => 2,
-                    'schedule_date' => $ndated,
-                    'schedule_start_time' => $ntimed,
-                    'schedule_end_time' => $ntimed
-                );
+            $temp1 = array(
+                'nfw_set_appointment_id' => $nfw_set_appointment_id,
+                'start_date' => $date1,
+                'end_date' => $date2,
+            );
+            $this->db->insert('nfw_app_start_end_date', $temp1);
+            $date_id = $this->db->insert_id();
 
-                $this->db->insert('nfw_app_time_schedule', $temp1);
-                
-                echo $ndated, $ntimed, "\n";
-                $tNow = strtotime('+30 minutes', $tNow);
+            while ($tNowd <= $tEndd) {
+                $ndated = date("Y-m-d", $tNowd);
+                $tNowd = strtotime('+1 day', $tNowd);
+                $start = $start_time1;
+                $end = $end_time1;
+
+                $tStart = strtotime($start);
+                $tEnd = strtotime($end);
+                $tNow = $tStart;
+
+                while ($tNow <= $tEnd) {
+                    $ntimed = date("h:i a", $tNow);
+
+                    $temp2 = array(
+                        'nfw_app_start_end_date_id' => $date_id,
+                        'schedule_date' => $ndated,
+                        'schedule_start_time' => $ntimed,
+                        'schedule_end_time' => $ntimed
+                    );
+
+                    $this->db->insert('nfw_app_time_schedule', $temp2);
+
+                    echo $ndated, $ntimed, "\n";
+                    $tNow = strtotime('+30 minutes', $tNow);
+                }
             }
         }
 
@@ -202,6 +232,7 @@ class Appointment extends CI_controller {
             }
             $data['data'] = $data;
         }
+        $data['data'] = array();
         $this->load->view('Appoinment/appointment_set', $data);
     }
 

@@ -85,79 +85,136 @@ $this->load->view('layout/layoutTop');
         </div>
         <div class="panel panel-body">
             <form method="post">
-               <div class="col-md-12"> 
-              <div class="col-md-4">
-                    <input type="hidden" name="place_id">
-                    <div class="form-group">
-                        <label class="control-label" style="">Location</label>
-                        <input type="text" class="time start form-control" name="location"  />
+                <div class="col-md-12"> 
+                    <div class="col-md-4">
+                        <input type="hidden" name="place_id">
+                        <div class="form-group">
+                            <label class="control-label" style="">Location</label>
+                            <input type="text" class="time start form-control" name="location"  />
+                        </div>
                     </div>
-                </div>
-                 
-              <div class="col-md-4"> 
-                    <div class="form-group">
-                        <label class="control-label" style="">Serached Address or Fill Flat/House No.</label>
-                        <input type="text" class="time start form-control"  id="address2" name="address2"/>
 
-                    </div>
-                 </div>          
-            <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label" style="">City</label>
-                        <input type="text" class="time start form-control" name="city"   />
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label" style="">State</label>
-                        <input type="text" class="time start form-control" name="state"   />
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label" style="">Country</label>
-                        <input type="text" class="time start form-control" name="country"  readonly />
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label" style="">Contact No.</label>
-                        <input type="text" class="time start form-control" name="contact_no"   />
-                    </div>
-                </div>
+                    <div class="col-md-4"> 
+                        <div class="form-group">
+                            <label class="control-label" style="">Serached Address or Fill Flat/House No.</label>
+                            <input type="text" class="time start form-control"  id="address2" name="address2"/>
 
-              <div class="col-md-4">
-                
-                    <label class="control-label" style="">Select FromDate and ToDate</label>
-                         
-                            <div class="input-group default-daterange" id="default-daterange">
-                                <input type="text" name="default-daterange" class="form-control" value="<?php echo date('Y-m-d') . '  To  ' . date('Y-m-d') ?>" placeholder="click to select the date range"/>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
-                                </span>
+                        </div>
+                    </div>          
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" style="">City</label>
+                            <input type="text" class="time start form-control" name="city"   />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" style="">State</label>
+                            <input type="text" class="time start form-control" name="state"   />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" style="">Country</label>
+                            <input type="text" class="time start form-control" name="country"   />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" style="">Contact No.</label>
+                            <input type="text" class="time start form-control" name="contact_no"   />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="control-label" style="">Select FromDate and ToDate</label>
+
+                        <div class="input-group default-daterange" id="default-daterange">
+                            <input type="text" name="default-daterange" class="form-control" value="<?php echo date('Y-m-d') . '  To  ' . date('Y-m-d') ?>" placeholder="click to select the date range"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <label class="control-label" style="">Total Days</label>
+
+                        <div class="input-group " >
+                            <input type="text" name="total_days" class="form-control" value="" placeholder="Total Days"/>
+                           
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+
+                        <div class="row row-space-10" id="basicExample1">
+                            <div class="col-md-6">
+                                <label class="control-label" style="float:left;width: 100%">Select From Date</label>
+                                <select id="fromhour"  class="form-control" style="width: 65px;float:left;" onclick="fromDateChange()">
+                                    <?php
+                                    for ($i = 0; $i <= 12; $i++) {
+                                        $th = "" . ( $i < 10 ? "0" . $i : $i );
+                                        echo "<option>" . $th . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select id="fromminut" class="form-control " style="width: 65px;float:left;"  onclick="fromDateChange()">
+                                    <?php
+                                    for ($i = 0; $i <= 3; $i++) {
+                                        $th = $i * 15;
+                                        $th = "" . ( $th < 10 ? "0" . $th : $th );
+                                        echo "<option>" . $th . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select id="fromampm" class="form-control " style="width: 65px;float:left;"  onclick="fromDateChange()">
+                                    <option>AM</option>
+                                    <option>PM</option>
+                                </select>
                             </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label" style="float:left;width: 100%">Select To Date</label>
+                                <select id="tohour"  class="form-control" style="width: 65px;float:left;"  onclick="toDateChange()">
+                                    <?php
+                                    for ($i = 0; $i <= 12; $i++) {
+                                        $th = "" . ( $i < 10 ? "0" . $i : $i );
+                                        echo "<option>" . $th . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select id="tominut" class="form-control " style="width: 65px;float:left;"  onclick="toDateChange()">
+                                    <?php
+                                    for ($i = 0; $i <= 3; $i++) {
+                                        $th = $i * 15;
+                                        $th = "" . ( $th < 10 ? "0" . $th : $th );
+                                        echo "<option>" . $th . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <select id="toampm" class="form-control " style="width: 65px;float:left;"  onclick="toDateChange()">
+                                    <option>AM</option>
+                                    <option>PM</option>
+                                </select>
+                            </div>
+                            <input type="hidden" class="time start form-control" name="start_time"  placeholder="Start Time" />
+
+                            <input type="hidden" class="time end form-control" name="end_time"  placeholder="End Time" />
+                        </div>
+
+
                     </div>
 
-<div class="col-md-8">
-                
-                    <label class="control-label" style="">Select FromDate and ToDate</label>
-                          <div class="row row-space-10" id="basicExample1">
-                              
-                                    <input type="text" class="time start form-control" name="start_time"  placeholder="Start Time" />
-                           
-                                    <input type="text" class="time end form-control" name="end_time"  placeholder="End Time" />
-                                </div>
-                           
-                            
-                    </div>
 
-            
- </div>
-               <div style="clear:both"></div><br/>
+                </div>
+                <div style="clear:both"></div><br/>
                 <div class="col-md-12">
-               <div class="col-md-4">
-                    <button name="submit" type="submit" class="btn btn-info btn-xs submitBtn">Submit</button>
-</div>
+                    <div class="col-md-4">
+                        <button name="submit" type="submit" class="btn btn-info  submitBtn">Submit</button>
+                    </div>
                 </div>
 
             </form>
@@ -206,15 +263,28 @@ $this->load->view('layout/layoutBottom');
             opens: 'right',
             format: 'YYYY-MM-DD',
             separator: ' to ',
-            startDate: moment().subtract('days', 29),
-            endDate: moment(),
-            minDate: '2016-01-02',
-            maxDate: '2016-12-25',
+            startDate: moment(),
+            endDate: moment().add('days', 5),
+           
         },
                 function (start, end) {
                     $('#default-daterange input').val(start.format('YYYY-MM-DD') + ' To ' + end.format('YYYY-MM-DD'));
                 });
     });
+
+    function toDateChange(){
+        var hour = $("#tohour").val();
+        var minut = $("#tominut").val();
+        var ampm = $("#toampm").val();
+        $('[name="end_time"]').val(hour+":"+ minut+" "+ ampm)
+    }
+    
+     function fromDateChange(){
+        var hour = $("#fromhour").val();
+        var minut = $("#fromminut").val();
+        var ampm = $("#fromampm").val();
+        $('[name="start_time"]').val(hour+":"+ minut+" "+ ampm)
+    }
 
 
 </script>
@@ -264,15 +334,15 @@ $this->load->view('layout/layoutFooter');
                     console.log(componectadata[j].types, '---------');
                     if (componectadata[j].types) {
                         console.log(componectadata);
-                        if (componectadata[j].types[0] == 'administrative_area_level_2'  || componectadata[j].types[0] == 'locality' ) {
+                        if (componectadata[j].types[0] == 'administrative_area_level_2' || componectadata[j].types[0] == 'locality') {
                             $("input[name='city']").val(componectadata[j].short_name);
                         }
-                         if (componectadata[j].types[0] == 'administrative_area_level_1') {
+                        if (componectadata[j].types[0] == 'administrative_area_level_1') {
                             $("input[name='state']").val(componectadata[j].short_name);
                         }
                     }
                 }
-            
+
                 $("input[name='location']").val(data['name']);
                 $("#address2").text(data['formatted_address']);
                 $("input[name='place_id']").val(data['place_id']);

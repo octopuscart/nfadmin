@@ -143,6 +143,7 @@ $this->load->view('layout/layoutTop');
             <table id="location_table" class="table table-striped table-bordered">
                 <thead>
                     <tr>
+                        <th>S. No.</th>
                         <th>Location</th>
                         <th>Address</th>
                         <th>Contact No.</th>
@@ -156,6 +157,7 @@ $this->load->view('layout/layoutTop');
                         $res = $result[$i];
                         ?>
                         <tr>
+                             <td><?php echo $i+1; ?></td>
                             <td><?php echo $res['location'] ?></td>
                             <td><?php echo $res['address'] ?></td>
                             <td><?php echo $res['contact_no'] ?></td>

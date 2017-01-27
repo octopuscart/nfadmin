@@ -57,7 +57,7 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 
                         </div>
                     </div>
-                    <div class="col-md-12" style="margin-top: 15px;">
+<!--                    <div class="col-md-12" style="margin-top: 15px;">
                         <label class="col-md-12 control-label"  style="padding-top: 5px;">Short Description</label>
                         <div class="form-group"> 
 
@@ -66,7 +66,7 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
                             </div>
 
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-md-12" style="margin-top: 15px;">
                         <label class="col-md-12 control-label"  style="padding-top: 5px;">Message</label>
                         <div class="form-group"> 

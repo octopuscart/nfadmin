@@ -135,7 +135,7 @@ class Message_management extends CI_Controller {
                     $urlb = $this->urlpath();
                     $notification = array(
                         'title' => $this->input->post('title'),
-                        'message' => $this->input->post('short_description'),
+                        'message' => 'Newsletter received',//$this->input->post('short_description'),
                         'user_id' => $dataReceived[$i],
                         'status' => '0',
                         'page_link' => $urlb . "views/newsLetter.php",

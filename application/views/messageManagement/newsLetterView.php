@@ -91,15 +91,38 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
                                                                                           margin-bottom: 20px;
                                                                                           padding: 20px 0;
                                                                                           background-color: #000;
-                                                                                          color: #fff;">Nita Fashions </span></td>
+                                                                                          color: #fff;">Nita Fashions Newsletter</span></td>
 		</tr>
 	</tbody>
 </table>
 
-<p>Hello Dear,</p>
+<p><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">Dear Nita Fashions subscriber,</span></p>
 
-<p>Most respected names in men&#39;s clothing, meticulous hand tailoring, and quality that is becoming harder and harder to find. Our Master Tailor, Peter Daswani, has over 30 years of experience in custom tailoring. World&#39;s finest fabrics are careful selected to live up to name of Fashions.&nbsp;</p>
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">First and foremost, we would like to thank you for choosing Nita Fashions as your personal tailor. We take great pleasure in designing your bespoke wardrobe. Each month, we will be sharing information about the latest trends, fashion tips, our cutting techniques and promotions.</span></p>
 
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">Nita Fashions was established in 1953, and through those decades we have kept to our traditional methods of bespoke tailoring. During our initial years, most customers would request the traditional English Cut suit, however as time has progressed, more men regardless of their age want to look like that well dressed model on the cover of GQ Magazine, or Harvey Specter of the popular TV show Suits.&nbsp;&nbsp;Men have also come to realize that wearing a bespoke suit is not only for the elite and more individuals have turned to bespoke tailoring as the only way to fill up their wardrobe.&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">This month, we would like to share the recent changes that we have made at Nita Fashions. Transformation and modification within any business is key to success.</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">We have remodeled our store, redesigned our labels as well as added a new twist to our website. Our customers over the years have stem from one generation to another and our goal is to keep this tradition going.</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">As shopping online has now become the most efficient way to purchase just about anything, we decided that even your personal tailor can now be at your fingertips. There are many times where you or your friends and family have missed us on one of our trunk shows in a city near you. Now you no longer have to wait those long months before you are able to customize your next suit or shirt. Our online store now enables you to add to your wardrobe all year round with no limits.&nbsp;&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">Our online store guides you through each step of the process as if our Chief Tailor &amp; Owner, Mr. Peter Daswani was sitting right beside you the whole time. Every detail you would like to add to your garment can be done with just the click of a few buttons. For those of you who have been coming to us for years and don&rsquo;t want to make any changes to the cut, style or size of your garment and simply want to purchase a new suit or shirt we have made the purchasing process extremely simple for you.&nbsp;<a href="http://nitafashions.com"><u><span style="color: blue;">Give it a try!</span></u></a></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">We thank you all for your continuous support and look forward to customizing your next look with you!</span></p>
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
                                     <?php echo $this->User_model->mail_template('News Letter', 'footer'); ?>
                                     <?php echo $this->User_model->mailsetting_header('footer'); ?>
 <div style=""><span style="color: rgb(123, 128, 143); font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; text-align: justify;">If you do not want to receive this mailer,&nbsp;</span><a  href="---userlink---" style="color: rgb(123, 128, 143); font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; text-align: justify;" target="_blank">Unsubscribe</a></div>

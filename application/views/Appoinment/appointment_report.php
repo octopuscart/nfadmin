@@ -23,7 +23,7 @@ $this->load->view('layout/layoutTop');
                         <th>Email</th>
                         <th>Contact No.</th>
                         <th>City/State</th>
-                        <th>Hotel Address</th>
+                        <th>Hotel Name & Address</th>
                         <th>Booked Dates</th>
                         <th>Booked Time</th>
 
@@ -33,6 +33,7 @@ $this->load->view('layout/layoutTop');
                     <?php
                     for ($i = 0; $i < count($data); $i++) {
                         $res = $data[$i];
+                     
                         ?>
                         <tr>
                             <td><?php echo $i + 1 ?></td>
@@ -48,6 +49,8 @@ $this->load->view('layout/layoutTop');
 
                             <td>
                                 <?php
+                                 echo $str = "<b>".$res['location']."</b>";
+                                 echo "<br/>";
                                echo $str = $res['address'];
 //                                $words = explode(",", $str);
 //                                array_splice($words, -1);

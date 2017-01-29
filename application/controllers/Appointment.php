@@ -237,7 +237,11 @@ class Appointment extends CI_controller {
     }
 
     function appointment_report() {
-        $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,au.email,au.telephone, au.no_of_person,apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,asp.country, asp.state,asp.city,asp.address FROM `nfw_app_userlist` as au
+        $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,au.email,au.telephone, au.no_of_person,
+            apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,
+            asp.country, asp.state,asp.city,
+            asp.location,
+            asp.address FROM `nfw_app_userlist` as au
                                      join nfw_app_time_schedule as apt on au.nfw_time_schedule_id = apt.id
                                      join nfw_app_start_end_date as sed on apt. nfw_app_start_end_date_id = sed.id
                                      join nfw_app_set_appointment as asp on sed.nfw_set_appointment_id =  asp.id
@@ -253,7 +257,7 @@ class Appointment extends CI_controller {
     }
 
     function appointment_pdf() {
-        $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,au.email,au.telephone, au.no_of_person,apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,asp.country, asp.state,asp.city,asp.address FROM `nfw_app_userlist` as au
+        $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,           asp.location,au.email,au.telephone, au.no_of_person,apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,asp.country, asp.state,asp.city,asp.address FROM `nfw_app_userlist` as au
                                      join nfw_app_time_schedule as apt on au.nfw_time_schedule_id = apt.id
                                      join nfw_app_start_end_date as sed on apt. nfw_app_start_end_date_id = sed.id
                                      join nfw_app_set_appointment as asp on sed.nfw_set_appointment_id =  asp.id

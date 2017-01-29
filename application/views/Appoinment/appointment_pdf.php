@@ -76,7 +76,7 @@
                     <th>Email</th>
                     <th>Contact No.</th>
                     <th>City/State</th>
-                    <th>Hotel Address</th>
+                      <th>Hotel Name & Address</th>
                     <th>Booked Dates</th>
                     <th>Booked Time</th>
 
@@ -100,7 +100,9 @@
                         </td>
                         <td>
                             <?php
-                            echo $str = $res['address'];
+                             echo $str = "<b>".$res['location']."</b>";
+                                 echo "<br/>";
+                               echo $str = $res['address'];
                            
                             ?>
                         </td>

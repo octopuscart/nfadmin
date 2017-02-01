@@ -73,11 +73,15 @@ $this->load->view('layout/layoutTop');
                          Shop Now
             </a>
         </center>
-<p><img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 100%;margin-top: 10px " /></p>
+<p style="margin-left: 180px;">​<img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 400px;height:400px;margin-top: 10px " /></p>
 
-<p>Hello Dear,</p>
+<p align="center">&nbsp;</p>
 
-<p>Most respected names in men&#39;s clothing, meticulous hand tailoring, and quality that is becoming harder and harder to find. Our Master Tailor, Peter Daswani, has over 30 years of experience in custom tailoring. World&#39;s finest fabrics are careful selected to live up to name of Fashions.&nbsp;</p>
+<p align="center">&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions</p>
+
+<h1 align="center">Buy 5 Shirts &amp;Get A White Egyptian Shirts FREE</h1>
+
+<p align="center">Valid Until 13<sup>th</sup> February 2017</p>
 
                                     <?php echo $this->User_model->mail_template('News Letter', 'footer'); ?>
                                     <?php echo $this->User_model->mailsetting_header('footer'); ?>

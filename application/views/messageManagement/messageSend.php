@@ -39,7 +39,7 @@ $this->load->view('layout/layoutTop');
 
                                     <?php echo $this->User_model->mailsetting_header('header'); ?>
 
-                                    <?php echo $this->User_model->mail_template('News Letter', 'header'); ?>
+                                    <?php echo $this->User_model->mail_template('General', 'header'); ?>
 
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="    width: 100%;">
 	<tbody>
@@ -60,6 +60,20 @@ $this->load->view('layout/layoutTop');
 		</tr>
 	</tbody>
 </table>
+
+  <center style="    margin-top: 10px 10px 20px 10px;">
+           <a style="font-size: 18px;
+                                           margin: 15px 0px ;
+                                           padding: 10px;
+                                           background: #000;
+                                           text-decoration: none;
+                                           background: red;
+                                           color: white;
+                                           border-radius: 15px;" href="http://nitafashions.com" target="_blank">
+                         Shop Now
+            </a>
+        </center>
+<p><img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 100%;margin-top: 10px " /></p>
 
 <p>Hello Dear,</p>
 

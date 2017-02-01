@@ -72,8 +72,9 @@ $this->load->view('layout/layoutTop');
                                            border-radius: 15px;" href="http://nitafashions.com" target="_blank">
                          Shop Now
             </a>
-        </center>
-<p style="margin-left: 180px;">​<img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 400px;height:400px;margin-top: 10px " /></p>
+        </center><center>
+    <img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 400px;height:400px;margin-top: 10px " />
+</center>
 
 <p align="center">&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions</p>
 

@@ -72,7 +72,7 @@ $this->load->view('layout/layoutTop');
                                            border-radius: 15px;" href="http://nitafashions.com" target="_blank">
                          Shop Now
             </a>
-        </center><center>
+        </center><center style="margin-top:20px;margin-bottom:20px;">
     <img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 400px;height:400px;margin-top: 10px " />
 </center>
 

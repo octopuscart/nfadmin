@@ -76,9 +76,9 @@ $this->load->view('layout/layoutTop');
     <img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 400px;height:400px;margin-top: 10px " />
 </center>
 
-<p align="center">&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions</p>
+<p align="center">&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions</p>
 
-<h1 align="center">Buy 5 Shirts &amp;Get A White Egyptian Shirts FREE</h1>
+<h1 align="center">Buy 5 Shirts &amp; Get A White Egyptian Shirts FREE</h1>
 
 <p align="center">Valid Until 13<sup>th</sup> February 2017</p>
 

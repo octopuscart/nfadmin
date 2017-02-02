@@ -35,7 +35,6 @@ $this->load->view('layout/layoutTop');
                             <div class="col-md-12">
                                 <textarea name ="message" class="textarea form-control ckeditor" id="editor1" placeholder="Enter text ..." rows="16">
 
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic" rel="stylesheet" type="text/css" />
 <style type="text/css">div{ font-family:lato; }
@@ -60,7 +59,9 @@ $this->load->view('layout/layoutTop');
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="    width: 100%;">
 	<tbody>
 		<tr>
-			<td colspan="3" height="10" style="border-bottom: 1px  solid  #eaedef;">&nbsp;</td>
+			<td colspan="3" height="10" style="border-bottom: 1px  solid  #eaedef;">
+			<h1>&nbsp;</h1>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="3" readonly="readonly">&nbsp;</td>
@@ -68,9 +69,9 @@ $this->load->view('layout/layoutTop');
 	</tbody>
 </table>
 
-<center style="    margin-top: 10px 10px 20px 10px;">&nbsp;</center>
-
-<center style="margin-top:20px;margin-bottom:20px;">&nbsp;</center>
+<center style="margin-top:-325px;font-size:20px">
+<h1><a href="http://nitafashions.com/frontend/views/product_list.php?category=0&amp;item_type=1" target="_blank">SHOP NOW</a></h1>
+</center>
 
 <p align="center">&nbsp;</p>
 </div>

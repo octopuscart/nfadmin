@@ -51,7 +51,7 @@ $this->load->view('layout/layoutTop');
 			<td>&nbsp;
 			<p>&nbsp;</p>
 
-			<p><img alt="" src="http://192.168.1.2/nf3/gitnitaFashionsAdmin/images/uploads/1486027837_nitamail.jpg" style="width: 100%;" /></p>
+			<p><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/1486027837_nitamail.jpg" style="width: 100%;" /></p>
 			</td>
 		</tr>
 	</tbody>

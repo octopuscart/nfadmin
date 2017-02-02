@@ -36,10 +36,26 @@ $this->load->view('layout/layoutTop');
                                 <textarea name ="message" class="textarea form-control ckeditor" id="editor1" placeholder="Enter text ..." rows="16">
 
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic" rel="stylesheet" type="text/css" />
+<style type="text/css">div{ font-family:lato; }
+</style>
+<div style="    margin: 0px;
 
-                                    <?php echo $this->User_model->mailsetting_header('header'); ?>
+                                         font: 300 lato;
+                                         background-color: #E2E2E2;">
+<div style="  ;background:#fff"><!--end of upper level header-->
+<table align="center" border="0" cellpadding="0" cellspacing="0" style=" width: 100%; background-color: white;">
+	<tbody>
+		<tr>
+			<td>&nbsp;
+			<p>&nbsp;</p>
 
-                                    <?php echo $this->User_model->mail_template('General', 'header'); ?>
+			<p><img alt="" src="http://192.168.1.2/nf3/gitnitaFashionsAdmin/images/uploads/1486027837_nitamail.jpg" style="width: 100%;" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="    width: 100%;">
 	<tbody>
@@ -47,45 +63,20 @@ $this->load->view('layout/layoutTop');
 			<td colspan="3" height="10" style="border-bottom: 1px  solid  #eaedef;">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="3" readonly="readonly"><span readonly="readonly" style="
-                                                                                          text-align: center;
-                                                                                          width: 100%;
-                                                                                          font-size: 24px;
-                                                                                          float: left;
-                                                                                          border-bottom: 1px solid #eaedef;
-                                                                                          margin-bottom: 20px;
-                                                                                          padding: 20px 0;
-                                                                                          background-color: #000;
-                                                                                          color: #fff;">Nita Fashions </span></td>
+			<td colspan="3" readonly="readonly">&nbsp;</td>
 		</tr>
 	</tbody>
 </table>
 
-  <center style="    margin-top: 10px 10px 20px 10px;">
-           <a style="font-size: 18px;
-                                           margin: 15px 0px ;
-                                           padding: 10px;
-                                           background: #000;
-                                           text-decoration: none;
-                                           background: red;
-                                           color: white;
-                                           border-radius: 15px;" href="http://nitafashions.com" target="_blank">
-                         Shop Now
-            </a>
-        </center><center style="margin-top:20px;margin-bottom:20px;">
-    <img alt="" src="http://nitafashions.com/frontend/assets/images/page_offers.jpg" style="width: 400px;height:400px;margin-top: 10px " />
-</center>
+<center style="    margin-top: 10px 10px 20px 10px;">&nbsp;</center>
 
-<p align="center">&ldquo; The brilliance of white dress shirt is its ability to transcend all four seasons.&nbsp; Like a diamond, a white shirts is timeless and when well crafted, it reflects a refined gentlemen with great taste and sophistication.&rdquo;&nbsp; - Nita Fashions</p>
-
-<h1 align="center">Buy 5 Shirts &amp; Get A White Egyptian Shirts FREE</h1>
-
-<p align="center">Valid Until 13<sup>th</sup> February 2017</p>
+<center style="margin-top:20px;margin-bottom:20px;">&nbsp;</center>
 
 <p align="center">&nbsp;</p>
+</div>
 
-                                    <?php echo $this->User_model->mail_template('News Letter', 'footer'); ?>
-                                    <?php echo $this->User_model->mailsetting_header('footer'); ?>
+<div style="clear:both">&nbsp;</div>
+</div>
 
                                 </textarea>
                             </div>

@@ -50,7 +50,11 @@ $this->load->view('layout/layoutTop');
 			<td>&nbsp;
 			<p>&nbsp;</p>
 
-			<p><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/1486027837_nitamail.jpg" style="width: 100%;" /></p>
+			<p>
+                        <a href="http://nitafashions.com/frontend/views/product_list.php?category=0&amp;item_type=1" target="_blank">
+                            <img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/1486027837_nitamail.jpg" style="width: 100%;" />
+                        </a>
+                        </p>
 			</td>
 		</tr>
 	</tbody>
@@ -69,9 +73,7 @@ $this->load->view('layout/layoutTop');
 	</tbody>
 </table>
 
-<center style="margin-top:-325px;font-size:20px">
-<h1><a href="http://nitafashions.com/frontend/views/product_list.php?category=0&amp;item_type=1" target="_blank">SHOP NOW</a></h1>
-</center>
+
 
 <p align="center">&nbsp;</p>
 </div>

@@ -238,7 +238,8 @@ class Message_management extends CI_Controller {
 
             
             foreach ($email as $to_add) {
-                $mail->AddAddress($to_add);              // name is optional
+//                $mail->AddAddress($to_add);    
+                   $mail->AddBCC($to_add);// name is optional
             }
 
             $mail->MsgHTML($_POST['message']); //Put your body of the message you can place html code here

@@ -35,51 +35,6 @@ $this->load->view('layout/layoutTop');
                             <div class="col-md-12">
                                 <textarea name ="message" class="textarea form-control ckeditor" id="editor1" placeholder="Enter text ..." rows="16">
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic" rel="stylesheet" type="text/css" />
-<style type="text/css">div{ font-family:lato; }
-</style>
-<div style="    margin: 0px;
-
-                                         font: 300 lato;
-                                         background-color: #E2E2E2;">
-<div style="  ;background:#fff"><!--end of upper level header-->
-<table align="center" border="0" cellpadding="0" cellspacing="0" style=" width: 100%; background-color: white;">
-	<tbody>
-		<tr>
-			<td>&nbsp;
-			<p>&nbsp;</p>
-
-			<p>
-                        <a href="http://nitafashions.com/frontend/views/product_list.php?category=0&amp;item_type=1" target="_blank">
-                            <img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/1486027837_nitamail.jpg" style="width: 100%;" />
-                        </a>
-                        </p>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<table align="center" border="0" cellpadding="0" cellspacing="0" style="    width: 100%;">
-	<tbody>
-		<tr>
-			<td colspan="3" height="10" style="border-bottom: 1px  solid  #eaedef;">
-			<h1>&nbsp;</h1>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3" readonly="readonly">&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
-
-
-
-<p align="center">&nbsp;</p>
-</div>
-
-<div style="clear:both">&nbsp;</div>
-</div>
 
                                 </textarea>
                             </div>

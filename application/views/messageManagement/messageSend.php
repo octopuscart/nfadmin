@@ -35,6 +35,7 @@ $this->load->view('layout/layoutTop');
                             <div class="col-md-12">
                                 <textarea name ="message" class="textarea form-control ckeditor" id="editor1" placeholder="Enter text ..." rows="16">
 
+<p><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/1487071150_4 eMAIL 740x1024.jpg" style="width: 100%; " /></p>
 
                                 </textarea>
                             </div>

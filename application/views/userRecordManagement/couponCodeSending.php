@@ -32,31 +32,8 @@ $this->load->view('layout/layoutTop');
                                 <textarea name ="message" class="textarea form-control ckeditor" id="editor1" placeholder="Enter text ..." rows="16">
                                     
                                     <?php echo $this->User_model->mailsetting_header('header'); ?>
-<table align="center" border="0" cellpadding="0" cellspacing="0" style="padding: 24px; background-color: white;" width="100%">
-	<tbody>
-		<tr>
-			<td>
-                            
-                            <table width="100%" border="0" style="padding: 5px; background-color: white;" cellspacing="0" cellpadding="0" align="center">
-            <tbody>
-                <tr>
-                    <td>
-                        <table style="    width: 100%;" border="0" align="center" cellpadding="0" cellspacing="0" style="padding: 38px  30px  30px  30px; background-color: #fafafa;">
-                            <tbody>
-                                <tr style="background-color: #FFF;">
-                                    <td style="width:100%;    padding: 10px;">
-                                    <center><img src="http://costcointernational.com/frontend/assets/images/logo/nf_logo_8.png" style="height: 100px;width:183px;"></center>
-                                    </td>
-                                    
-                                </tr>
-                                
-                               
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <?php echo $this->User_model->mail_template('News Letter', 'header'); ?>
+
                             <table style="    width: 100%;" border="0" align="center" >
  <tr>
                                     <td style="text-align:center">

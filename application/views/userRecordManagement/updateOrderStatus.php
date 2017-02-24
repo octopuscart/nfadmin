@@ -63,35 +63,72 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                     <?php
                     if ($payment_option['option'] == 3) {
                         ?> 
-                        <span style="font-size:18px;color:black">Payment Mode - Credit Card</span>
-                        <br> <br> 
+                        <div id="printPyamentReport">
+                            <style>
+                                
+                                #printPyamentReport thead td{
+            border-top: 1px solid #ccc;
+            background-color: #F1F1F1;
+            font-weight: 500;
+        }
+                                
+                            </style>
+                            <div class="col-md-12" style="border: 1px solid #000;padding: 0px">
+                                <h5 style="    padding: 6px 15px; background: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
+                                <table class="table" style="width: 100%">
+                                    <tr>
+                                        <td >
+                                            <span style="font-size:14px;color:black">Name&nbsp;:&nbsp;</span> 
+                                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['card_holder_name']; ?></span>
+                                        </td>
+                                        <td>
+                                            <span style="font-size:14px;color:black">Card No.&nbsp;:&nbsp;</span> 
+                                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['card_number']; ?></span>
+                                        </td>
+                                        <td>
+                                            <span style="font-size:14px;color:black">Exp.Month&nbsp;:&nbsp;</span> 
+                                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['expiry_month']; ?></span>
+                                        </td>
+                                        <td>
+                                            <span style="font-size:14px;color:black">Exp. Year&nbsp;:&nbsp;</span> 
+                                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['expiry_year']; ?></span>
+                                        </td>
+                                        <td>
+                                            <span style="font-size:14px;color:black">CVV&nbsp;:&nbsp;</span>   
+                                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['cvv']; ?></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
 
-                       <div class="col-md-3" style="    padding: 0;">
-
-                            <span style="font-size:14px;color:black">Name&nbsp;:&nbsp;</span> 
-                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['card_holder_name']; ?></span>
+                            <div class="col-md-12" style="border: 1px solid #000;padding: 0px" >
+                                <h5 style="padding: 6px 15px; background: #000;color: #fff; margin: 0px;">Shipping Information</h5>
+                                <address class="m-t-5 m-b-5" style="    font-size: 13px; color: #000;">
+                                    <table class="table" style="    font-size: 13px;  color: #000;width: 100%">
+                                        <tr>
+                                            <td colspan="9"><?php echo $shipping_info['address1']; ?> <?php echo $shipping_info['address2']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>City</td><td>:&nbsp;</td><td><?php echo $shipping_info['city']; ?></td>
+                                            <td>State</td><td>:&nbsp;</td><td><?php echo $shipping_info['state']; ?></td>
+                                            <td>Zip Code</td><td>:&nbsp;</td><td><?php echo $shipping_info['zip']; ?> </td>
+                                        </tr>    
+                                        <tr><td>Country</td><td>:&nbsp;</td><td><?php echo $shipping_info['country']; ?></td>
+                                            <td>Fax</td><td>:&nbsp;</td><td><?php echo $user_info['fax_no']; ?></td>
+                                            <td>Email</td><td>:&nbsp;</td><td><?php echo $user_info['email']; ?></td>
+                                        <tr/>
+                                        
+                                    </table>
+                                </address>
+                            </div>
+                           
+                            <script src="<?php echo base_url(); ?>assets_main/plugins/jquery/jquery-1.9.1.min.js"></script>
                         </div>
-
-                        <div class="col-md-3">
-
-                            <span style="font-size:14px;color:black">Card No.&nbsp;:&nbsp;</span> 
-                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['card_number']; ?></span>
-                        </div>
-                        <div class="col-md-2">
-
-                            <span style="font-size:14px;color:black">Exp.Month&nbsp;:&nbsp;</span> 
-                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['expiry_month']; ?></span>
-                        </div>
-                                                  
-                         <div class="col-md-2">
-                            <span style="font-size:14px;color:black">Exp. Year&nbsp;:&nbsp;</span> 
-                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['expiry_year']; ?></span>
-                        </div>
-                        <div class="col-md-2">
-
-                            <span style="font-size:14px;color:black">CVV&nbsp;:&nbsp;</span>   
-                            <span style="font-size:14px;color:maroon"> <?php echo $payment_option['cvv']; ?></span>
-                        </div>
+                     <div class="col-md-12 well well-sm">
+                                 <button class="btn btn-primary btn-sm" onclick="printDivNext();" id="print_button">
+                                                    Print 
+                                                </button>
+                            </div>
 
                         <?php
                     }
@@ -132,7 +169,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         <div class="form-group">
                             <label for="exampleInputEmail1">Transaction Amount</label>
                             <input type="text" class="form-control" name="transaction_no" value="<?php echo $orderData[0]['total_price'] ?>" readonly="" style="opacity: 1;
-    background: white;    font-weight: 700;">
+                                   background: white;    font-weight: 700;">
                         </div>
 
                         <div class="form-group">
@@ -158,7 +195,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                 echo $orderNo[0]['order_no'];
                             }
                             ?>" readonly="readonly" name="order_no"  style="opacity: 1;
-    background: white;    font-weight: 700;">
+                                   background: white;    font-weight: 700;">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Update Status</label>
@@ -293,12 +330,21 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         </div>
                         <div class="col-md-12" style="margin-top: 10px;padding: 0px;">
                             <div class="form-group">
+                                <label class="col-md-4 control-label" style="padding: 0px; text-align: right; font-weight: 600;">Shipping Tel  No.</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" placeholder="" name="shipping_tel_no" style="height: 22px;" value="<?php echo $shipping_order['shipping_tel_no'] ?>" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 10px;padding: 0px;">
+                            <div class="form-group">
                                 <label class="col-md-4 control-label" style="padding: 0px; text-align: right; font-weight: 600;">Shipping Comp.</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" placeholder="" name="shipping_company" style="height: 22px;" value="<?php echo $shipping_order['shipping_company'] ?>" >
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-12" style="margin-top: 10px;padding: 0px;">
                             <div class="form-group">
                                 <label class="col-md-4 control-label" style="padding: 0px; text-align: right; font-weight: 600;">Status</label>
@@ -491,21 +537,21 @@ $orderData1 = $this->User_model->get_product_information($order_id);
             </div>
             <div class="col-md-3" style="padding-left: 0px;">
                 <?php
-                if(count($billing_info)){
+                if (count($billing_info)) {
                     ?>
-<!--                    <h4 style="margin-top: -5px;">Billing Information</h4>
-                    <address class="m-t-5 m-b-5">
-                     
-                        <table>
-                            <tr><td>City</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['city']; ?></td><tr/>
-                            <tr><td>State</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['state']; ?></td><tr/>
-                            <tr><td>Zip Code</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['zip']; ?></td><tr/>
-                            <tr><td>Country</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['country']; ?></td><tr/>
-                            <tr><td>Fax</td><td>:&nbsp;</td><td><?php echo $user_info['fax_no']; ?></td><tr/>
-                            <tr><td>Email</td><td>:&nbsp;</td><td><?php echo $user_info['email']; ?></td><tr/>
-                        </table>
-
-                    </address>-->
+                    <!--                    <h4 style="margin-top: -5px;">Billing Information</h4>
+                                        <address class="m-t-5 m-b-5">
+                                         
+                                            <table>
+                                                <tr><td>City</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['city']; ?></td><tr/>
+                                                <tr><td>State</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['state']; ?></td><tr/>
+                                                <tr><td>Zip Code</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['zip']; ?></td><tr/>
+                                                <tr><td>Country</td><td>:&nbsp;</td><td>&nbsp;<?php echo $billing_info['country']; ?></td><tr/>
+                                                <tr><td>Fax</td><td>:&nbsp;</td><td><?php echo $user_info['fax_no']; ?></td><tr/>
+                                                <tr><td>Email</td><td>:&nbsp;</td><td><?php echo $user_info['email']; ?></td><tr/>
+                                            </table>
+                    
+                                        </address>-->
                     <?php
                 }
                 ?>
@@ -816,7 +862,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                             <?php
                             $coupon = $this->Product_model->coupan_detail($order_id);
 // print_r($coupon);
-                            $data= 0;
+                            $data = 0;
                             if ($coupon) {
                                 $val1 = $coupon[0]['value'];
                                 $val_type = $coupon[0]['value_type'];
@@ -827,8 +873,8 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                     $data = $val1;
                                 }
                             }
-                           
-                            $data = $data?$data:0;
+
+                            $data = $data ? $data : 0;
                             ?>
                             <?php if ($coupon) { ?> <span><?php echo '$' . number_format($data, 2, '.', ''); ?> </span>
                             <?php } else { ?><span>$00.00</span> <?php }
@@ -960,13 +1006,12 @@ $this->load->view('layout/layoutBottom');
 ?>
 <script>
     $(function () {
-        var num = 0;
+            var num = 0;
         $('.total_cost').each(function () {
-            num += Number($(this).text());
+        num += Number($(this).text());
             console.log(num);
         });
-        // $('#subtotalCost').text(num);
-
+        // $('#subtotalCost').text(num); 
         var num1 = $("#numtoword").text();
         var num2 = num1.split('$')[1];
         var val = '';//toWords(num2);
@@ -974,65 +1019,63 @@ $this->load->view('layout/layoutBottom');
         var href1 = href + '&number1=' + val;
         //$('.invoice-company a').attr('href', href1)
     });
-    $(function () {
+            $(function () {
         var status = <?php echo $currentStatus; ?>;
 
 
 
         if (status > 1) {
 
-            $('#status_record .tab1').removeClass('active');
-            $('#status_record .tab2').addClass('active');
-            $('#default-tab-2').addClass('active in');
-            $('#default-tab-1').removeClass('active in');
-            $('input[name=submit]').attr('disabled', 'disabled');
-            if (status > 2) {
-                var shippdata = <?php echo $jsonShipp || []; ?>;
-                for (key in shippdata[0]) {
-                    var value = shippdata[0][key];
-                    ///  console.log(value);
+                    $('#status_record .tab1').removeClass('active');
+                    $('#status_record .tab2').addClass('active');
+                    $('#default-tab-2').addClass('active in');
+                    $('#default-tab-1').removeClass('active in');
+                        $('input[name=submit]').attr('disabled', 'disabled');
+                        if (status > 2) {
+                            var shippdata = <?php echo $jsonShipp || []; ?>;
+                                                for (key in shippdata[0]) {
+                                                var value = shippdata[0][key];
+                                            ///  console.log(value);
                     $("input[name='" + key + "']").val(value);
-                }
-                $('button[name=shipping_done]').attr('disabled', 'disabled');
+                                    }
+                                        $('button[name=shipping_done]').attr('disabled', 'disabled');
             }
         } else {
-
-        }
+                                        }
         if (status == 3) {
-            $('input[name=close_order]').attr('disabled', false);
-            $('[href="#default-tab-3"]').tab('show');
+                                    $('input[name=close_order]').attr('disabled', false);
+                                        $('[href="#default-tab-3"]').tab('show');
         }
         if (status == 4) {
 <?php
 $order_close = $order_status_record[0];
 ?>
-            $('#default-tab-3 textarea').val("<?php echo $order_close['remark'] ?>")
-            $('[href="#default-tab-3"]').tab('show');
-        }
+                                                $('#default-tab-3 textarea').val("<?php echo $order_close['remark'] ?>")
+                                            $('[href="#default-tab-3"]').tab('show');
+                                        }
 
 
-        if (status == 6) {
-            $("[type=submit]").attr("disabled", true);
+                                        if (status == 6) {
+                                            $("[type=submit]").attr("disabled", true);
         }
     })
-    function get_extra_cost(obj) {
-        var id = obj.id;
-        var tableName = $(obj).attr('table_name'); //ajax_data_edit
+                                            function get_extra_cost(obj) {
+                                                var id = obj.id;
+                                                var tableName = $(obj).attr('table_name'); //ajax_data_edit
         $.ajax({
-            type: "get",
+                                                type: "get",
             url: "<?php echo base_url('index.php/UserRecordManagement/ajax_data_edit'); ?>",
-            data: {'id': id, 'table_name': 'nfw_custom_form_data_price', 'column_name': 'nfw_custom_form_data_id'},
+                            data: {'id': id, 'table_name': 'nfw_custom_form_data_price', 'column_name': 'nfw_custom_form_data_id'},
             dataType: 'json',
-            success: function (data)
-            {
-                //console.log(JSON.parse(data['custom_form_data_price']));
-                var htmls = '';
-                $.each(JSON.parse(data['custom_form_data_price']), function (key, value) {
-                    //console.log(key, value);
+                            success: function (data)
+                            {                 //console.log(JSON.parse(data['custom_form_data_price']));
+                                var htmls = '';
+                                    $.each(JSON.parse(data['custom_form_data_price']), function (key, value) {
+                                    //console.log(key, value);
                     if (value != '') {
-                        htmls += '<tr>';
-                        htmls += '<td style="text-transform: capitalize;">' + key + '</td>';
-                        htmls += '<td>' + value + '</td>';
+                                    htmls += '<tr>';
+                                    htmls += '<td style="text-transform: capitalize;">' + key + '</td>';
+                            htmls += '<td>' + value + '</td>';
                         htmls += '</tr>';
                     }
 
@@ -1047,10 +1090,28 @@ $order_close = $order_status_record[0];
 <script src="<?php echo base_url(); ?>assets_main/js/apps.min.js"></script> 
 <script>
     $(document).ready(function () {
-        App.init();
-        TableManageDefault.init();
+                App.init();
+                    TableManageDefault.init();
     });
 </script>
+
+<script type = "text/javascript" >
+
+
+        function printDivNext() {
+        var printContents = "<h2 style='text-align:center'>Nita Fashions</h2>"+document.getElementById("printPyamentReport").innerHTML;
+        var myWindow = window.open('', '');
+        $('#print_button').hide();
+        myWindow.document.write(printContents);
+        myWindow.document.style = "margin:0px"
+    myWindow.document.close();
+        myWindow.focus();
+        myWindow.print();
+        myWindow.close();
+    }
+
+</script>
+
 <?php
 $this->load->view('layout/layoutFooter');
 ?>   

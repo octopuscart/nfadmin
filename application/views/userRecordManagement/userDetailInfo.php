@@ -118,7 +118,7 @@ $this->load->view('layout/layoutTop');
                     </div>
                     <div class="col-md-3"  style="padding: 0px;">
                         <div class="form-group">
-                            <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Email</label>
+                            <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Email/Username</label>
                             <div class="col-md-12">
                                 <input type="text" class="form-control" value="<?php echo $profile[0]['email']; ?>" disabled="" name="email">
                             </div>

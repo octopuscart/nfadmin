@@ -30,7 +30,7 @@ $loginData = json_encode($session_data);
                     </div>
                     <div class="col-md-12" style="margin-top: 15px;">
                         <div class="form-group">
-                            <label class="col-md-4 control-label" style="margin-top: 6px;">Email</label>
+                            <label class="col-md-4 control-label" style="margin-top: 6px;">Email/Username</label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" placeholder="Email" name="email" value="<?php echo $session_data['username']; ?>"  required>
                             </div>

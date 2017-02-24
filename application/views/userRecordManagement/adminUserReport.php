@@ -71,7 +71,7 @@ $this->load->view('layout/layoutTop');
                 <div class="col-md-12" style="margin-top: 25px;">
                     <div class="col-md-4" style="padding: 0px;">
                         <div class="form-group">
-                            <label class="col-md-3 control-label" style="padding: 0px;margin-top: 7px;">Email</label>
+                            <label class="col-md-3 control-label" style="padding: 0px;margin-top: 7px;">Email/Username</label>
                             <div class="col-md-9">
                                 <input type="email" class="form-control" placeholder="Email" name="email" required="">
                             </div>
@@ -133,7 +133,7 @@ $this->load->view('layout/layoutTop');
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name/Surname</th>
-                        <th>Email</th>
+                        <th>Email/Username</th>
                         <th>Contact No</th>
                         <th style="width: 15%;">Action</th>
                     </tr>

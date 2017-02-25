@@ -100,7 +100,7 @@
                     <span>Schedule Management</span> 
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="<?php echo base_url(); ?>index.php/Appointment/set_location_for_appointment">Set Schedule</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/Appointment/setAppointment">Set Schedule</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/Appointment/appointment_report">Schedule Report</a></li>
 
                 </ul>

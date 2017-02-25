@@ -5,12 +5,9 @@ $this->load->view('layout/layoutTop');
 <div class="col-md-12">
     <div class="panel panel-inverse" data-sortable-id="index-5">
         <div class="panel-heading">
-            <div class="panel-heading-btn">
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand" data-original-title="" title=""><i class="fa fa-expand"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload" data-original-title="" title=""><i class="fa fa-repeat"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse" data-original-title="" title=""><i class="fa fa-minus"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-            </div>
+        
+                <a href="javascript:;" class="btn btn-xs  btn-primary pull-right" title=""><i class="fa fa-backward"></i> Back</a>
+         
             <h4 class="panel-title" style="font-size: 17px; font-weight: 500;"><i class="fa fa-file-text-o"></i> Selected Related Product Report - <span id="productName" style="font-weight: 700;color: #27EF9D;"><?php echo $mainProduct[0]['title']; ?></span></h4>
         </div>
         <div class="panel-body">
@@ -56,12 +53,7 @@ $this->load->view('layout/layoutTop');
 <div class="col-md-12">
     <div class="panel panel-inverse" data-sortable-id="index-5">
         <div class="panel-heading">
-            <div class="panel-heading-btn">
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand" data-original-title="" title=""><i class="fa fa-expand"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload" data-original-title="" title=""><i class="fa fa-repeat"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse" data-original-title="" title=""><i class="fa fa-minus"></i></a>
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-            </div>
+           
             <h4 class="panel-title" style="font-size: 17px; font-weight: 500;"><i class="fa fa-file-text-o"></i> Related Product Report Of - 
              <span id="productName" style="font-weight: 700;color: #27EF9D;"><?php echo $mainProduct[0]['title']; ?></span></h4>
         </div>

@@ -6,7 +6,7 @@ $this->load->view('layout/layoutTop');
 <div class="panel panel-inverse" data-sortable-id="index-5"> 
     <div class="panel-heading">
         <h4 class="panel-title" style="font-size: 17px; font-weight: 500;"><i class="fa fa-user"></i> &nbsp;&nbsp;Client Detail
-        <div class="btn-group btn-group-sm pull-right" >
+        <div class="btn-group btn-group-xs pull-right" >
                      <a class="btn btn-success"  data-toggle="" data-placement="left" title="View XLS"     href="<?php echo base_url('index.php/UserRecordManagement/user_profile_record' ) ?>" ><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
         </h4>
@@ -30,7 +30,6 @@ $this->load->view('layout/layoutTop');
 <div class="panel panel-inverse panel-with-tabs" data-sortable-id="ui-unlimited-tabs-1" style="margin-top: 10px;">
     <div class="panel-heading p-0">
         <div class="panel-heading-btn m-r-10 m-t-10">
-            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-expand"><i class="fa fa-expand"></i></a>
         </div>
         <!-- begin nav-tabs -->
         <div class="tab-overflow">

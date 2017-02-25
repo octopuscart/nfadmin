@@ -336,7 +336,7 @@ class UserRecordManagement extends CI_Controller {
             $order_status_data = array();
             $order_status_data['status'] = $data['status'];
             $order_status_data['order_id'] = $id;
-            $order_status_data['remark'] = $data['tracking_no'] . ',' . $data['tracking_link'] . ',' . $data['shipping_company'];
+            $order_status_data['remark'] = $data['tracking_no'] . ',<a href="' . $data['tracking_link'] . '" target="_blank">' . $data['tracking_link'] . '</a>'.' ,' . $data['shipping_company'];
             $order_status_data['op_date_time'] = date('Y-m-d h:m:s');
             $this->db->where('order_id', $id);
             $this->db->update('nfw_order_status', $order_status_data);

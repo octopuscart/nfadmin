@@ -77,7 +77,7 @@
                     <th>Contact No.</th>
                     <th>City/State</th>
                       <th>Hotel Name & Address</th>
-                    <th>Booked Dates</th>
+                    <th>Booked Date</th>
                     <th>Booked Time</th>
 
                 </tr>

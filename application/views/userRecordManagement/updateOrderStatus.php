@@ -62,6 +62,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                 <div class="col-md-12">
                     <div id="printPyamentReport">
 
+
                         <div class="col-md-12" style="font-size: 13px">
                             <table class="table" style="width: 100%">
                                 <tr>
@@ -78,10 +79,22 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                             <div >
                                 <style>
 
-                                    #printPyamentReport thead td{
+                                    #printPyamentReport table td{
+                                   
+                                 
+                                        font-weight: 500;
+                                    }
+                                    #printPyamentReport table th{
+                                
+                                   
+                                        font-weight: 500;
+                                        text-align: left;
+                                    }
+                                     .form-control{
                                         border-top: 1px solid #ccc;
                                         background-color: #F1F1F1;
                                         font-weight: 500;
+                                        width: 80%;
                                     }
 
                                 </style>
@@ -165,76 +178,74 @@ $orderData1 = $this->User_model->get_product_information($order_id);
 
                         <div style="clear: both"></div>
 
-                    </div>   
-                    <div class="col-md-12 well well-sm">
-                        <button class="btn btn-primary btn-sm" onclick="printDivNext();" id="print_button">
-                            Print 
-                        </button>
+
+                        <table class="table" style="width: 100%;    padding: 10px;
+    border: 1px solid #000;">
+                            <tr> 
+                                <th style="  text-align: left;">Transaction No.</th>
+                                <td>    
+                                    <?php if ($payment_option['option'] == 1) { ?>
+                                        <input type="text" class="form-control" name="transaction_no" required value="<?php echo $payment_option['transaction_id']; ?>" readonly>
+                                    <?php } else { ?>
+                                        <input type="text" class="form-control" name="transaction_no" required >
+
+                                    <?php } ?>
+                                </td>
+                                <th  style="  text-align: left;">
+                                    Order No.
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" value="<?php
+                                    if ($order_id) {
+                                        $orderNo = $this->Product_model->get_table_information('nfw_product_order', 'id', $order_id);
+                                        echo $orderNo[0]['order_no'];
+                                    }
+                                    ?>" readonly="readonly" name="order_no"  style="opacity: 1;
+                                           background: white;    font-weight: 700;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th  style="  text-align: left;">Transaction Amount</th>
+                                <td>
+                                    <input type="text" class="form-control" name="transaction_no" value="<?php echo $orderData[0]['total_price'] ?>" readonly="" style="opacity: 1;
+                                           background: white;    font-weight: 700;">
+                                </td>
+                                <th  style="  text-align: left;">
+                                    Update Status</th>
+                                <td>
+                                    <input type="hidden" name="status"  value="2">
+                                    <input type="text" class="form-control" name="" value="Processing"  placeholder="Processing">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th  style="  text-align: left;">
+                                    Status
+                                </th>
+                                <td>
+                                    <select class="form-control input-inline input-ls" name="transaction_status" required>
+                                        <option value="Approved">Approved</option>;
+                                        <option value="Failed">Failed</option>;
+                                    </select>  
+                                </td>
+                                <th  style="  text-align: left;">  Remark</th>
+                                <td>
+                                    <input class="form-control" name="remark" rows="4" required>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-
-
-                    <hr>
-
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Transaction No.</label>
-                            <?php if ($payment_option['option'] == 1) { ?>
-                                <input type="text" class="form-control" name="transaction_no" required value="<?php echo $payment_option['transaction_id']; ?>" readonly>
-                            <?php } else { ?>
-                                <input type="text" class="form-control" name="transaction_no" required >
-
-                            <?php } ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Transaction Amount</label>
-                            <input type="text" class="form-control" name="transaction_no" value="<?php echo $orderData[0]['total_price'] ?>" readonly="" style="opacity: 1;
-                                   background: white;    font-weight: 700;">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Status</label>
-                            <select style="width: 100%;" class="form-control input-inline input-ls" name="transaction_status" required>
-
-                                <option value="Approved">Approved</option>;
-                                <option value="Failed">Failed</option>;
-
-                            </select>  
-                        </div>
-                        <div class="form-group">
+                    <div class="col-md-12">
+                    
+                        <div class="form-group ">
                             <input type="submit" class="btn btn-primary" name ="submit"/>
+                            <button class="btn btn-primary pull-right" onclick="printDivNext();" id="print_button">
+                                Print 
+                            </button>
                         </div>
                     </div>
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Order No.</label>
-                            <input type="text" class="form-control" value="<?php
-                            if ($order_id) {
-                                $orderNo = $this->Product_model->get_table_information('nfw_product_order', 'id', $order_id);
-                                echo $orderNo[0]['order_no'];
-                            }
-                            ?>" readonly="readonly" name="order_no"  style="opacity: 1;
-                                   background: white;    font-weight: 700;">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Update Status</label>
-                            <input type="hidden" name="status"  value="2">
-                            <input type="text" class="form-control" name="" value="Processing"  placeholder="Processing">
-
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Remark</label>
-                            <textarea class="form-control" name="remark" rows="4" required></textarea>
-                        </div>
-                    </div>
-
-
-
 
                 </div>
+                <div style="clear: both"></div>
             </form>
         </div>
         <div class="tab-pane fade" id="default-tab-2">
@@ -300,7 +311,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                             <div class="form-group">
                                 <label class="col-md-4 control-label" style="padding: 0px; text-align: right; font-weight: 600;">Weight Unit</label>
                                 <div class="col-md-8">
-                                    <select type="text" class="form-control"  name="weight_unit" style="height: 25px;padding: 2px;">
+                                    <select  class="form-control"  name="weight_unit" style="height: 25px;padding: 2px;">
                                         <option>Lbs</option>
                                         <option>Kg</option>
                                     </select>
@@ -1124,10 +1135,10 @@ $order_close = $order_status_record[0];
 
         myWindow.document.write(printContents);
         myWindow.document.style = "margin:0px"
-        myWindow.document.close();
+//        myWindow.document.close();
         myWindow.focus();
         myWindow.print();
-        myWindow.close();
+//        myWindow.close();
     }
 
 </script>

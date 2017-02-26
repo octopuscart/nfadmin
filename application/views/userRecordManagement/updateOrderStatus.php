@@ -80,17 +80,17 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                 <style>
 
                                     #printPyamentReport table td{
-                                   
-                                 
+
+
                                         font-weight: 500;
                                     }
                                     #printPyamentReport table th{
-                                
-                                   
+
+
                                         font-weight: 500;
                                         text-align: left;
                                     }
-                                     .form-control{
+                                    .form-control{
                                         border-top: 1px solid #ccc;
                                         background-color: #F1F1F1;
                                         font-weight: 500;
@@ -99,7 +99,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
 
                                 </style>
                                 <div class="col-md-12" style="border: 1px solid #000;padding: 0px">
-                                    <h5 style="    padding: 6px 15px; background: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
+                                    <h5 style="    padding: 6px 15px; background-color: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
                                     <table class="table" style="width: 100%">
                                         <tr>
                                             <td >
@@ -180,7 +180,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
 
 
                         <table class="table" style="width: 100%;    padding: 10px;
-    border: 1px solid #000;">
+                               border: 1px solid #000;">
                             <tr> 
                                 <th style="  text-align: left;">Transaction No.</th>
                                 <td>    
@@ -235,12 +235,13 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         </table>
                     </div>
                     <div class="col-md-12">
-                    
+
                         <div class="form-group ">
-                            <input type="submit" class="btn btn-primary" name ="submit"/>
-                            <button class="btn btn-primary pull-right" onclick="printDivNext();" id="print_button">
+                            <button class="btn btn-success pull-left" onclick="printDivNext();" id="print_button">
                                 Print 
                             </button>
+                            <input type="submit" class="btn btn-primary pull-right" name ="submit"/>
+
                         </div>
                     </div>
 

@@ -89,14 +89,14 @@ $this->load->view('layout/layoutTop');
                     <div class="col-md-4">
                         <input type="hidden" name="place_id">
                         <div class="form-group">
-                            <label class="control-label" style="">Location</label>
+                            <label class="control-label" style="">Hotel Name</label>
                             <input type="text" class="time start form-control" name="location"  />
                         </div>
                     </div>
 
                     <div class="col-md-4"> 
                         <div class="form-group">
-                            <label class="control-label" style="">Serached Address or Fill Flat/House No.</label>
+                            <label class="control-label" style="">Hotel Address or Fill Flat/House No.</label>
                             <input type="text" class="time start form-control"  id="address2" name="address2"/>
 
                         </div>

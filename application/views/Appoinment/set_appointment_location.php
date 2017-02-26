@@ -62,7 +62,7 @@ $this->load->view('layout/layoutTop');
         width: 345px;
     }
 </style>
-<div class="col-md-6">
+<!--<div class="col-md-6">
     <div class="panel panel-inverse" data-sortable-id="index-5">
         <div class="panel-heading">
             <h4 class="panel-title" style ="font-size:17px; font-weight:500; ">
@@ -88,12 +88,12 @@ $this->load->view('layout/layoutTop');
                 <div class="col-md-12">
                     <input type="hidden" name="place_id">
                     <div class="form-group">
-                        <label class="control-label" style="">Location</label>
+                        <label class="control-label" style="">Hotel Name</label>
                         <input type="text" class="time start form-control" name="location"  />
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" style="">Serached Address or Fill Flat/House No.</label>
+                        <label class="control-label" style="">Hotel Address or Fill Flat/House No.</label>
                         <textarea  cols="10" rows="4" class="form-control" id="address2" name="address2"></textarea>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ $this->load->view('layout/layoutTop');
         </div>
     </div>
 
-</div>
+</div>-->
 <div class="col-md-12">
     <div class="panel panel-inverse" data-sortable-id="index-5">
         <div class="panel-heading">

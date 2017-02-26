@@ -27,7 +27,8 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                 <th>Email</th>
                                 <th>Contact No.</th>
                                 <th style="width: 120px">Birth Date</th>
-                                <th style="width:280px;">View Profile</th> 
+                                <th style="width: 120px">Joining Date</th>
+                                <th style="width:300px;">View Profile</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -48,6 +49,7 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                         <td><?php echo $value['email'] ?> </td>
                                         <td><?php echo $value['contact_no'] ?> </td>
                                         <td><?php echo $value['birth_date'] ?> </td>
+                                        <td><?php echo $value['joining_date'] ?> </td>
                                         <td>
 
                                 <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->

@@ -147,7 +147,7 @@ $this->load->view('layout/layoutTop');
                         <th>Location</th>
                         <th>Address</th>
                         <th>Contact No.</th>
-                        <th>Set Dates Schedule</th>
+                        <th>Set Date & Time</th>
 
                     </tr>
                 </thead>
@@ -157,11 +157,15 @@ $this->load->view('layout/layoutTop');
                         $res = $result[$i];
                         ?>
                         <tr>
-                             <td><?php echo $i+1; ?></td>
+                            <td><?php echo $i + 1; ?></td>
                             <td><?php echo $res['location'] ?></td>
                             <td><?php echo $res['address'] ?></td>
                             <td><?php echo $res['contact_no'] ?></td>
-                            <td><a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-primary btn-xs" ><b>Set Dates Schedule</b></a></td>
+                            <td>
+                                <a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-primary btn-xs" >Set Date & Time</a>
+                                <a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-danger btn-xs" >Delete</a>
+
+                            </td>
                         </tr>
 
 
@@ -247,15 +251,15 @@ $this->load->view('layout/layoutFooter');
                     console.log(componectadata[j].types, '---------');
                     if (componectadata[j].types) {
                         console.log(componectadata);
-                        if (componectadata[j].types[0] == 'administrative_area_level_2'  || componectadata[j].types[0] == 'locality' ) {
+                        if (componectadata[j].types[0] == 'administrative_area_level_2' || componectadata[j].types[0] == 'locality') {
                             $("input[name='city']").val(componectadata[j].short_name);
                         }
-                         if (componectadata[j].types[0] == 'administrative_area_level_1') {
+                        if (componectadata[j].types[0] == 'administrative_area_level_1') {
                             $("input[name='state']").val(componectadata[j].short_name);
                         }
                     }
                 }
-            
+
                 $("input[name='location']").val(data['name']);
                 $("#address2").text(data['formatted_address']);
                 $("input[name='place_id']").val(data['place_id']);

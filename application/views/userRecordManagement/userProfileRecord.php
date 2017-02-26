@@ -24,8 +24,7 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                 <th style="width: 7%;">S.No.</th>
                                 <th>Client Code</th>
                                 <th>Client Name</th>
-                                <th>Email</th>
-                                <th>Contact No.</th>
+                                <th>Email/Contact No.</th>
                                 <th style="width: 120px">Birth Date</th>
                                 <th style="width: 120px">Joining Date</th>
                                 <th style="width:300px;">View Profile</th> 
@@ -40,17 +39,21 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                 //print_r($userProfile);
                                 foreach ($userProfile as $key => $value) {
                                     $table_name = "auth_user";
+                           
                                     ?>
-
+                                    
                                     <tr>
                                         <td><?php echo $count ?> </td>
                                         <td class="capitalize"><?php echo $value['registration_id'] ?> </td>
                                         <td class="capitalize"><?php echo $value['first_name'] . ' ' . $value['middle_name'] . ' ' . $value['last_name'] ?> </td>
-                                        <td><?php echo $value['email'] ?> </td>
-                                        <td><?php echo $value['contact_no'] ?> </td>
-                                        <td><?php echo $value['birth_date'] ?> </td>
-                                        <td><?php echo $value['joining_date'] ?> </td>
+                                        <td><?php echo $value['email'] ?> 
+                                            <br/>
+                                            <?php echo $value['contact_no'] ?> </td>
+                                        <td><?php echo $value['birth_date'] ?>
+                                        </td>
                                         <td>
+                                            <?php echo $value['joining_date'] ?> </td>
+                                        <td >
 
                                 <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->
                                             <a style="margin-left:4px;" class="btn btn-info btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_detail_info/<?php echo $value['id'] ?>"> Detail</a>
@@ -92,9 +95,9 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                 <th style="width: 7%;">S.No.</th>
                                 <th>Client Code</th>
                                 <th>Client Name</th>
-                                <th>Email</th>
-                                <th>Contact No.</th>
+                                <th>Email/Contact No.</th>
                                 <th style="width: 120px">Birth Date</th>
+                                 <th style="width: 120px">Joining Date</th>
                                 <th style="width:280px;">View Profile</th> 
                             </tr>
                         </thead>
@@ -113,9 +116,14 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                         <td><?php echo $count ?> </td>
                                         <td class="capitalize"><?php echo $value['registration_id'] ?> </td>
                                         <td class="capitalize"><?php echo $value['first_name'] . ' ' . $value['middle_name'] . ' ' . $value['last_name'] ?> </td>
-                                        <td><?php echo $value['email'] ?> </td>
-                                        <td><?php echo $value['contact_no'] ?> </td>
-                                        <td><?php echo $value['birth_date'] ?> </td>
+                                        <td><?php echo $value['email'] ?> 
+                                            <br/>
+                                            <?php echo $value['contact_no'] ?> </td>
+                                        <td><?php echo $value['birth_date'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $value['joining_date'] ?> </td>
+                                      
                                         <td>
 
                                 <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->

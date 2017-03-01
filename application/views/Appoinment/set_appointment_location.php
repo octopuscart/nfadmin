@@ -163,7 +163,7 @@ $this->load->view('layout/layoutTop');
                             <td><?php echo $res['contact_no'] ?></td>
                             <td>
                                 <a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-primary btn-xs" >Set Date & Time</a>
-                                <a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-danger btn-xs" >Delete</a>
+                                <a href="<?php echo base_url(); ?>index.php/Appointment/delete_scheduler/<?php echo $res['id'] ?>" class = "btn btn-danger btn-xs" id="deleteShedule">Delete</a>
 
                             </td>
                         </tr>
@@ -187,6 +187,15 @@ $this->load->view('layout/layoutBottom');
         App.init();
         TableManageDefault.init();
         $("#location_table").DataTable();
+    });
+
+
+    $(document).ready(function () {
+        $("#deleteShedule").on("click", function (e) {
+            if (!confirm("Are you Sure want to delete!")) {
+                e.preventDefault();
+            }
+        });
     });
 </script>
 <script>

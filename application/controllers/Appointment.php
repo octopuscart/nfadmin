@@ -59,6 +59,11 @@ class Appointment extends CI_controller {
         }
         $this->load->view('Appoinment/set_appointment_location', $data);
     }
+    
+    function delete_scheduler($id = ''){
+         $query = $this->db->query("delete FROM `nfw_app_set_appointment` where id = $id");
+         redirect('Appointment/set_location_for_appointment');
+    }
 
     function date_scheduler($ids = '') {
         $query = $this->db->query("SELECT location,address FROM `nfw_app_set_appointment` where id = $ids");

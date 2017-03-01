@@ -48,6 +48,9 @@ $this->load->view('layout/layoutTop');
 $this->load->view('layout/layoutBottom');
 ?>
 
+<script src="<?php echo base_url(); ?>assets_main/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script src="<?php echo base_url(); ?>assets_main/js/form-plugins.demo.min.js"></script>
 <script src="<?php echo base_url(); ?>assets_main/js/apps.min.js"></script> 
@@ -60,6 +63,25 @@ $this->load->view('layout/layoutBottom');
 
     });
 </script>
+
+<script>
+    $(document).ready(function () {
+        App.init();
+        TableManageDefault.init();
+        FormPlugins.init();
+    });
+</script>
+<script>
+    $(".dateFormat").datepicker({'format': 'yyyy-mm-dd'})
+            .on('changeDate', function (ev)
+            {
+                $('.datepicker').hide();
+
+            }
+            );
+</script> 
+
+
 <?php
 $this->load->view('layout/layoutFooter');
 ?>

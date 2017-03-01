@@ -81,6 +81,7 @@
                 <ul class="sub-menu">
 
                     <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/coupon_generate">Send Coupon</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/universalCoupon">Universal Coupon</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/admin_sent_couponreport">Coupon Report</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/purchased_coupon_report">Coupon Purchased Report</a></li>
 
@@ -101,7 +102,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li><a href="<?php echo base_url(); ?>index.php/Appointment/setAppointment">Set Schedule</a></li>
-                                        <li><a href="<?php echo base_url(); ?>index.php/Appointment/set_location_for_appointment">Schedule Info</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/Appointment/set_location_for_appointment">Schedule Info</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/Appointment/appointment_report">Schedule Report</a></li>
 
                 </ul>

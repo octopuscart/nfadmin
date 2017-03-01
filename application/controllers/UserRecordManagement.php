@@ -369,6 +369,26 @@ class UserRecordManagement extends CI_Controller {
         $data = $this->User_model->search_order_information($searchText);
         echo json_encode($data);
     }
+    
+    
+    
+     function universalCoupon() {
+        $shipping_data = $this->Product_model->get_table_information('nfw_universal_coupon');
+        $data['coupon_data'] = end($shipping_data);
+        if (isset($_POST['update_coupon'])) {
+            $coupon_data = array(
+                'coupon_code' => $this->input->post('coupon_code'),
+                'coupon_amount' => $this->input->post('coupon_amount'),
+                'created_datetime' => date('Y-m-d H:m:s'),
+            );
+          
+            $this->db->where('id', '1');
+            $this->db->update('nfw_universal_coupon', $coupon_data);
+            redirect('userRecordManagement/universalCoupon');
+        }
+        $this->load->view('userRecordManagement/universal_coupon', $data);
+    }
+
 
     public function coupon_generate() {
 

@@ -12,7 +12,7 @@ $this->load->view('layout/layoutTop');
             <div class="col-md-12">
  
                 <form method="post">
-                    <div class="col-md-4">   
+                    <div class="col-md-3">   
                         <div class="input-group input-group-sm ">
                             <span class="input-group-addon">Coupon Code</span>
                             <input type="text" class="form-control "  name="coupon_code" value="<?php echo $coupon_data['coupon_code'];?>">
@@ -26,8 +26,18 @@ $this->load->view('layout/layoutTop');
 
                         </div>
                     </div>
+                    <div class="col-md-3">   
+                        <div class="input-group input-group-sm ">
+                            <span class="input-group-addon">Coupon Status</span>
+                            <select class="form-control"  name="coupon_status" >
+                                <option value='active' <?php echo $coupon_data['coupon_status']=='active'?'selected':'' ?> >Active</option>
+                                <option value="inactive"  <?php echo $coupon_data['coupon_status']=='inactive'?'selected':'' ?> >Inactive</option>
+                            </select>
+
+                        </div>
+                    </div>
                     
-                    <div class="col-md-4">  
+                    <div class="col-md-3">  
                         <button type="submit" name="update_coupon" value="ty" class="btn btn-primary btn-sm" style="" id="submit">Update</button>
                     </div>
             </div>

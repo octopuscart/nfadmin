@@ -379,6 +379,7 @@ class UserRecordManagement extends CI_Controller {
             $coupon_data = array(
                 'coupon_code' => $this->input->post('coupon_code'),
                 'coupon_amount' => $this->input->post('coupon_amount'),
+                 'coupon_status' => $this->input->post('coupon_status'),
                 'created_datetime' => date('Y-m-d H:m:s'),
             );
           

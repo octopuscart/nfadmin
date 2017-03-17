@@ -128,7 +128,7 @@ $this->load->view('layout/layoutTop');
 
                     <div class="col-md-4">
 
-                        <label class="control-label" style="">Select FromDate and ToDate</label>
+                        <label class="control-label" style="">Select From Date and To Date</label>
 
                         <div class="input-group default-daterange" id="default-daterange">
                             <input type="text" name="default-daterange" class="form-control" value="<?php echo date('Y-m-d') . '  To  ' . date('Y-m-d') ?>" placeholder="click to select the date range"/>
@@ -152,7 +152,7 @@ $this->load->view('layout/layoutTop');
 
                         <div class="row row-space-10" id="basicExample1">
                             <div class="col-md-6">
-                                <label class="control-label" style="float:left;width: 100%">Select From Date</label>
+                                <label class="control-label" style="float:left;width: 100%">Select From Time</label>
                                 <select id="fromhour"  class="form-control" style="width: 65px;float:left;" onclick="fromDateChange()">
                                     <?php
                                     for ($i = 0; $i <= 12; $i++) {
@@ -177,7 +177,7 @@ $this->load->view('layout/layoutTop');
                             </div>
 
                             <div class="col-md-6">
-                                <label class="control-label" style="float:left;width: 100%">Select To Date</label>
+                                <label class="control-label" style="float:left;width: 100%">Select To Time</label>
                                 <select id="tohour"  class="form-control" style="width: 65px;float:left;"  onclick="toDateChange()">
                                     <?php
                                     for ($i = 0; $i <= 12; $i++) {

@@ -36,6 +36,7 @@ $this->load->view('layout/layoutTop');
                                 <textarea name ="message" class="textarea form-control ckeditor" id="editor1" placeholder="Enter text ..." rows="16">
 
 <a href="http://nitafashions.com/frontend/views/product_list.php?category=30&item_type=1" target="_blank">
+    <center>Open In Browser</center>
 <img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/1487072607_mail4.jpg" style="width: 100%; " /></a>
 
                                 </textarea>

@@ -13,6 +13,8 @@ class Appointment extends CI_controller {
     }
 
     function set_location_for_appointment() {
+           $data['result'] = array();
+           
         if (isset($_POST['location'])) {
             $dat = date('Y-m-d');
             $tm = date("H:i:s");
@@ -242,6 +244,7 @@ class Appointment extends CI_controller {
     }
 
     function appointment_report() {
+         $data['data'] = [];
         $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,au.email,au.telephone, au.no_of_person,
             apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,
             asp.country, asp.state,asp.city,

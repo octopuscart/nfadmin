@@ -1,7 +1,11 @@
 <?php
 $this->load->view('layout/layoutTop');
 ?>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&sensor=false"></script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5lxEbKQ8qUITVvJ7yxgKUmEAJC5GtLWw&libraries=places"></script>
+
 
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
 <style>

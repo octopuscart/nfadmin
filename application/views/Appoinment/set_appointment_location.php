@@ -4,7 +4,7 @@ $this->load->view('layout/layoutTop');
 
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5lxEbKQ8qUITVvJ7yxgKUmEAJC5GtLWw&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA95cLBmIxZYleu6C-z1eglX8skpV_BSoQ&libraries=places"></script>
 
 
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->

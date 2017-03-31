@@ -159,21 +159,23 @@ $this->load->view('layout/layoutTop');
                     <?php
                     for ($i = 0; $i < count($result); $i++) {
                         $res = $result[$i];
-                        ?>
-                        <tr>
-                            <td><?php echo $i + 1; ?></td>
-                            <td><?php echo $res['location'] ?></td>
-                            <td><?php echo $res['address'] ?></td>
-                            <td><?php echo $res['contact_no'] ?></td>
-                            <td>
-                                <a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-primary btn-xs" >Set Date & Time</a>
-                                <a href="<?php echo base_url(); ?>index.php/Appointment/delete_scheduler/<?php echo $res['id'] ?>" class = "btn btn-danger btn-xs" id="deleteShedule">Delete</a>
+                        if (count($res)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $i + 1; ?></td>
+                                <td><?php echo $res['location'] ?></td>
+                                <td><?php echo $res['address'] ?></td>
+                                <td><?php echo $res['contact_no'] ?></td>
+                                <td>
+                                    <a href="<?php echo base_url(); ?>index.php/Appointment/date_scheduler/<?php echo $res['id'] ?>" class = "btn btn-primary btn-xs" >Set Date & Time</a>
+                                    <a href="<?php echo base_url(); ?>index.php/Appointment/delete_scheduler/<?php echo $res['id'] ?>" class = "btn btn-danger btn-xs" id="deleteShedule">Delete</a>
 
-                            </td>
-                        </tr>
-
-
-                    <?php } ?>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
                 </tbody>
             </table>
 

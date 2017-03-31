@@ -13,8 +13,8 @@ class Appointment extends CI_controller {
     }
 
     function set_location_for_appointment() {
-           $data['result'] = array();
-           
+        $data['result'] = array();
+
         if (isset($_POST['location'])) {
             $dat = date('Y-m-d');
             $tm = date("H:i:s");
@@ -38,9 +38,9 @@ class Appointment extends CI_controller {
 
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
-                $data[] = $row;
+                $data1[] = $row;
             }
-            $data['result'] = $data;
+            $data['result'] = $data1;
         }
 
         ///////// Pop up 
@@ -61,10 +61,10 @@ class Appointment extends CI_controller {
         }
         $this->load->view('Appoinment/set_appointment_location', $data);
     }
-    
-    function delete_scheduler($id = ''){
-         $query = $this->db->query("delete FROM `nfw_app_set_appointment` where id = $id");
-         redirect('Appointment/set_location_for_appointment');
+
+    function delete_scheduler($id = '') {
+        $query = $this->db->query("delete FROM `nfw_app_set_appointment` where id = $id");
+        redirect('Appointment/set_location_for_appointment');
     }
 
     function date_scheduler($ids = '') {
@@ -244,7 +244,7 @@ class Appointment extends CI_controller {
     }
 
     function appointment_report() {
-         $data['data'] = [];
+        $data['data'] = [];
         $query = $this->db->query("SELECT concat(au.first_name,' ',au.last_name) as name,au.email,au.telephone, au.no_of_person,
             apt.schedule_date,apt.schedule_start_time,apt.schedule_end_time,
             asp.country, asp.state,asp.city,

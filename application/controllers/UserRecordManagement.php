@@ -782,9 +782,9 @@ class UserRecordManagement extends CI_Controller {
         $pdf = $this->m_pdf->load();
         ob_end_clean();
         $pdf->useAdobeCJK = true;
+        $pdf->setFooter('Page {PAGENO} of {nb}');
 
         $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
-//        echo $html;
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath, "I");
     }

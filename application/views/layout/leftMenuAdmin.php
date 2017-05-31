@@ -117,6 +117,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/shipping_conf">Shipping Config</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/profession">Add Profession</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/fabricCategory">Add Fabric Type</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/productColor">Add Color</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/add_category/0">Add Category</a></li>

@@ -68,8 +68,8 @@ class ProductHandler extends CI_Controller {
             $category_string = str_replace(", ", " => ", trim($main_caegory[0], ", "));
             $productid = $value['id'];
             $data = array('product_category_string' => $category_string);
-           // $this->db->where('id', $productid);
-           // $this->db->update('nfw_product', $data);
+            // $this->db->where('id', $productid);
+            // $this->db->update('nfw_product', $data);
             echo "</br>";
         }
 //        print_r($productdata);
@@ -166,7 +166,7 @@ class ProductHandler extends CI_Controller {
                 }
                 $this->User_model->tracking_data_insert('nfw_product', $productId, 'insert');
 
-                $imageName = $this->input->post('image_name_list');
+                $imageName = $this->input->post('video');
 
                 if ($imageName) {
                     //$imageName = explode(',', $imageName);
@@ -563,7 +563,54 @@ class ProductHandler extends CI_Controller {
         $this->load->view('productManagement/featuredProduct', $data);
     }
 
-    #3-dec-2015
+    //add profession product fuction
+    public function professionProduct($profession_id) {
+
+        $querypc = "SELECT * from nfw_profession where id = '$profession_id'";
+        $data['profession'] = $this->User_model->query_exe($querypc);
+        
+        $querypc = "SELECT p.id, p.title, p.sku, p.product_speciality, pi.image
+                  FROM nfw_product AS p
+                  LEFT JOIN nfw_product_images AS pi ON p.id = pi.nfw_product_id
+                  JOIN nfw_product_profession AS pf ON p.id = pf.nfw_product_id 
+                  where pf.nfw_profession_id = '$profession_id'
+                  GROUP BY p.id";
+        $data['checkedProduct'] = $this->User_model->query_exe($querypc);
+
+        
+        $querypu = "SELECT p.id, p.title, p.sku, p.product_speciality, pi.image
+                  FROM nfw_product AS p
+                  LEFT JOIN nfw_product_images AS pi ON p.id = pi.nfw_product_id
+                  where p.id not in (select nfw_product_id from nfw_product_profession where nfw_profession_id = '$profession_id')
+                  GROUP BY p.id";
+        $data['uncheckedProduct'] = $this->User_model->query_exe($querypu);
+    
+
+
+        if (isset($_POST['submit'])) {
+            $featuredProduct = $this->input->post('featured_product');
+            $length = count($featuredProduct);
+            for ($i = 0; $i < $length; $i++) {
+                $featureArray = array(
+                    'nfw_product_id' => $featuredProduct[$i],
+                    'nfw_profession_id' => $profession_id,
+                );
+                $this->db->insert('nfw_product_profession', $featureArray);
+                $featureId = $this->db->insert_id();
+                $this->User_model->tracking_data_insert('nfw_product_profession', $featureId, 'insert');
+            }
+            redirect('ProductHandler/professionProduct/'.$profession_id);
+        }
+        if (isset($_POST['delete'])) {
+            $id = $this->input->post('delete');
+            $this->Product_model->delete_table_information('nfw_product_profession', 'nfw_product_id', $id);
+            redirect('ProductHandler/professionProduct/'.$profession_id);
+        }
+        $this->load->view('productManagement/professionProduct', $data);
+    }
+
+    //end of profession product function
+    ##3-dec-2015
     #for on-sale entry
 
     function on_sale_product_list() {
@@ -1141,6 +1188,38 @@ where product_id = p.id), '</table>'
         }
         $this->load->view('productManagement/fabric_category', $data);
     }
+
+//    fabric profession functionality
+    function profession() {
+
+        $data['fabric_list'] = $this->Product_model->get_table_information('nfw_profession');
+        if (isset($_POST['submit'])) {
+            $name = $this->input->post('profession');
+            $user_data = array(
+                'title' => $name
+            );
+            $this->db->insert('nfw_profession', $user_data);
+            redirect('ProductHandler/profession');
+        }
+        if (isset($_POST['updatefebric'])) {
+            $name = $this->input->post('profession');
+            $user_data = array(
+                'title' => $name
+            );
+            $ids = $this->input->post('edit_fabric');
+            $this->db->where('id', $ids);
+            $this->db->update('nfw_profession', $user_data);
+            redirect('ProductHandler/profession');
+        }
+        if (isset($_POST['delete'])) {
+            $id = $_POST['delete'];
+            $this->Product_model->delete_table_information('nfw_profession', 'id', $id);
+            redirect('ProductHandler/profession');
+        }
+        $this->load->view('productManagement/profession', $data);
+    }
+
+    // end of fabric profession functionality
 
     function shipping_conf() {
         $shipping_data = $this->Product_model->get_table_information('nfw_shipping');

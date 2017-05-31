@@ -123,7 +123,7 @@ $wrist_watch = '';
            
             $p_detail = $tag_data[$i]['p_data'];
             $item_id = $tag_data[$i]['tag_id'];
-
+                
             switch ($report_type) {
                 case 'all':
                    include 'workerReportSupport.php';

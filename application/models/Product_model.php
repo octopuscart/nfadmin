@@ -173,6 +173,24 @@ class Product_model extends CI_Model {
             return $data; //format the array into json data
         }
     }
+    
+    
+    
+    function profession_product_list($profession_id) {
+        $query = "SELECT p.id, p.title, p.sku, p.product_speciality, pi.image
+                  FROM nfw_product AS p
+                  LEFT JOIN nfw_product_images AS pi ON p.id = pi.nfw_product_id
+                  JOIN nfw_product_profession AS pf ON p.id = pf.nfw_product_id 
+                  where pf.nfw_profession_id = '$profession_id'
+                  GROUP BY p.id";
+        $query = $this->db->query($query);
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $data[] = $row;
+            }
+            return $data; //format the array into json data
+        }
+    }
 
     #3-dec-2015
     #update and all operation related to sorting done by this function

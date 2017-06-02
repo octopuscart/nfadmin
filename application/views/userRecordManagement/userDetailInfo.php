@@ -127,7 +127,15 @@ $this->load->view('layout/layoutTop');
                         <div class="form-group">
                             <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Contact No.</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" value="<?php echo $profile[0]['contact_no']; ?>" disabled="" name="email">
+                                <input type="text" class="form-control" value="<?php echo $profile[0]['contact_no']; ?>" disabled=""  name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"  style="padding: 0px;">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Profession</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" value="<?php echo $profile[0]['profession_value']; ?>" disabled="" readonly name="email">
                             </div>
                         </div>
                     </div>

@@ -640,6 +640,13 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                     <tr><td>Last Name</td><td>: &nbsp;</td><td class="capitalize"><?php echo $user_info['last_name']; ?></td></tr>
                     <tr><td>Email</td><td>: &nbsp;</td><td><?php echo $user_info['email']; ?></td></tr>
                     <tr><td>Phone</td><td>: &nbsp;</td><td><?php echo $user_info['contact_no']; ?></td></tr>
+                    
+                    <?php
+                                                        $userinfo2 = $this->Product_model->get_table_information('auth_user', 'id', $user_info['id']);
+
+                    ?>
+                    
+                    <tr><td>Profession</td><td>: &nbsp;</td><td><?php echo $userinfo2[0]['profession_value']; ?></td></tr>
                 </table>
             </div>
 

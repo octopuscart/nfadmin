@@ -54,6 +54,9 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                             <p  style="margin: 0 0 0px;">
                                                 <i class="fa fa-phone"></i> <?php echo $value['contact_no'] ?>
                                             </p>
+                                            <p  style="margin: 0 0 0px;">
+                                                <i class="fa fa-suitcase"></i> <?php echo $value['profession_value'] ? $value['profession_value'] : '---' ?>
+                                            </p>
                                         </td>
                                         <td><?php echo $value['birth_date'] ?>
                                         </td>
@@ -61,7 +64,7 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                             <?php echo $value['joining_date'] ?> </td>
                                         <td >
 
-                                                                <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->
+                                                                        <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->
                                             <a style="margin-left:4px;" class="btn btn-info btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_detail_info/<?php echo $value['id'] ?>"> Detail</a>
                                             <a class="btn btn-danger btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_login_record/<?php echo $value['id'] ?>"> Login Record</a>
                                             <a href="<?php echo base_url() ?>../frontend/views/frontend_login_from_adminpanel.php?email=<?php echo $value['email']; ?>&password=<?php echo $value['password']; ?>&table_name=<?php echo $table_name; ?>&userId=<?php echo $value['id'] ?>" class="btn btn-warning btn-xs m-r-5" target="_blank">Login as User</a>
@@ -99,7 +102,7 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                         <thead>
                             <tr>
                                 <th style="width: 7%;">S.No.</th>
-                                 <th>Client Details</th>
+                                <th>Client Details</th>
                                 <th style="width: 120px">Birth Date</th>
                                 <th style="width: 120px">Joining Date</th>
                                 <th style="width:280px;">View Profile</th> 
@@ -131,15 +134,16 @@ $data['userProfile'] = $this->Product_model->get_table_information('auth_user');
                                             <p  style="margin: 0 0 0px;">
                                                 <i class="fa fa-phone"></i> <?php echo $value['contact_no'] ?>
                                             </p>
+                                            <i class="fa fa-suitcase"></i> <?php echo $value['profession_value'] ? $value['profession_value'] : '---' ?>
                                         </td>
-                                         <td><?php echo $value['birth_date'] ?>
+                                        <td><?php echo $value['birth_date'] ?>
                                         </td>
                                         <td>
                                             <?php echo $value['joining_date'] ?> </td>
 
                                         <td>
 
-                                                                <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->
+                                                                        <!--                                      <a class="btn btn-success btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_profile_view_info/<?php echo $value['id'] ?>"> View</a>-->
                                             <a style="margin-left:4px;" class="btn btn-info btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_detail_info/<?php echo $value['id'] ?>"> Detail</a>
                                             <a class="btn btn-danger btn-xs m-r-5" href="<?php echo base_url() ?>index.php/UserRecordManagement/user_login_record/<?php echo $value['id'] ?>"> Login Record</a>
                                             <a href="<?php echo base_url() ?>../frontend/views/frontend_login_from_adminpanel.php?email=<?php echo $value['email']; ?>&password=<?php echo $value['password']; ?>&table_name=<?php echo $table_name; ?>&userId=<?php echo $value['id'] ?>" class="btn btn-warning btn-xs m-r-5" target="_blank">Login as User</a>

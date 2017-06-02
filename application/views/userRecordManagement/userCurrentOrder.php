@@ -102,7 +102,7 @@ $this->load->view('layout/layoutTop');
                             <tr>
                                 <th style="width: 5%;">S.No.</th>
                                 <th style="width: 10%;">Date/Time</th>
-                                <th style="width: 16%;">Client</th>
+                                <th style="width: 18%;">Client</th>
                                 <th style="width: 10%;">Order No./<br/>Invoice No.</th>
                                 <th style="width: 30%;padding: 0px">
                         <table class="custom_table">
@@ -129,10 +129,11 @@ $this->load->view('layout/layoutTop');
                                     echo '<td>' . $value['op_date'] . ' ' . $value['op_time'] . '</td>';
 
                                     $user_info = $this->User_model->phpjsonstyle($value['user_info'], 'php');
+                                    $userinfo2 = $this->Product_model->get_table_information('auth_user', 'id', $user_info['id']);
 
 
-
-                                    echo '<td class="capitalize">' . $user_info['first_name'] . '  ' . $user_info['last_name'] . '<br/>(' . $user_info['registration_id'] . ')<br/>M:' . $user_info['contact_no'] . '</td>';
+                                    
+                                    echo '<td class="capitalize">' . $user_info['first_name'] . '  ' . $user_info['last_name'] . '<br/>(' . $user_info['registration_id'] . ')<br/><i class="fa fa-phone"></i>:' . $user_info['contact_no'] .'<br/> <i class="fa fa-suitcase"></i>  ' . ($userinfo2[0]['profession_value'] ? $userinfo2[0]['profession_value'] :'--') . ' </td>';
                                     echo '<td>' . $value['order_no'] . '/<br/>' . $value['invoice_no'] . '</td>';
 
                                     $skudata = $this->User_model->xls_report_data($value['order_id']);

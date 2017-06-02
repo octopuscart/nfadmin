@@ -88,6 +88,14 @@ $this->load->view('layout/layoutTop');
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3"  style="padding: 0px;">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Profession</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" value="<?php echo $profile[0]['profession_value']; ?>" disabled="" readonly name="email">
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-3" style="padding: 0px;">
                         <div class="form-group">
                             <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Gender</label>
@@ -131,14 +139,7 @@ $this->load->view('layout/layoutTop');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3"  style="padding: 0px;">
-                        <div class="form-group">
-                            <label class="col-md-12 control-label" style="margin-top: 10px;font-weight: 600;">Profession</label>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" value="<?php echo $profile[0]['profession_value']; ?>" disabled="" readonly name="email">
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-md-12" style="margin-top: 20px;" id="update_profile">
                     <button type="button" class="btn btn-primary btn-xs edit pull-right"><i class="fa fa-edit"></i> Edit</button>

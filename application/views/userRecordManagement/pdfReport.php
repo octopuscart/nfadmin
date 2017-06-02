@@ -96,10 +96,11 @@
             echo '<td>' . $value['op_date'] . ' ' . $value['op_time'] . '</td>';
 
             $user_info = $this->User_model->phpjsonstyle($value['user_info'], 'php');
+            $userinfo2 = $this->Product_model->get_table_information('auth_user', 'id', $user_info['id']);
 
 
 
-            echo '<td class="capitalize">' . $user_info['first_name'] . '  ' . $user_info['last_name'] . '<br/>(' . $user_info['registration_id'] . ')<br/>M:' . $user_info['contact_no'] . '</td>';
+            echo '<td class="capitalize">' . $user_info['first_name'] . '  ' . $user_info['last_name'] . '<br/>(' . $user_info['registration_id'] . ')<br/>M:' . $user_info['contact_no'] . '<br/>'. ($userinfo2[0]['profession_value'] ? $userinfo2[0]['profession_value'] :'--').'</td>';
             echo '<td>' . $value['order_no'] . '/<br/>' . $value['invoice_no'] . '</td>';
 
             $skudata = $this->User_model->xls_report_data($value['order_id']);

@@ -27,7 +27,7 @@ class AllXlsReport extends CI_Controller {
         $orderList = $this->User_model->order_full_detail5($dateRange1, $orderstatus, $user_id);
 
         //print_r($orderList);
-        $headers = array('S.No.', 'Client Code', 'First Name', 'Middle Name', 'Last Name', 'Mobile No.', 'Telephone No.', 'Fax No.', 'Email', 'Shipping Address', 'Shipping Country', 'Billing Address', 'Order No', 'Item Code - Item Name - Quantity', 'Payment Method ', 'Invoice No', 'Quantity', 'Coupon Information', 'Price', 'Date/Time', 'Status', 'Status Update On');
+        $headers = array('S.No.', 'Client Code', 'First Name', 'Middle Name', 'Last Name', 'Profession', 'Mobile No.', 'Telephone No.', 'Fax No.', 'Email', 'Shipping Address', 'Shipping Country', 'Billing Address', 'Order No', 'Item Code - Item Name - Quantity', 'Payment Method ', 'Invoice No', 'Quantity', 'Coupon Information', 'Price', 'Date/Time', 'Status', 'Status Update On');
         $filename = 'order_list';
 
         function cleanData(&$str) {
@@ -41,7 +41,7 @@ class AllXlsReport extends CI_Controller {
         $filename = $filename . "_" . date('Ymd') . ".xls";
 
         header("Content-Disposition: attachment; filename='$filename'");
-         header("Content-Type: application/vnd.ms-excel");
+        header("Content-Type: application/vnd.ms-excel");
 
         $flag = false;
 
@@ -56,6 +56,10 @@ class AllXlsReport extends CI_Controller {
         foreach ($orderList as $k => $value) {
 
             $user_info = $this->User_model->phpjsonstyle($value['user_info'], 'php');
+
+            $userinfo2 = $this->Product_model->get_table_information('auth_user', 'id', $user_info['id']);
+
+
             foreach ($user_info as $k => $v) {
                 $value[$k] = $v;
             }
@@ -66,6 +70,7 @@ class AllXlsReport extends CI_Controller {
             echo $value['first_name'] . "\t";
             echo $value['middle_name'] . "\t";
             echo $value['last_name'] . "\t";
+            echo $userinfo2[0]['profession_value'] . "\t";
             echo str_replace("-", " ", $value['contact_no']) . "\t";
             echo str_replace("-", " ", $value['telephone_no']) . "\t";
             echo str_replace("-", " ", $value['fax_no']) . "\t";

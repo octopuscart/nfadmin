@@ -10,19 +10,19 @@ $this->load->view('layout/layoutTop');
         </div>
         <div class="panel-body">
             <div class="col-md-12">
- 
+
                 <form method="post">
                     <div class="col-md-3">   
                         <div class="input-group input-group-sm ">
                             <span class="input-group-addon">Coupon Code</span>
-                            <input type="text" class="form-control "  name="coupon_code" value="<?php echo $coupon_data['coupon_code'];?>">
+                            <input type="text" class="form-control "  name="coupon_code" value="<?php echo $coupon_data['coupon_code']; ?>">
 
                         </div>
                     </div>
                     <div class="col-md-3">   
                         <div class="input-group input-group-sm ">
                             <span class="input-group-addon">Coupon Amount</span>
-                            <input type="text" class="form-control is_number"  name="coupon_amount" value="<?php echo $coupon_data['coupon_amount'];?>">
+                            <input type="text" class="form-control is_number"  name="coupon_amount" value="<?php echo $coupon_data['coupon_amount']; ?>">
 
                         </div>
                     </div>
@@ -30,13 +30,13 @@ $this->load->view('layout/layoutTop');
                         <div class="input-group input-group-sm ">
                             <span class="input-group-addon">Coupon Status</span>
                             <select class="form-control"  name="coupon_status" >
-                                <option value='active' <?php echo $coupon_data['coupon_status']=='active'?'selected':'' ?> >Active</option>
-                                <option value="inactive"  <?php echo $coupon_data['coupon_status']=='inactive'?'selected':'' ?> >Inactive</option>
+                                <option value='active' <?php echo $coupon_data['coupon_status'] == 'active' ? 'selected' : '' ?> >Active</option>
+                                <option value="inactive"  <?php echo $coupon_data['coupon_status'] == 'inactive' ? 'selected' : '' ?> >Inactive</option>
                             </select>
 
                         </div>
                     </div>
-                    
+
                     <div class="col-md-3">  
                         <button type="submit" name="update_coupon" value="ty" class="btn btn-primary btn-sm" style="" id="submit">Update</button>
                     </div>
@@ -50,6 +50,62 @@ $this->load->view('layout/layoutTop');
 
     </div>
 </div>
+
+
+
+
+<div class="col-md-12">
+    <div class="panel panel-inverse" data-sortable-id="index-5">
+        <div class="panel-heading">
+            <h4 class="panel-title" style="font-size: 17px; font-weight: 500;  ">
+                <i class=""></i> Set Flat Discount</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+
+                <form method="post">
+                    <div class="col-md-3">   
+                        <div class="input-group input-group-sm ">
+                            <span class="input-group-addon">Discount Type</span>
+                            <select class="form-control"  name="discount_type" >
+                                <option value='Percent' <?php echo $discount_data['discount_type'] == 'Percent' ? 'selected' : '' ?> >Percent</option>
+                                <option value="Fixed"  <?php echo $discount_data['discount_type'] == 'Fixed' ? 'selected' : '' ?> >Fixed</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">   
+                        <div class="input-group input-group-sm ">
+                            <span class="input-group-addon">Discount Value</span>
+                            <input type="number" class="form-control is_number"  name="discount_value" value="<?php echo $discount_data['discount_value']; ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">   
+                        <div class="input-group input-group-sm ">
+                            <span class="input-group-addon">Discount Status</span>
+                            <select class="form-control"  name="discount_status" >
+                                <option value='active' <?php echo $discount_data['discount_status'] == 'active' ? 'selected' : '' ?> >Active</option>
+                                <option value="inactive"  <?php echo $discount_data['discount_status'] == 'inactive' ? 'selected' : '' ?> >Inactive</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">  
+                        <button type="submit" name="update_discount" value="ty" class="btn btn-primary btn-sm" style="" id="submit">Update</button>
+                    </div>
+            </div>
+
+            </form>
+        </div>
+        <div style="clear:both"></div>
+        <hr>
+
+
+    </div>
+</div>
+
 </div>
 
 

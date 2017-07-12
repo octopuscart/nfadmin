@@ -375,6 +375,10 @@ class UserRecordManagement extends CI_Controller {
      function universalCoupon() {
         $shipping_data = $this->Product_model->get_table_information('nfw_universal_coupon');
         $data['coupon_data'] = end($shipping_data);
+        
+        $discount_data = $this->Product_model->get_table_information('nfw_flat_discount');
+        $data['discount_data'] = end($discount_data);
+        
         if (isset($_POST['update_coupon'])) {
             $coupon_data = array(
                 'coupon_code' => $this->input->post('coupon_code'),
@@ -387,6 +391,22 @@ class UserRecordManagement extends CI_Controller {
             $this->db->update('nfw_universal_coupon', $coupon_data);
             redirect('userRecordManagement/universalCoupon');
         }
+        
+        
+        if (isset($_POST['update_discount'])) {
+            $discount_data = array(
+                'discount_type' => $this->input->post('discount_type'),
+                'discount_value' => $this->input->post('discount_value'),
+                 'discount_status' => $this->input->post('discount_status'),
+                'discount_datetime' => date('Y-m-d H:m:s'),
+            );
+          
+            $this->db->where('id', '1');
+            $this->db->update('nfw_flat_discount', $discount_data);
+            redirect('userRecordManagement/universalCoupon');
+        }
+        
+        
         $this->load->view('userRecordManagement/universal_coupon', $data);
     }
 

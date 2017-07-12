@@ -81,7 +81,7 @@
                 <ul class="sub-menu">
 
                     <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/coupon_generate">Send Coupon</a></li>
-                    <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/universalCoupon">Universal Coupon</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/universalCoupon">Universal Coupon/Discount</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/admin_sent_couponreport">Coupon Report</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/UserRecordManagement/purchased_coupon_report">Coupon Purchased Report</a></li>
 

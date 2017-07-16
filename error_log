@@ -75,3 +75,8 @@
 [08-Dec-2016 09:08:27 America/Chicago] PHP Fatal error:  Call to undefined function vardump() in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/views/userRecordManagement/updateOrderStatus.php on line 822
 [08-Dec-2016 09:08:33 America/Chicago] PHP Fatal error:  Call to undefined function vardump() in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/views/userRecordManagement/updateOrderStatus.php on line 822
 [08-Dec-2016 09:08:51 America/Chicago] PHP Fatal error:  Call to undefined function vardump() in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/views/userRecordManagement/updateOrderStatus.php on line 822
+[17-Dec-2016 13:22:40 Asia/Hong_Kong] PHP Fatal error:  Using $this when not in object context in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/controllers/ProductHandler.php on line 961
+[17-Dec-2016 13:24:15 Asia/Hong_Kong] PHP Fatal error:  Using $this when not in object context in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/controllers/ProductHandler.php on line 961
+[17-Dec-2016 18:29:12 Asia/Hong_Kong] PHP Fatal error:  Using $this when not in object context in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/controllers/ProductHandler.php on line 961
+[18-Dec-2016 22:57:38 Asia/Hong_Kong] PHP Fatal error:  Using $this when not in object context in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/controllers/ProductHandler.php on line 961
+[26-Dec-2016 12:59:19 Asia/Hong_Kong] PHP Fatal error:  Using $this when not in object context in /home1/n1c7v2s5/public_html/nitaFashionsAdmin/application/controllers/ProductHandler.php on line 961

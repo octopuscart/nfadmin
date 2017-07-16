@@ -96,29 +96,73 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 	</tbody>
 </table>
 
+<div><b><u style="background-color: rgba(255, 255, 255, 0);">How important is your wardrobe?</u></b></div>
 
+<div><span style="background-color: rgba(255, 255, 255, 0);">&nbsp;</span></div>
 
+<div><span style="background-color: rgba(255, 255, 255, 0);">The clothes that you choose to wear impacts the way that people perceive you.&nbsp;It is how you present yourself to the world.&nbsp;At Nita Fashions, we take the creative process of your garment seriously.&nbsp;These first impressions are lasting ones.</span></div>
 
-<p><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">Dear Nita Fashions subscriber,</span></p>
+<div>&nbsp;</div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">We know that you enjoy shopping at Nita Fashions.  With infinite & exciting possibilities, our online platform gives you all the tools necessary to be your own designer. </span></p>
+<div><span style="background-color: rgba(255, 255, 255, 0);">There are few elements to keep in mind when making your suit purchase:</span></div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
+<div>&nbsp;</div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">Design your suit to be bold and structured or choose a more delicate silhouette with a half lined suit.  Be creative and add insert to your shirts and even create your own signature style.  The best part is when you create a style, you can always refer back to it on future orders.&nbsp;</span></p>
+<div><b style="background-color: rgba(255, 255, 255, 0);">The Occasion</b></div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
+<div>&nbsp;</div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">From 1st &ndash; 15th August 2017, we are offering a 10% discount on all online purchases. (This will also apply to our ON-SALE items). &nbsp; &nbsp;&nbsp;</span></p>
+<div><span style="background-color: rgba(255, 255, 255, 0);">Overwhelmed? That can be the first thing you feel when planning or attending a wedding,&nbsp;bar mitzvah or a graduation.&nbsp;Is it an appropriate colour and design? Is a three piece suit still in fashion?&nbsp;Do I wear a sports jacket and a pair of trousers?&nbsp;</span></div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
+<div>&nbsp;</div>
 
-<p class="MsoNormal" style="margin: 0px 0px 0px 280px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;"><a href="http://nitafashions.com" target="_blank">Design Now!</a></span></u></big></strong></p>
+<div><span style="background-color: rgba(255, 255, 255, 0);">Email us and we&#39;ll be happy to share our expertise. Share the details of your&nbsp;occasion with us and we&#39;ll design the perfect outfit for you!</span></div>
 
+<div><span style="background-color: rgba(255, 255, 255, 0);">&nbsp;</span></div>
 
+<div><b style="background-color: rgba(255, 255, 255, 0);">Fabric Weight</b></div>
 
+<div>&nbsp;</div>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
+<div><span style="background-color: rgba(255, 255, 255, 0);">You may really like the way a certain pattern looks, but it will not do you any good if the fabric weight isn&#39;t suited to your needs.&nbsp;On our website, we recognise the importance of this and have categorised our selection by fabric weight:</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);"><i>(Quattro Stagioni)&nbsp;</i>These fabrics are suitable to wear through the seasons. If where you live isn&#39;t particularly warm or cold, then this is the fabric weight that&#39;s right for you.&nbsp;</span></div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);"><i>(Primavera)</i>&nbsp;If you like a fabric that&#39;s lightweight and crisp, then this is the right fabric weight for you.&nbsp;</span></div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);"><i>(Inverno)</i>&nbsp;This fabric weight is geared towards fall/winter wear and will keep you insulated from the icy cold.</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);">Ask the right questions or look for these key elements when making your suit purchase and you will never feel toasty or icy in your clothing.</span></div>
+
+<div>&nbsp;</div>
+
+<div><b style="background-color: rgba(255, 255, 255, 0);">Fabric Performance</b></div>
+
+<div>&nbsp;</div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);">Feeling the fabric gives you a better idea as to what your likes and dislikes are.&nbsp;Squeeze the fabric and see what happens when you open your palm. Does it bounce back to life quickly? You want to buy something that&rsquo;s soft on the skin and can recover from creases quickly.&nbsp;Before purchasing from us online, there is always the option to&nbsp;<b><i>request for a set of swatches</i></b>, so you can get a closer look at the fabrics you are selecting before you make your final decision.&nbsp;</span></div>
+
+<div>&nbsp;</div>
+
+<div><b style="background-color: rgba(255, 255, 255, 0);">The Fit&nbsp;</b></div>
+
+<div>&nbsp;</div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);">The fit, form and silhouette of your garment decides how flattering or unflattering the garment looks on you.&nbsp;</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="background-color: rgba(255, 255, 255, 0);">If you are new to Nita Fashions and wish to purchase with us online immediately, we recommend that you go to a local tailor to have the required measurements taken.&nbsp;Our Chief Tailors,&nbsp;<b>Mr. Peter Daswani</b>&nbsp;and&nbsp;<b>Mr. Anil Daswani</b>&nbsp;travel extensively worldwide. Email us to see if they travel to your city, so we can get you measured and looking your best.&nbsp;If you have bought from us previously and are the same (or a similar) size to your previous order, we have your complete paper pattern on file. You can leave it up to us to keep you looking smart.&nbsp;If you have changed in size, it&#39;s time to book an appointment with us and get remeasured!</span></div>
+
+<div>&nbsp;</div>
+
+<div>
+<div><b>Nita Fashions Style Tip#:</b><span style="background-color: rgba(255, 255, 255, 0);">&nbsp;Try a slim fit&nbsp;</span><span class="gmail-aBn" tabindex="0"><span class="gmail-aQJ">midnight</span></span><span style="background-color: rgba(255, 255, 255, 0);">&nbsp;blue trouser with a 1.25&quot; cuff.</span></div>
+</div>
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
                                     <?php echo $this->User_model->mail_template('News Letter', 'footer'); ?>

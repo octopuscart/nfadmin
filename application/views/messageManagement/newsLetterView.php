@@ -99,10 +99,12 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 
 
 
-<p><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">Dear Nita Fashions subscriber,</span></p>
 
 
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">Dear Nita Fashions subscriber,</span></p>
 
+
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">We know that you enjoy shopping at Nita Fashions. To celebrate this summer, we are offering you hand selected shirt fabrics on SALE.</span></p>
 

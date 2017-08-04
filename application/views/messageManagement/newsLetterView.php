@@ -112,7 +112,7 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">This summer brings with it opportunity to add a splash of colour & vibrance to your wardrobe.  Take advantage, as this offer is only valid from 11th August 2017 until 11th September 2017 and only for online purchases. </span></p>
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">This summer brings with it opportunity to add a splash of colour & vibrance to your wardrobe.  Take advantage, as this offer is only valid from 10th August 2017 until 10th September 2017 and only for online purchases. </span></p>
 
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>

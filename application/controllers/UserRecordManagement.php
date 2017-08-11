@@ -806,7 +806,7 @@ class UserRecordManagement extends CI_Controller {
 
         $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
         $pdf->WriteHTML($html);
-        $pdf->Output($pdfFilePath, "I");
+        $pdf->Output($pdfFilePath.".pdf", "I");
     }
 
     #28-oct-2015

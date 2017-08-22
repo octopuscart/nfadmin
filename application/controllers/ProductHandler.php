@@ -725,6 +725,46 @@ class ProductHandler extends CI_Controller {
     }
 
     ################################################################
+    
+    
+    ####30-08-2017
+    function on_offer_product_list(){
+        $data['product_report'] = $this->Product_model->most_popular_product_information('nfw_offer_product');
+        $ignore = $this->Product_model->get_table_information('nfw_offer_product');
+
+        if ($ignore) {
+            $len = count($ignore);
+            for ($i = 0; $i < $len; $i++) {
+                $notIn[] = $ignore[$i]['product_id'];
+            }
+            $notInData = implode(',', $notIn);
+        } else {
+            $notInData = '';
+        }
+
+        $data['all_popular_product'] = $this->Product_model->feature_related_report_select($notInData);
+        if (isset($_POST['submit'])) {
+            $mostProduct = $this->input->post('offer_product');
+            $length = count($mostProduct);
+            for ($i = 0; $i < $length; $i++) {
+                $featureArray = array(
+                    'product_id' => $mostProduct[$i],
+                    'op_date_time' => date('Y-m-d h:m:s')
+                );
+                $this->db->insert('nfw_offer_product', $featureArray);
+            }
+            redirect('ProductHandler/on_offer_product_list');
+        }
+        if (isset($_POST['delete'])) {
+            $id = $this->input->post('delete');
+            $this->db->delete('nfw_offer_product', array('id' => $id));
+            redirect('ProductHandler/on_offer_product_list');
+        }
+        $this->load->view('productManagement/offerProduct', $data);
+    }
+    ###################################################
+    
+    
 
     function search_product_tag_info($id) {
         $data['product_id'] = $id;

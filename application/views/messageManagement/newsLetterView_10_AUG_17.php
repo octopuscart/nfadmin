@@ -103,37 +103,25 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">Dear Nita Fashions subscriber,</span></p>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">“Summer just wraps its arms around you like a warm blanket.” Kelly Elmore.</span></p>
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">But as summer comes to a conclusion, we must prepare our wardrobe for sweater weather.</span></p>
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">We know that you enjoy shopping at Nita Fashions. To celebrate this summer, we are offering you hand selected shirt fabrics on SALE.</span></p>
 
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">This fall, we recommend that you incorporate the following Pantone shades to your wardrobe: Grenadine Red, Tawny Port, Navy Peony, Autumn Maple & Butterum. The Pantone Colour Institute evaluates the colours that are shown by the top designers at New York Fashion week. These tones exude the sophistication & comfort that you seek.</span></p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
-
-<p class="MsoNormal" style="margin: 0px 0px 0px 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><center><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;">                        
-<img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/colour.jpg" style="height: 165px; width: 642px;" /></a></span></u></big></strong></center></p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">To stay on trend this fall, we recommend the following fabrics for suits and shirts.</span></p>
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">This summer brings with it opportunity to add a splash of colour & vibrance to your wardrobe.  Take advantage, as this offer is only valid from 10th August 2017 until 10th September 2017 and only for online purchases. </span></p>
 
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
 
-<p class="MsoNormal" style="margin: 0px 0px 0px 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><center><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;"><a href="https://www.nitafashions.com/frontend/views/product_list_offer.php?category=0&item_type=1&&sorting=On+Sale" target="_blank"><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/clickhere.jpg" style="height: 75px; width: 75px;" /></a></span></u></big></strong></center></p>
+
+
+<p class="MsoNormal" style="margin: 0px 0px 0px 280px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;"><a href="https://www.nitafashions.com/frontend/views/pages_offers.php" target="_blank"><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/SHOPNOW1.jpg" style="height: 25px; width: 91px;" /></a></span></u></big></strong></p>
 
     
 

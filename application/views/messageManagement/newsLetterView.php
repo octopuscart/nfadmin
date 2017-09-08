@@ -133,7 +133,7 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 
 
 
-<p class="MsoNormal" style="margin: 0px 0px 0px 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><center><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;"><a href="https://www.nitafashions.com/frontend/views/product_list_offer.php?category=0&item_type=1&&sorting=On+Sale" target="_blank"><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/clickhere.jpg" style="height: 75px; width: 75px;" /></a></span></u></big></strong></center></p>
+<p class="MsoNormal" style="margin: 0px 0px 0px 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><center><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;"><a href="https://www.nitafashions.com/frontend/views/product_list_offer.php?category=0&item_type=1&sorting=Offers" target="_blank"><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/clickhere.jpg" style="height: 75px; width: 75px;" /></a></span></u></big></strong></center></p>
 
     
 

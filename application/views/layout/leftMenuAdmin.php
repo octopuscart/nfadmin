@@ -135,6 +135,7 @@
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/product_menu_information">Menu Style</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/featureProduct">Featured Products</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/on_sale_product_list">On Sale Products</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/on_offer_product_list">Products On Offer</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/most_popular_product_list">Most Popular Products</a></li>
                     <li><a href="<?php echo base_url(); ?>index.php/ProductHandler/new_arrival_product_list">New Arrival Products</a></li>
 

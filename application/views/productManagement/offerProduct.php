@@ -11,7 +11,7 @@ $this->load->view('layout/layoutTop');
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
             </div>
-            <h4 class="panel-title" style="font-size: 17px;font-weight: 500;"><i class="fa fa-list"></i>&nbsp;&nbsp; Selected Product In Offer Report</h4>
+            <h4 class="panel-title" style="font-size: 17px;font-weight: 500;"><i class="fa fa-list"></i>&nbsp;&nbsp; Selected Products On Offer Report</h4>
         </div>
         <div class="panel-body">
             <form method="post">
@@ -63,7 +63,7 @@ $this->load->view('layout/layoutTop');
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
             </div>
-            <h4 class="panel-title" style="font-size: 17px;font-weight: 500;"><i class="fa fa-th-list"></i>&nbsp;&nbsp; Product Report, You Can Choose Products In Offer From Here</h4>
+            <h4 class="panel-title" style="font-size: 17px;font-weight: 500;"><i class="fa fa-th-list"></i>&nbsp;&nbsp; Product Report, You Can Choose Products On Offer From Here</h4>
         </div>
         <div class="panel-body">
             <form method="post">

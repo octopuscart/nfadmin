@@ -52,7 +52,7 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
                         <div class="form-group"> 
 
                             <div class="col-md-12">
-                                <input name="title" class="form-control"  placeholder="Enter title ..." required="">
+                                <input name="title" class="form-control" value="September 2017 Newsletter" placeholder="Enter title ..." required="">
                             </div>
 
                         </div>
@@ -117,14 +117,11 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">This fall, we recommend that you incorporate the following Pantone shades to your wardrobe: Grenadine Red, Tawny Port, Navy Peony, Autumn Maple & Butterum. The Pantone Colour Institute evaluates the colours that are shown by the top designers at New York Fashion week. These tones exude the sophistication & comfort that you seek.</span></p>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
 <p class="MsoNormal" style="margin: 0px 0px 0px 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><center><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;">                        
 <img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/colour.jpg" style="height: 165px; width: 642px;" /></a></span></u></big></strong></center></p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
 <p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">To stay on trend this fall, we recommend the following fabrics for suits and shirts.</span></p>
 
@@ -134,17 +131,12 @@ $frequency = isset($_REQUEST['frequency']) ? $_REQUEST['frequency'] : 'Full Expe
 
 
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><span lang="EN-US">&nbsp;</span></p>
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
 
 <p class="MsoNormal" style="margin: 0px 0px 0px 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;"><center><strong><big><u style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 19.8px;"><span style="color: blue;"><a href="https://www.nitafashions.com/frontend/views/product_list_offer.php?category=0&item_type=1&&sorting=On+Sale" target="_blank"><img alt="" src="http://nitafashions.com/nitaFashionsAdmin/images/uploads/clickhere.jpg" style="height: 75px; width: 75px;" /></a></span></u></big></strong></center></p>
 
     
 
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
-
-<p class="MsoNormal" style="margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</p>
                                     <?php echo $this->User_model->mail_template('News Letter', 'footer'); ?>
                                     <?php echo $this->User_model->mailsetting_header('footer'); ?>
 <div style=""><span style="color: rgb(123, 128, 143); font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; text-align: justify;">If you do not want to receive this mailer,&nbsp;</span><a  href="---userlink---" style="color: rgb(123, 128, 143); font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; text-align: justify;" target="_blank">Unsubscribe</a></div>

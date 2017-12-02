@@ -52,6 +52,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
         <li class="tab2"><a href="#default-tab-2" data-toggle="tab">Shipping</a></li>
         <li class="tab3"><a href="#default-tab-3" data-toggle="tab">Closed/Delivered</a></li>
         <li class="tab4"><a href="#default-tab-4" data-toggle="tab">Return/Pending</a></li>
+        <li class="tab5"><a href="#default-tab-5" data-toggle="tab">Cancel Order</a></li> 
         <a href="<?php echo base_url(); ?>index.php/UserRecordManagement/user_current_order" class="btn btn-primary btn-xs pull-right" style="padding: 0px 0px 0px 0px;margin: 9px 10px 0px 0px;">
             <i class="fa fa-backward"></i> Back
         </a>
@@ -383,6 +384,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                 <div class="col-md-8">
                                     <select name="status" style="height: 22px;padding: 0px 0px 0px 4px;" class="form-control">
                                         <option value="3">Shipped</option>
+                                        <option value="7">Picked at store</option>
                                     </select>
                                 </div>
                             </div>
@@ -479,6 +481,47 @@ $orderData1 = $this->User_model->get_product_information($order_id);
             </div>
             </form>
         </div>
+
+        <!--order cancle-->
+        <div class="tab-pane fade" id="default-tab-5">
+            <div class="col-md-12">
+
+                <form method="post" class="form-inline">
+
+                    <div class="form-group" style="    width: 100%;margin-bottom: 20px">
+                        <label class=" control-label" style="text-align: right; font-weight: 600;font-size: 13px;">Order No.</label>
+                        <input type="hidden" name="status"  value="6">
+                        <input type="text" class="form-control" value="<?php
+                        if ($order_id) {
+                            $orderNo = $this->Product_model->get_table_information('nfw_product_order', 'id', $order_id);
+                            echo $orderNo[0]['order_no'];
+                        }
+                        ?>" readonly="readonly" name="order_no">
+                    </div>
+                    </br>
+                    <div class="form-group" style="    width: 100%;margin-bottom: 20px">
+                        <label class=" control-label" style=" text-align: right; font-weight: 600;font-size: 13px;">Reason for cancellation</label>
+
+                        <input class="form-control" type="text" name="pending_reason"  style="width: 100%" value="">
+
+                    </div>
+                    </br>
+
+                    <div class="form-group" style="    width: 100%;margin-bottom: 20px">
+                        <label class=" control-label" style="font-weight: 600;font-size: 13px;">Remark</label>
+
+                        <textarea class="form-control" name="remark" style="width: 100%;" rows="6" required></textarea>
+
+                    </div>
+            </div>
+            <div class="col-md-8" style="margin-top: 15px;">
+                <div class=""><input type="submit" class="btn btn-primary " name="pending_order"/></div>
+            </div>
+            </form>
+        </div>
+
+        <!--end of order cancel-->
+
     </div>
 </div>
 <div class="col-md-12">
@@ -500,7 +543,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                     $ht.= "<td style='width:170px'>" . $value['date'] . "</td>";
                     $ht.= "<td style='    border-left: 1px solid;padding: 0;width: 1px;'><i class='fa fa-circle fa-2x' style='margin-left: -25px;margin-left: -11px;
     margin-top: 11px;'></i></td>";
-                    $ht.= '<th>' . $value['order_status'] . ' <br><small style="font-weight:300;font-size:13px">' . $value['remark'] . '</small> </th>';
+                    $ht.= '<th>' . $value['order_status'] . ' <br><small style="font-weight:300;font-size:13px">  ' . ($value['status_tag'] != '7' ? $value['remark'] : '') . '</small> </th>';
 
 
                     array_push($proccessArray, $ht);
@@ -640,12 +683,11 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                     <tr><td>Last Name</td><td>: &nbsp;</td><td class="capitalize"><?php echo $user_info['last_name']; ?></td></tr>
                     <tr><td>Email</td><td>: &nbsp;</td><td><?php echo $user_info['email']; ?></td></tr>
                     <tr><td>Phone</td><td>: &nbsp;</td><td><?php echo $user_info['contact_no']; ?></td></tr>
-                    
-                    <?php
-                                                        $userinfo2 = $this->Product_model->get_table_information('auth_user', 'id', $user_info['id']);
 
+                    <?php
+                    $userinfo2 = $this->Product_model->get_table_information('auth_user', 'id', $user_info['id']);
                     ?>
-                    
+
                     <tr><td>Profession</td><td>: &nbsp;</td><td><?php echo $userinfo2[0]['profession_value']; ?></td></tr>
                 </table>
             </div>
@@ -784,10 +826,10 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                         </h3>
                                     </div>
                                     <div id="collapse<?php echo $count; ?>" class="panel-collapse collapse <?php
-                                    if ($count == 1) {
-                                        echo 'in';
-                                    }
-                                    ?>">
+                                                    if ($count == 1) {
+                                                        echo 'in';
+                                                    }
+                                                    ?>">
                                         <div class="panel-body">
                                             <div class="col-md-6" style="overflow-y: scroll;height: 500px;">
                                                 <table class="table table-striped table-bordered" style="overflow: scroll;height: 500px;">

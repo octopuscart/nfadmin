@@ -297,7 +297,15 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                             <div class="form-group">
                                 <label class="col-md-4 control-label" style="padding: 0px; text-align: right; font-weight: 600;">Shipping Date</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly name="shipping_date" style="height: 22px;">
+                                    <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>"  name="shipping_date" style="height: 22px;background:#fff;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12"  style="padding:  0px;margin-top: 10px;">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" style="padding: 0px; text-align: right; font-weight: 600;">Shipping Time</label>
+                                <div class="col-md-8">
+                                    <input type="time" class="form-control" value="<?php echo date('h:m:s'); ?>"  name="shipping_time" style="height: 22px;background:#fff;">
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 
 <!-- Item name ######################################## -->
-<div style="width:47%;background:#C0C0C0;float: left;margin-top: 10px;padding: 0 10x;font-family: sans-serif">Item Name : <?php echo $tag_data[$i]['tag']; ?></div>
+<div style="width:47%;background:#C0C0C0;float: left;margin-top: 10px;padding: 0 10x;font-family: sans-serif">Items List</div>
 <div style="width:47%;background:#C0C0C0;float: right;margin-top: 0px;text-align: right;padding: 0 10x">Quantity : <?php echo $tag_data[$i]['quantity']; ?></div>
 <!-- fdghgf########################################################## -->
 <table class="invoiceTable table" id="footerTable" style="width: 100%;margin-top:0; border:1px solid rgb(157, 153, 150);font-family: sans-serif">
@@ -19,13 +19,16 @@
                 </td>
             </tr>  
             <tr class="invoiceTd" style="text-align:left">
-                <th class="invoiceTd"   style="text-align:left;width: 150px">SKU</th> <td class="invoiceTd" style="    width: 50%;"> <?php echo $value['sku']; ?></td>
+                <th class="invoiceTd"  style="text-align:left">Item Name</th> <td class="invoiceTd" >  <?php echo $value['item_name']; ?></td>
+
                 <td style='width: 300px;text-align: center' rowspan="4">
                     SWATCHES 
                 </td>
             </tr>
+
+
             <tr style="text-align:left">
-                <th class="invoiceTd"  style="text-align:left">Item Code</th> <td class="invoiceTd" >  <?php echo $value['title']; ?></td>
+                <th class="invoiceTd"  style="text-align:left">Item Code/SKU</th> <td class="invoiceTd" >  <?php echo $value['title']; ?></td>
             </tr>
 
             <tr class="invoiceTd" >
@@ -98,9 +101,9 @@
             <th class="invoiceTd colspan" style="width: 25%;text-align: left;border-left: none;">Value</th>
 
             <th class="invoiceTd colspan" style="width: 17.5%;text-align: left;border-left: none;">Allowance</th>
-             <th class="invoiceTd colspan" style="width: 17.5%;text-align: left;border-left: none;"> Final Size <br/>
-                 <small style="font-size: 8px">(Measurement + Allowance)</small>
-             </th>
+            <th class="invoiceTd colspan" style="width: 17.5%;text-align: left;border-left: none;"> Final Size <br/>
+                <small style="font-size: 8px">(Measurement + Allowance)</small>
+            </th>
         </tr>
     </thead>
     <tbody >
@@ -303,15 +306,15 @@ switch ($item_id) {
     foreach ($tag_data[$i]['posture'] as $key => $value) {
         ?>
 
-                                                                    <tr  class="" style="width:5%">
+                                                                        <tr  class="" style="width:5%">
         <?php $posimg = $this->User_model->posture_image($key, $value)[0]; ?>
-                                                                        <td  class="invoiceTd"><?php echo $key; ?></td>
-                                                                        <td class="invoiceTd" style="padding-top: 10px;">
-                                                                            <span ><?php echo $value; ?></span>
-                                                                            <br/> 
-                                                                            <img src="<?php echo $posimg['image']; ?>" style="height:100px;witdh:100px;margin-top: 10px">
-                                                                        </td>
-                                                                    </tr>
+                                                                            <td  class="invoiceTd"><?php echo $key; ?></td>
+                                                                            <td class="invoiceTd" style="padding-top: 10px;">
+                                                                                <span ><?php echo $value; ?></span>
+                                                                                <br/> 
+                                                                                <img src="<?php echo $posimg['image']; ?>" style="height:100px;witdh:100px;margin-top: 10px">
+                                                                            </td>
+                                                                        </tr>
 
     <?php } ?>
 </tbody>  -->

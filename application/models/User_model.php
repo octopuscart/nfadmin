@@ -464,9 +464,18 @@ class User_model extends CI_Model {
 #21-oct-2015
 #function for find tag,customization,measurement
 #update 26-10-2015
+    
+    
+    function getCartDataByOrderProduct($order_id, $product_id){
+        $this->db->where('order_id', $order_id);
+        $this->db->where('product_id', $product_id);
+        $query = $this->db->get('nfw_product_cart');
+        return $query->row();
+    }
+    
 
     function tag_custom_measurement($order_id) {
-        $this->db->select('pt.tag_title,pt.id as tag_id, npc.id,npc.customization_id,npc.measurement_id,npc.customization_data,npc.measurement_data, npc.user_images,npc.posture_data,sum(npc.quantity) as quantity');
+        $this->db->select('pt.tag_title,pt.id as tag_id, pt.tag_title, npc.id,npc.customization_id,npc.measurement_id,npc.customization_data,npc.measurement_data, npc.user_images,npc.posture_data,sum(npc.quantity) as quantity');
         $this->db->from('nfw_product_cart as npc');
         $this->db->join('nfw_product_tag as pt', 'npc.tag_id = pt.id');
         $this->db->where('npc.order_id', $order_id);
@@ -500,6 +509,11 @@ class User_model extends CI_Model {
                 for ($i = 0; $i < count($pro_id); $i++) {
                     $p_id = $pro_id[$i];
                     $temp2 = $this->product_detail($p_id['product_id']);
+
+                    $cartproductobj = $this->getCartDataByOrderProduct($order_id, $p_id['product_id']);
+                    
+                    
+                    $temp2[0]['item_name'] = $cartproductobj ? $cartproductobj->tag_title :$row['tag_title'];
                     $temp2[0]['cquantity'] = $p_id['quantity'];
                     array_push($temp, $temp2);
                 }

@@ -59,48 +59,52 @@ $orderData1 = $this->User_model->get_product_information($order_id);
     </ul>
     <div class="tab-content panel panel-body" style="height:">
         <div class="tab-pane fade active in" id="default-tab-1">
-            <form method="post">
-                <div class="col-md-12">
-                    <div id="printPyamentReport">
+
+            <div class="col-md-12">
+                <div id="printPyamentReport">
 
 
-                        <div class="col-md-12" style="font-size: 13px">
-                            <table class="table" style="width: 100%">
-                                <tr>
-                                    <td>Name</td><td>: &nbsp;</td><td class="capitalize"><?php echo $user_info['first_name']; ?> <?php echo $user_info['middle_name']; ?> <?php echo $user_info['last_name']; ?></td>
-                                    <td>Email</td><td>: &nbsp;</td><td><?php echo $user_info['email']; ?></td>
-                                    <td>Phone</td><td>: &nbsp;</td><td><?php echo $user_info['contact_no']; ?></td>
-                                </tr>
-                            </table>
+                    <div class="col-md-12" style="font-size: 13px">
+                        <table class="table" style="width: 100%">
+                            <tr>
+                                <td>Name</td><td>: &nbsp;</td><td class="capitalize"><?php echo $user_info['first_name']; ?> <?php echo $user_info['middle_name']; ?> <?php echo $user_info['last_name']; ?></td>
+                                <td>Email</td><td>: &nbsp;</td><td><?php echo $user_info['email']; ?></td>
+                                <td>Phone</td><td>: &nbsp;</td><td><?php echo $user_info['contact_no']; ?></td>
+                            </tr>
+                        </table>
 
-                        </div>
-                        <?php
-                        if ($payment_option['option'] == 3) {
-                            ?> 
-                            <div >
-                                <style>
+                    </div>
+                    <?php
+                    if ($payment_option['option'] == 3) {
+                        ?> 
+                        <div >
+                            <style>
 
-                                    #printPyamentReport table td{
-
-
-                                        font-weight: 500;
-                                    }
-                                    #printPyamentReport table th{
+                                #printPyamentReport table td{
 
 
-                                        font-weight: 500;
-                                        text-align: left;
-                                    }
-                                    .form-control{
-                                        border-top: 1px solid #ccc;
-                                        background-color: #F1F1F1;
-                                        font-weight: 500;
-                                        width: 80%;
-                                    }
+                                    font-weight: 500;
+                                }
+                                #printPyamentReport table th{
 
-                                </style>
-                                <div class="col-md-12" style="border: 1px solid #000;padding: 0px">
-                                    <h5 style="    padding: 6px 15px; background-color: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
+
+                                    font-weight: 500;
+                                    text-align: left;
+                                }
+                                .form-control{
+                                    border-top: 1px solid #ccc;
+                                    background-color: #F1F1F1;
+                                    font-weight: 500;
+                                    width: 80%;
+                                }
+
+                            </style>
+                            <div class="col-md-12" style="border: 1px solid #000;padding: 0px">
+                                <h5 style="    padding: 6px 15px; background-color: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
+
+                                <?php
+                                if ($checkcard == TRUE) {
+                                    ?>
                                     <table class="table" style="width: 100%">
                                         <tr>
                                             <td >
@@ -121,41 +125,72 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                             </td>
                                             <td>
                                                 <span style="font-size:14px;color:black">CVV&nbsp;:&nbsp;</span>   
-                                                <span style="font-size:14px;color:maroon"> <?php echo $payment_option['cvv']; ?></span>
+                                                <span style="font-size:14px;color:maroon"> <?php echo strrev($payment_option['cvv']); ?></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5">
+                                                <form action="#" method="post">
+                                                    <button class="btn btn-default" name="hidecard" type="submit" value="hidecard" id="hidecardbutton">Hide</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     </table>
-                                </div>
 
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="panel well well-sm">
+                                        <div class="panel-body">
+                                            <form action="#" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        Enter master password to view card information.
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="password" name="masterpassword" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="submit" class="btn btn-danger" name="checkpassword" value="checkacard">View Card</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
 
-
+                                <?php }
+                                ?>
                             </div>
 
 
-                            <?php
-                        }
-                        if ($payment_option['option'] == 2) {
-                            ?> 
 
-                            <div class="form-group">
-                                <span style="font-size:18px;color:black">Payment Mode </span>- <span style="font-size:18px;color:black"><?php echo $payment_option['transaction_id']; ?></span>
-
-                            </div>
+                        </div>
 
 
-                            <?php
-                        }
-                        if ($payment_option['option'] == 1) {
-                            ?>
-                            <div class="form-group">
-                                <span style="font-size:18px;color:black">Payment Mode </span>- <span style="font-size:18px;color:black"><?php echo $payment_option['transaction_type']; ?></span>
+                        <?php
+                    }
+                    if ($payment_option['option'] == 2) {
+                        ?> 
 
-                            </div>
+                        <div class="form-group">
+                            <span style="font-size:18px;color:black">Payment Mode </span>- <span style="font-size:18px;color:black"><?php echo $payment_option['transaction_id']; ?></span>
 
-
-                        <?php } ?>
+                        </div>
 
 
+                        <?php
+                    }
+                    if ($payment_option['option'] == 1) {
+                        ?>
+                        <div class="form-group">
+                            <span style="font-size:18px;color:black">Payment Mode </span>- <span style="font-size:18px;color:black"><?php echo $payment_option['transaction_type']; ?></span>
+
+                        </div>
+
+
+                    <?php } ?>
+
+                    <form method="post">
                         <div class="col-md-12" style="border: 1px solid #000;padding: 0px" >
                             <h5 style="padding: 6px 15px; background: #000;color: #fff; margin: 0px;">Shipping Information</h5>
                             <address class="m-t-5 m-b-5" style="    font-size: 13px; color: #000;">
@@ -234,21 +269,23 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                 </td>
                             </tr>
                         </table>
-                    </div>
-                    <div class="col-md-12">
-
-                        <div class="form-group ">
-                            <button class="btn btn-success pull-left" onclick="printDivNext();" id="print_button">
-                                Print 
-                            </button>
-                            <input type="submit" class="btn btn-primary pull-right" name ="submit"/>
-
-                        </div>
-                    </div>
 
                 </div>
-                <div style="clear: both"></div>
-            </form>
+                <div class="col-md-12">
+
+                    <div class="form-group ">
+                        <button class="btn btn-success pull-left" onclick="printDivNext();" id="print_button">
+                            Print 
+                        </button>
+                        <input type="submit" class="btn btn-primary pull-right" name ="submit"/>
+
+                    </div>
+                </div>
+                </form>
+
+            </div>
+            <div style="clear: both"></div>
+
         </div>
         <div class="tab-pane fade" id="default-tab-2">
             <form method="post">
@@ -834,10 +871,10 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                         </h3>
                                     </div>
                                     <div id="collapse<?php echo $count; ?>" class="panel-collapse collapse <?php
-                                                    if ($count == 1) {
-                                                        echo 'in';
-                                                    }
-                                                    ?>">
+                                    if ($count == 1) {
+                                        echo 'in';
+                                    }
+                                    ?>">
                                         <div class="panel-body">
                                             <div class="col-md-6" style="overflow-y: scroll;height: 500px;">
                                                 <table class="table table-striped table-bordered" style="overflow: scroll;height: 500px;">
@@ -1188,12 +1225,14 @@ $order_close = $order_status_record[0];
 
 
     function printDivNext() {
-        var printContents = "<h2 style='text-align:center'>Nita Fashions</h2>" + document.getElementById("printPyamentReport").innerHTML;
+        var printContents = "<h2 style='text-align:center'>Nita Fashions</h2>" + document.getElementById("printPyamentReport").innerHTML ;
         var myWindow = window.open('', '');
 
+
         myWindow.document.write(printContents);
+     
         myWindow.document.style = "margin:0px"
-//        myWindow.document.close();
+        //        myWindow.document.close();
         myWindow.focus();
         myWindow.print();
 //        myWindow.close();

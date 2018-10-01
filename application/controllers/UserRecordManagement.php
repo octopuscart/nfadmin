@@ -88,7 +88,7 @@ class UserRecordManagement extends CI_Controller {
 
     public function user_profile_record_xls($user_type) {
         $statusquery = 'status != "Inactive" ';
-         $data['usertype'] = 'Active';
+        $data['usertype'] = 'Active';
         if ($user_type == 'I') {
             $statusquery = 'status = "Inactive" ';
             $data['usertype'] = 'Inactive';
@@ -105,14 +105,14 @@ class UserRecordManagement extends CI_Controller {
 
     function user_profile_record_pdf($option, $user_type) {
         $statusquery = 'status != "Inactive" ';
-         $data['usertype'] = 'Active';
+        $data['usertype'] = 'Active';
         if ($user_type == 'I') {
             $statusquery = 'status = "Inactive" ';
             $data['usertype'] = 'Inactive';
         }
         $data['userProfile'] = $this->User_model->query_exe('select * from auth_user where id not in (SELECT user_id FROM auth_membership) and ' . $statusquery . ' order by id desc');
         $data['type'] = 'paf';
-       
+
         $html = $this->load->view('userRecordManagement/userProfileRecordPdf', $data, TRUE);
         //echo $html;
         $this->load->library('M_pdf');
@@ -178,6 +178,8 @@ class UserRecordManagement extends CI_Controller {
 
         $data['order_id'] = $id;
 
+        $data['checkcard'] = FALSE;
+
 
         $order_refund_query = "SELECT date_time, credit_amt, remark FROM nfw_refund_admin where order_id = $id";
         $refundData = $this->User_model->query_exe($order_refund_query);
@@ -229,8 +231,8 @@ class UserRecordManagement extends CI_Controller {
             'tracking_link' => '',
             'total_weight' => '',
             'shipping_company' => '',
-            'shipping_tel_no'=>''
-            );
+            'shipping_tel_no' => ''
+        );
         $data['shipping_detail'] = count($shipping_detail) ? end($shipping_detail) : $temparray;
         // $query = "select ost.title as order_status,os.remark,os.op_date_time from nfw_order_status_tag as ost join nfw_old_order_status as os on os.status = ost.id where os.order_id = $id ";
         $data['order_status_record'] = $this->User_model->order_status_record($id);
@@ -321,18 +323,33 @@ class UserRecordManagement extends CI_Controller {
             }
         }
 
+        if (isset($_POST['checkpassword'])) {
+            $masterpassword = $_POST['masterpassword'];
+
+            $this->db->from("server_conf");
+            $query = $this->db->get();
+            $passwordconf = $query->row();
+            if ($passwordconf->static_password == $masterpassword) {
+                $data['checkcard'] = TRUE;
+            }
+        }
+        if (isset($_POST['hidecard'])) {
+            $data['checkcard'] = FALSE;
+            redirect('userRecordManagement/update_order_status/' . $id . '/' . $userId);
+        }
+
         if (isset($_POST['shipping_done'])) {
             $data = $_POST;
-            
+
             $spdate = $data['shipping_date'];
             $sptime = $data['shipping_time'];
-            $spdatetime = $spdate." ".$sptime;
+            $spdatetime = $spdate . " " . $sptime;
             $data['op_date_time'] = $spdatetime;
-            
+
             unset($data['shipping_done']);
             unset($data['shipping_date']);
             unset($data['shipping_time']);
-            
+
             $this->db->insert('nfw_order_shipping', $data);
             $insertId = $this->db->insert_id();
             $this->User_model->tracking_data_insert('nfw_order_shipping', $insertId, 'insert');
@@ -344,7 +361,7 @@ class UserRecordManagement extends CI_Controller {
             $order_status_data = array();
             $order_status_data['status'] = $data['status'];
             $order_status_data['order_id'] = $id;
-            $order_status_data['remark'] = $data['tracking_no'] . ',<a href="' . $data['tracking_link'] . '" target="_blank">' . $data['tracking_link'] . '</a>'.' ,' . $data['shipping_company'];
+            $order_status_data['remark'] = $data['tracking_no'] . ',<a href="' . $data['tracking_link'] . '" target="_blank">' . $data['tracking_link'] . '</a>' . ' ,' . $data['shipping_company'];
             $order_status_data['op_date_time'] = $spdatetime;
             $this->db->where('order_id', $id);
             $this->db->update('nfw_order_status', $order_status_data);
@@ -377,47 +394,44 @@ class UserRecordManagement extends CI_Controller {
         $data = $this->User_model->search_order_information($searchText);
         echo json_encode($data);
     }
-    
-    
-    
-     function universalCoupon() {
+
+    function universalCoupon() {
         $shipping_data = $this->Product_model->get_table_information('nfw_universal_coupon');
         $data['coupon_data'] = end($shipping_data);
-        
+
         $discount_data = $this->Product_model->get_table_information('nfw_flat_discount');
         $data['discount_data'] = end($discount_data);
-        
+
         if (isset($_POST['update_coupon'])) {
             $coupon_data = array(
                 'coupon_code' => $this->input->post('coupon_code'),
                 'coupon_amount' => $this->input->post('coupon_amount'),
-                 'coupon_status' => $this->input->post('coupon_status'),
+                'coupon_status' => $this->input->post('coupon_status'),
                 'created_datetime' => date('Y-m-d H:m:s'),
             );
-          
+
             $this->db->where('id', '1');
             $this->db->update('nfw_universal_coupon', $coupon_data);
             redirect('userRecordManagement/universalCoupon');
         }
-        
-        
+
+
         if (isset($_POST['update_discount'])) {
             $discount_data = array(
                 'discount_type' => $this->input->post('discount_type'),
                 'discount_value' => $this->input->post('discount_value'),
-                 'discount_status' => $this->input->post('discount_status'),
+                'discount_status' => $this->input->post('discount_status'),
                 'discount_datetime' => date('Y-m-d H:m:s'),
             );
-          
+
             $this->db->where('id', '1');
             $this->db->update('nfw_flat_discount', $discount_data);
             redirect('userRecordManagement/universalCoupon');
         }
-        
-        
+
+
         $this->load->view('userRecordManagement/universal_coupon', $data);
     }
-
 
     public function coupon_generate() {
 
@@ -812,9 +826,9 @@ class UserRecordManagement extends CI_Controller {
         $pdf->useAdobeCJK = true;
         $pdf->setFooter('Page {PAGENO} of {nb}');
 
-         $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
+        $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
         $pdf->WriteHTML($html);
-        $pdf->Output($pdfFilePath.".pdf", "I");
+        $pdf->Output($pdfFilePath . ".pdf", "I");
     }
 
     #28-oct-2015

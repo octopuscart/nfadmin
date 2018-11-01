@@ -102,64 +102,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                             <div class="col-md-12" style="border: 1px solid #000;padding: 0px">
                                 <h5 style="    padding: 6px 15px; background-color: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
 
-                                <?php
-                                if ($checkcard == TRUE) {
-                                    ?>
-                                    <table class="table" style="width: 100%">
-                                        <tr>
-                                            <td >
-                                                <span style="font-size:14px;color:black">Name On Card&nbsp;:&nbsp;</span> 
-                                                <span style="font-size:14px;color:maroon"> <?php echo $payment_option['card_holder_name']; ?></span>
-                                            </td>
-                                            <td>
-                                                <span style="font-size:14px;color:black">Card No.&nbsp;:&nbsp;</span> 
-                                                <span style="font-size:14px;color:maroon"> <?php echo $payment_option['card_number']; ?></span>
-                                            </td>
-                                            <td>
-                                                <span style="font-size:14px;color:black">Exp.Month&nbsp;:&nbsp;</span> 
-                                                <span style="font-size:14px;color:maroon"> <?php echo $payment_option['expiry_month']; ?></span>
-                                            </td>
-                                            <td>
-                                                <span style="font-size:14px;color:black">Exp. Year&nbsp;:&nbsp;</span> 
-                                                <span style="font-size:14px;color:maroon"> <?php echo $payment_option['expiry_year']; ?></span>
-                                            </td>
-                                            <td>
-                                                <span style="font-size:14px;color:black">CVV&nbsp;:&nbsp;</span>   
-                                                <span style="font-size:14px;color:maroon"> <?php echo strrev($payment_option['cvv']); ?></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5">
-                                                <form action="#" method="post">
-                                                    <button class="btn btn-default" name="hidecard" type="submit" value="hidecard" id="hidecardbutton">Hide</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
-
-                                    <?php
-                                } else {
-                                    ?>
-                                    <div class="panel well well-sm">
-                                        <div class="panel-body">
-                                            <form action="#" method="post">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        Enter master password to view card information.
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input type="password" name="masterpassword" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <button type="submit" class="btn btn-danger" name="checkpassword" value="checkacard">View Card</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                <?php }
-                                ?>
+                              
                             </div>
 
 

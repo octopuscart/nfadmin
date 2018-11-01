@@ -215,11 +215,11 @@ class UserRecordManagement extends CI_Controller {
             $dassss = $this->User_model->phpjsonstyle($orderDetail[0]['payment_gateway_return'], 'php');
 
             $temp_arry = array(
-                'card_holder_name' => '',
-                'card_number' => '',
-                'expiry_month' => '',
-                'expiry_year' => '',
-                'cvv' => '',
+                'card_holder_name' => $dassss['card_holder_name'],
+                'card_number' => $dassss['card_number'],
+                'expiry_month' => $dassss['expiry_month'],
+                'expiry_year' => $dassss['expiry_year'],
+                'cvv' => $dassss['cvv'],
                 'option' => '3'
             );
             $data['payment_option'] = $temp_arry;

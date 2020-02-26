@@ -591,7 +591,7 @@ class User_model extends CI_Model {
     function posture_image($key, $value) {
         $query = "SELECT set_image as image FROM nfw_custom_element_field as ncef
                join nfw_custom_element as nce on nce.id = ncef.nfw_custom_element_id 
-               where nce.title = '$key' and ncef.child_label = '$value'";
+               where nce.title = '$key' and ncef.title = '$value'";
         $result = $this->query_exe($query);
         return $result;
     }

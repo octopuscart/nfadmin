@@ -1,52 +1,56 @@
 
-<!-- Item name ######################################## -->
-<div style="width:47%;background:#C0C0C0;float: left;margin-top: 10px;padding: 0 10x;font-family: sans-serif">Items List</div>
-<div style="width:47%;background:#C0C0C0;float: right;margin-top: 0px;text-align: right;padding: 0 10x">Quantity : <?php echo $orderDetails['total_quantity']; ?></div>
-<!-- fdghgf########################################################## -->
 <table class="invoiceTable table" id="footerTable" style="width: 100%;margin-top:0; border:1px solid rgb(157, 153, 150);font-family: sans-serif">
 
 
     <tbody style="font-size:10px">
-       
+        <tr>
+            <td colspan="2" style="    font-size: 12px;background: #f5f5f5;">
+                Items List
+            </td>
+            <td colspan="1" style="    font-size: 12px;background: #f5f5f5;">
+                Quantity : <?php echo $orderDetails['total_quantity']; ?>
+            </td>
+        </tr>
 
 
-            <tr class="invoiceTd" >
-                <td  rowspan="5" style="width:65px;" class="invoiceTd colspan"> 
-                    <img src="<?php echo $cvalue['item_image']; ?>" height="50px" width="50px">
-                </td>
-            </tr>  
-           
-            <tr class="invoiceTd" style="text-align:left">
-                <th class="invoiceTd"  style="text-align:left">Item Name</th> <td class="invoiceTd" >  <?php echo $cvalue['title']; ?></td>
 
-                <td style='width: 300px;text-align: center' rowspan="4">
-                    SWATCHES 
-                </td>
-            </tr>
+        <tr class="invoiceTd" >
+            <td  rowspan="5" style="width:65px;" class="invoiceTd colspan"> 
+                <img src="<?php echo $cvalue['item_image']; ?>" height="50px" width="50px">
+            </td>
+        </tr>  
+
+        <tr class="invoiceTd" style="text-align:left">
+            <th class="invoiceTd"  style="text-align:left">Item Name</th> <td class="invoiceTd" >  <?php echo $cvalue['title']; ?></td>
+
+            <td style='width: 300px;text-align: center' rowspan="4">
+                SWATCHES 
+            </td>
+        </tr>
 
 
-            <tr style="text-align:left">
-                <th class="invoiceTd"  style="text-align:left">Item Code/SKU</th> <td class="invoiceTd" >  <?php echo $cvalue['title']; ?></td>
-            </tr>
+        <tr style="text-align:left">
+            <th class="invoiceTd"  style="text-align:left">Item Code/SKU</th> <td class="invoiceTd" >  <?php echo $cvalue['title']; ?></td>
+        </tr>
 
-            <tr class="invoiceTd" >
-                <th class="invoiceTd"  style="text-align:left">Item Feature</th> <td class="invoiceTd" > <?php echo $cvalue['product_speciality']; ?></td>
-            </tr>
-            <tr class="invoiceTd" >
-                <th class="invoiceTd"  style="text-align:left">Quantity</th> <td class="invoiceTd" > <?php echo $cvalue['quantity']; ?></td>
-            </tr>
-            <tr style="    background-color: #C0C0C0;">
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+        <tr class="invoiceTd" >
+            <th class="invoiceTd"  style="text-align:left">Item Feature</th> <td class="invoiceTd" > <?php echo $cvalue['product_speciality']; ?></td>
+        </tr>
+        <tr class="invoiceTd" >
+            <th class="invoiceTd"  style="text-align:left">Quantity</th> <td class="invoiceTd" > <?php echo $cvalue['quantity']; ?></td>
+        </tr>
+        <tr style="    background-color: #C0C0C0;">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
 
-  
+
 
 
     </tbody>  
 </table> 
-<div style="background:#F5F5F5;width:100%;height:5px;font-family:sans-serif;margin-top:5px;font-size:12px;border:1px solid rgb(157, 153, 150);">
+<div style="background:#F5F5F5;width:100%;;font-family:sans-serif;margin-top:5px;font-size:12px;border:1px solid rgb(157, 153, 150);">
     <div style="padding:5px;text-align: center;font-size:15px;">
         Style Details: <?php echo ($cvalue['customization_data']); ?>
     </div>
@@ -63,20 +67,30 @@
         </tr>
     </thead>
     <tbody style="font-size:10px">
-        <
-        <?php foreach ($cvalue['customdata']['style'] as $key => $value) { ?>
+
+        <?php
+        $customizId = $value['customization_id'];
+        if (($customizId > 0) && isset($cvalue['customdata'])) {
+            foreach ($cvalue['customdata']['style'] as $key => $value) {
+                ?>
+
+                <?php
+                if ($key == 'Wrist Watch') {
+                    $wrist_watch = $value;
+                }
+                ?>
+                <tr class="">
+                    <td class="invoiceTd"><?php echo $key; ?></td>
+                    <td class="invoiceTd"><?php echo $value; ?></td>
+                </tr>
 
             <?php
-            if ($key == 'Wrist Watch') {
-                $wrist_watch = $value;
             }
-            ?>
-            <tr class="">
-                <td class="invoiceTd"><?php echo $key; ?></td>
-                <td class="invoiceTd"><?php echo $value; ?></td>
-            </tr>
-
-        <?php } ?>
+        }
+        else{
+              echo "<tr><td colspan=2 style='text-align:center'>Shop Stored</td></tr>";
+        }
+        ?>
 
     </tbody>  
 </table>  
@@ -105,29 +119,36 @@
     </thead>
     <tbody >
         <?php
-        foreach ($tag_data[$i]['meas'] as $key => $value) {
-            ?>
+        $measurement_id = $cvalue['measurement_id'];
+        if (($measurement_id > 0) && isset($cvalue['measurements'])) {
+            foreach ($cvalue['measurements']['meausrements'] as $key => $value) {
+                ?>
 
-            <tr  class="" style="width:5%">
-                <td  class="invoiceTd" style='border-right: none;'>
-                    <?php
-                    echo $key;
-                    ?>
-                </td>
+                <tr  class="" style="width:5%">
+                    <td  class="invoiceTd" style='border-right: none;'>
+                        <?php
+                        echo $key;
+                        ?>
+                    </td>
 
-                <td class="invoiceTd" style="border-left: none;">
-                    <?php
-                    echo "<span style='font-family: Sun-ExtA ;font-size: 15px;'>" . $lng_array[$key] . "</span>";
-                    ?>
-                </td>
-                <td class="invoiceTd"><?php echo $value; ?></td>
-                <td class="invoiceTd"></td>
-                <td class="invoiceTd"></td>
-            </tr>
+                    <td class="invoiceTd" style="border-left: none;">
+                        <?php
+                        echo "<span style='font-family: Sun-ExtA ;font-size: 15px;'>" . $lng_array[$key] . "</span>";
+                        ?>
+                    </td>
+                    <td class="invoiceTd"><?php echo $value; ?></td>
+                    <td class="invoiceTd"></td>
+                    <td class="invoiceTd"></td>
+                </tr>
 
 
 
-        <?php } ?>
+                <?php
+            }
+        } else {
+            echo "<tr><td colspan=5 style='text-align:center'>Shop Stored</td></tr>";
+        }
+        ?>
     </tbody>
 </table>
 <?php
@@ -145,7 +166,7 @@ switch ($item_id) {
                         <br/>
 
                         <br/>
-                        <?php echo $wrist_watch; ?>
+        <?php echo $wrist_watch; ?>
                     </td>
 
                     <td style='text-align:center; padding-top: 5px;   vertical-align: top;height:100px;width:20%;font-size: 12px;border:1px solid #000'>
@@ -183,7 +204,7 @@ switch ($item_id) {
                     <td style='text-align:center; padding-top: 5px;   vertical-align: top;height:100px;width:20%;font-size: 12px;border:1px solid #000'>
                         Wrist Watch 
                         <br/>
-                        <?php echo $wrist_watch; ?>
+        <?php echo $wrist_watch; ?>
                     </td>
 
                     <td style='text-align:center; padding-top: 5px;   vertical-align: top;height:100px;width:20%;font-size: 12px;border:1px solid #000'>
@@ -264,29 +285,28 @@ switch ($item_id) {
         <tr style="text-align:center;font-size: 12px;">
             <?php
             $posturearray = [];
-            $posturearraydiv = $tag_data[$i]['posture'];
-            foreach ($tag_data[$i]['posture'] as $key => $value) {
-                array_push($posturearray, $key);
-            }
 
-            for ($t = 0; $t < 5; $t++) {
-                $ky = $posturearray[$t];
-                $vl = $posturearraydiv[$ky];
-                $posimg = $this->User_model->posture_image($ky, $vl)[0];
-                ?>
-                <td style='vertical-align: top;text-align:center;padding-top: 5px;height:100px;width:20%;font-size: 12px;border:1px solid #000'>
-                    <span ><?php echo $ky; ?></span>
+            if (($measurement_id > 0) && isset($cvalue['measurements']['posture'])) {
 
-                    <br/> 
+                foreach ($cvalue['measurements']['posture'] as $key => $value) {
+                    $ky = $key;
+                    $vl = $value;
+                    $posimg = $this->User_model->posture_image($ky, $vl)[0];
+                    ?>
+                    <td style='vertical-align: top;text-align:center;padding-top: 5px;height:100px;width:20%;font-size: 12px;border:1px solid #000'>
+                        <span ><?php echo $ky; ?></span>
+
+                        <br/> 
+                        <?php
+                        if ((count($posimg))) {
+                            ?>
+                            <img src="<?php echo $posimg['image']; ?>" style="height:100px;witdh:100px;margin-top: 10px">
+        <?php } ?>
+                        <br/>
+                        <span ><?php echo $vl; ?></span>
+                    </td>
                     <?php
-                    if ((count($posturearray)) > $t) {
-                        ?>
-                        <img src="<?php echo $posimg['image']; ?>" style="height:100px;witdh:100px;margin-top: 10px">
-                    <?php } ?>
-                    <br/>
-                    <span ><?php echo $vl; ?></span>
-                </td>
-                <?php
+                }
             }
             ?>
         </tr>
@@ -303,33 +323,20 @@ switch ($item_id) {
     foreach ($tag_data[$i]['posture'] as $key => $value) {
         ?>
 
-                                                                        <tr  class="" style="width:5%">
-        <?php $posimg = $this->User_model->posture_image($key, $value)[0]; ?>
-                                                                            <td  class="invoiceTd"><?php echo $key; ?></td>
-                                                                            <td class="invoiceTd" style="padding-top: 10px;">
-                                                                                <span ><?php echo $value; ?></span>
-                                                                                <br/> 
-                                                                                <img src="<?php echo $posimg['image']; ?>" style="height:100px;witdh:100px;margin-top: 10px">
-                                                                            </td>
-                                                                        </tr>
+                                                                                            <tr  class="" style="width:5%">
+    <?php $posimg = $this->User_model->posture_image($key, $value)[0]; ?>
+                                                                                                <td  class="invoiceTd"><?php echo $key; ?></td>
+                                                                                                <td class="invoiceTd" style="padding-top: 10px;">
+                                                                                                    <span ><?php echo $value; ?></span>
+                                                                                                    <br/> 
+                                                                                                    <img src="<?php echo $posimg['image']; ?>" style="height:100px;witdh:100px;margin-top: 10px">
+                                                                                                </td>
+                                                                                            </tr>
 
-    <?php } ?>
+<?php } ?>
 </tbody>  -->
 </table>  
-<div>
-    <h3 style="font-family:sans-serif;width:100%;float:left">Client Images <p style="font-size:10px">See Below</p></h3>
 
-    <?php
-    if (count($tag_data[$i]['user_image'])) {
-        foreach ($tag_data[$i]['user_image'] as $key => $value) {
-            ?>  <img style='width:330px;margin:10px' src='<?php echo image_server; ?>nfw/medium/<?php echo trim($value, '"'); ?>'  >
-
-            <?php
-        }
-        echo "<pagebreak />";
-    }
-    ?>
-</div>
 
 
 

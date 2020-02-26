@@ -824,16 +824,16 @@ class UserRecordManagement extends CI_Controller {
         $data['cartdata'] = $orderData['cartdata'];
 
         $data['report_type'] = $report_type;
-//        $this->load->library('M_pdf');
-//   
-//        $pdf = $this->m_pdf->load();
-//        ob_end_clean();
-//        $pdf->useAdobeCJK = true;
-//        $pdf->setFooter('Page {PAGENO} of {nb}');
+        $this->load->library('M_pdf');
+   
+        $pdf = $this->m_pdf->load();
+        ob_end_clean();
+        $pdf->useAdobeCJK = true;
+        $pdf->setFooter('Page {PAGENO} of {nb}');
 
-        echo $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
-        //$pdf->WriteHTML($html);
-        // $pdf->Output($pdfFilePath . ".pdf", "I");
+         $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
+        $pdf->WriteHTML($html);
+        $pdf->Output($pdfFilePath . ".pdf", "I");
     }
 
     #28-oct-2015

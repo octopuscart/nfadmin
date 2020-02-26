@@ -809,10 +809,10 @@ class UserRecordManagement extends CI_Controller {
 
     function worker_order_receipt_pdf($order_id, $userId, $report_type) {
         $orderData = $this->User_model->getOrderDetails($order_id);
-        
-        
+
+
         $orderDetails = $orderData['details'];
-        
+
         $order_no = $orderDetails['order_no'];
         $invoice_no = str_replace("ON", "IN", $order_no);
         $orderDetails['invoice_no'] = $invoice_no;
@@ -825,13 +825,13 @@ class UserRecordManagement extends CI_Controller {
 
         $data['report_type'] = $report_type;
         $this->load->library('M_pdf');
-   
+
         $pdf = $this->m_pdf->load();
         ob_end_clean();
         $pdf->useAdobeCJK = true;
         $pdf->setFooter('Page {PAGENO} of {nb}');
 
-         $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
+        $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath . ".pdf", "I");
     }

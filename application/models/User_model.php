@@ -634,12 +634,14 @@ class User_model extends CI_Model {
         $temp = array();
         foreach ($t as $key => $value) {
             $t1 = explode(':', $value);
-            $temp3 = $t1[1];
-            $temp3 = substr($temp3, 0, -1);
-            $temp3 = ltrim($temp3, '"');
-            $temp31 = str_replace("++*++", ",", $temp3);
-            $temp32 = str_replace("|||||", "'", $temp31);
-            $temp[trim($t1[0], '"')] = $temp32;
+            if (count($t1)>1) {
+                $temp3 = $t1[1];
+                $temp3 = substr($temp3, 0, -1);
+                $temp3 = ltrim($temp3, '"');
+                $temp31 = str_replace("++*++", ",", $temp3);
+                $temp32 = str_replace("|||||", "'", $temp31);
+                $temp[trim($t1[0], '"')] = $temp32;
+            }
         }
         if ($data_type == 'php') {
             return $temp;
@@ -1088,7 +1090,7 @@ class User_model extends CI_Model {
         $cartdata = $querycart->result_array();
         $productlist = [];
         foreach ($cartdata as $key => $value) {
-     
+
             $measurementdata = $this->getMeasurementDataById($value['measurement_id']);
             $customdata = $this->getCustomizationDataById($value['customization_id']);
             $value['measurements'] = $measurementdata;

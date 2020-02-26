@@ -102,7 +102,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                             <div class="col-md-12" style="border: 1px solid #000;padding: 0px">
                                 <h5 style="    padding: 6px 15px; background-color: #000;color: #fff; margin: 0px;">Payment Mode - Credit Card</h5>
 
-                              
+
                             </div>
 
 
@@ -528,10 +528,10 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                 $temp = ($order_status_record);
                 foreach ($temp as $key => $value) {
                     $ht = "<tr '>";
-                    $ht.= "<td style='width:170px'>" . $value['date'] . "</td>";
-                    $ht.= "<td style='    border-left: 1px solid;padding: 0;width: 1px;'><i class='fa fa-circle fa-2x' style='margin-left: -25px;margin-left: -11px;
+                    $ht .= "<td style='width:170px'>" . $value['date'] . "</td>";
+                    $ht .= "<td style='    border-left: 1px solid;padding: 0;width: 1px;'><i class='fa fa-circle fa-2x' style='margin-left: -25px;margin-left: -11px;
     margin-top: 11px;'></i></td>";
-                    $ht.= '<th>' . $value['order_status'] . ' <br><small style="font-weight:300;font-size:13px">  ' . ($value['status_tag'] != '7' ? $value['remark'] : '') . '</small> </th>';
+                    $ht .= '<th>' . $value['order_status'] . ' <br><small style="font-weight:300;font-size:13px">  ' . ($value['status_tag'] != '7' ? $value['remark'] : '') . '</small> </th>';
 
 
                     array_push($proccessArray, $ht);
@@ -706,7 +706,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                 <div class="panel  overflow-hidden">
                                     <div class="panel-heading" style="background: rgba(179, 179, 179, 0.12);">
                                         <h3 class="panel-title">
-                                            <a class="accordion-toggle accordion-toggle-styled collapsed" style="height: 40px;" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $count; ?>" aria-expanded="false">
+                                            <a class="accordion-toggle accordion-toggle-styled collapsed" style="height: 40px;" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i+1; ?>" aria-expanded="false">
                                                 <div class="col-md-1">
                                                     <?php echo $count; ?>
                                                 </div>
@@ -723,7 +723,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                                     <?php echo $value['item_name']; ?>
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <?php echo '$' . number_format($value['price'], 2, '.', ''); ?>
+                                                    <?php echo '$' . number_format(($value['price'] - $value['extra_price']), 2, '.', ''); ?>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <?php echo $value['quantity']; ?>
@@ -813,73 +813,73 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                             </a>
                                         </h3>
                                     </div>
-                                    <div id="collapse<?php echo $count; ?>" class="panel-collapse collapse <?php
-                                    if ($count == 1) {
-                                        echo 'in';
-                                    }
-                                    ?>">
+                                    <div id="collapse<?php echo $i+1; ?>" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <div class="col-md-6" style="overflow-y: scroll;height: 500px;">
                                                 <table class="table table-striped table-bordered" style="overflow: scroll;height: 500px;">
-
                                                     <?php
-                                                    //$customizId = $value['customization_id'];
-                                                    //$data = $this->User_model->style_detail($customizId);
-                                                    $res = $this->User_model->phpjsonstyle($value['customization_data'], 'php');
-                                                    echo '<tbody>';
-                                                    echo '<tr>';
-                                                    echo '<td>Style</td>';
-                                                    echo '<td>' . $value['customization_id'] . '</td>';
-                                                    echo '</tr>';
-                                                    foreach ($res as $key1 => $value1) {
+                                                    $customizId = $value['customization_id'];
+                                                    if ($customizId > 0) {
+                                                        //$data = $this->User_model->style_detail($customizId);
+                                                        $res = $this->User_model->getCustomizationDataById($customizId);
+                                                        echo '<tbody>';
                                                         echo '<tr>';
-                                                        echo '<td>' . $key1 . '</td>';
-                                                        echo '<td>' . $value1 . '</td>';
+                                                        echo '<td>Style</td>';
+                                                        echo '<td>' . $value['customization_data'] . '</td>';
                                                         echo '</tr>';
+                                                        foreach ($res['style'] as $key1 => $value1) {
+                                                            echo '<tr>';
+                                                            echo '<td>' . $key1 . '</td>';
+                                                            echo '<td>' . $value1 . '</td>';
+                                                            echo '</tr>';
+                                                        }
+                                                        echo '</tbody>';
+                                                    } else {
+                                                        echo "<tr><td>Shop Stored<td></tr>";
                                                     }
-                                                    echo '</tbody>';
                                                     ?>
                                                 </table>
                                             </div>
                                             <div class="col-md-6" style="overflow-y: scroll;height:500px">
                                                 <table class="table table-striped table-bordered" style="overflow: scroll;height: 500px;">
-
-
                                                     <?php
-                                                    //$measurement_id = $value['measurement_id'];
-                                                    // $finalData = $this->User_model->measurement_detail($measurement_id);
-                                                    echo '<tbody>';
-                                                    $res1 = $this->User_model->phpjsonstyle($value['measurement_data'], 'php');
+                                                    $measurement_id = $value['measurement_id'];
+                                                    if ($measurement_id > 0) {
+                                                        // $finalData = $this->User_model->measurement_detail($measurement_id);
+                                                        echo '<tbody>';
+                                                        $res1 = $this->User_model->getMeasurementDataById($value['measurement_id']);
+                                                        foreach ($res1['meausrements'] as $key2 => $value2) {
+                                                            echo '<tr>';
+                                                            echo '<td>' . $key2 . '</td>';
+                                                            echo '<td>' . $value2 . '</td>';
+                                                            echo '</tr>';
+                                                        }
+                                                        echo '<tr><th colspan =2>Your Posture</th></tr>';
+                                                        foreach ($res1['posture'] as $key2 => $value2) {
+                                                            $posimg = $this->User_model->posture_image($key2, $value2)[0];
 
-                                                    foreach ($res1 as $key2 => $value2) {
-                                                        echo '<tr>';
-                                                        echo '<td>' . $key2 . '</td>';
-                                                        echo '<td>' . $value2 . '</td>';
-                                                        echo '</tr>';
+                                                            echo "<tr>", '', "</tr>";
+                                                            echo '<tr>';
+                                                            echo '<td>' . $key2 . '</td>';
+                                                            echo '<td>' . $value2 . ' <br/><img src="' . $posimg['image'] . '" style="height:100px;witdh:100px"></td>';
+                                                            echo '</tr>';
+                                                        }
+                                                        echo "<tr><td colspan=2>";
+                                                        $image_data = $value['user_images'];
+                                                        $image_data = trim($image_data, "[");
+                                                        $image_data = trim($image_data, "]");
+                                                        $image_data = explode(",", $image_data);
+                                                        $timg = '';
+//                                                        foreach ($image_data as $key1 => $value1) {
+//                                                            $timg .= "<img style='height:300px;width:300px;float:left;margin:10px' src='http://costcointernational.com/nfw/medium/" . trim($value1, '"') . "' >";
+//                                                        }
+                                                        echo $timg;
+                                                        echo "</td></tr>";
+                                                        echo '</tbody>';
                                                     }
-                                                    $res2 = $this->User_model->phpjsonstyle($value['posture_data'], 'php');
-                                                    echo '<tr><th colspan =2>Your Posture</th></tr>';
-                                                    foreach ($res2 as $key2 => $value2) {
-                                                        $posimg = $this->User_model->posture_image($key2, $value2)[0];
-
-                                                        echo "<tr>", '', "</tr>";
-                                                        echo '<tr>';
-                                                        echo '<td>' . $key2 . '</td>';
-                                                        echo '<td>' . $value2 . ' <br/><img src="' . $posimg['image'] . '" style="height:100px;witdh:100px"></td>';
-                                                        echo '</tr>';
+                                                    else {
+                                                        echo "<tr><td>" . $value['measurement_data'] . "<td></tr>";
                                                     }
-                                                    echo "<tr><td colspan=2>";
-                                                    $image_data = $value['user_images'];
-                                                    $image_data = trim($image_data, "[");
-                                                    $image_data = trim($image_data, "]");
-                                                    $image_data = explode(",", $image_data);
-                                                    $timg = '';
-                                                    foreach ($image_data as $key1 => $value1) {
-                                                        $timg .= "<img style='height:300px;width:300px;float:left;margin:10px' src='http://costcointernational.com/nfw/medium/" . trim($value1, '"') . "' >";
-                                                    }
-                                                    echo $timg;
-                                                    echo "</td></tr>";
-                                                    echo '</tbody>';
                                                     ?>
                                                 </table>
                                             </div>
@@ -887,8 +887,6 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                     </div>
                                 </div>
                                 <?php
-                                $count++;
-                                $totals = $totals + $value['total_price'];
                             }
                         }
                         ?>
@@ -905,14 +903,18 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         </div>
                         <div class="sub-price">
                             <small>SUBTOTAL</small>
-                            <span id="subtotalCost"><?php echo '$' . number_format($totals, 2, '.', ''); ?></span>
+
+                            <span id="subtotalCost"><?php echo $orderData[0]['total_price']; ?></span>
                         </div>
                         <div class="sub-price">
                             <i class="fa fa-plus"></i>
                         </div >
                         <div class="sub-price">
                             <small>Shipping</small>
-                            <?php echo $orderData[0]['shipping_amount']; ?> 
+                            <?php
+                            $shippingamount = $orderData[0]['shipping_amount'];
+                            echo '$' . number_format($shippingamount, 2, '.', '');
+                            ?> 
                         </div>
                         <div class="sub-price">
                             )
@@ -955,7 +957,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         </div >
                         <div class="sub-price">
                             <small>WALLET</small>
-                            <?php echo '$' . number_format($orderData[0]['wallet_amount'], 2, '.', ''); ?> 
+                            <?php echo '$' . number_format("00", 2, '.', ''); ?> 
                         </div>
                         <div class="sub-price">
                             )
@@ -969,9 +971,9 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         <small style='    width: 100%;
                                padding-right: 32px;'>GRAND TOTAL</small>
                                <?php
-                               $order_amount = $orderData[0]['total_price'];
-                               echo $order_amount;
+                               $order_amount = str_replace("$", "", $orderData[0]['total_price']) + $orderData[0]['shipping_amount'];
                                ?> 
+                               <?php echo '$' . number_format($order_amount, 2, '.', ''); ?>
                     </span>  
 
                     </span>
@@ -1168,12 +1170,12 @@ $order_close = $order_status_record[0];
 
 
     function printDivNext() {
-        var printContents = "<h2 style='text-align:center'>Nita Fashions</h2>" + document.getElementById("printPyamentReport").innerHTML ;
+        var printContents = "<h2 style='text-align:center'>Nita Fashions</h2>" + document.getElementById("printPyamentReport").innerHTML;
         var myWindow = window.open('', '');
 
 
         myWindow.document.write(printContents);
-     
+
         myWindow.document.style = "margin:0px"
         //        myWindow.document.close();
         myWindow.focus();

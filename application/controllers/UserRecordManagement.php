@@ -808,27 +808,32 @@ class UserRecordManagement extends CI_Controller {
     #update 10dec2015
 
     function worker_order_receipt_pdf($order_id, $userId, $report_type) {
-        $data['invoice_info'] = $this->Product_model->get_user_invoice_info($order_id, $userId);
-        $res = $this->Product_model->get_user_invoice_info($order_id, $userId);
-        $pdfFilePath = $res[0]['invoice_no'];
+        $orderData = $this->User_model->getOrderDetails($order_id);
+        
+        
+        $orderDetails = $orderData['details'];
+        
+        $order_no = $orderDetails['order_no'];
+        $invoice_no = str_replace("ON", "IN", $order_no);
+        $orderDetails['invoice_no'] = $invoice_no;
+        $pdfFilePath = $invoice_no;
+        $data['orderDetails'] = $orderDetails;
 
-        $orderDetail = $this->User_model->user_whole_order_detail($order_id);
-        $data['user_info'] = $this->User_model->phpjsonstyle($orderDetail[0]['user_info'], 'php');
+        $data['user_info'] = $this->User_model->phpjsonstyle($orderDetails['user_info'], 'php');
 
-        $data['orderNo'] = $this->Product_model->get_table_information('nfw_product_order', 'id', $order_id);
-        $data['tag_data'] = $this->User_model->tag_custom_measurement($order_id);
+        $data['cartdata'] = $orderData['cartdata'];
 
         $data['report_type'] = $report_type;
-        $this->load->library('M_pdf');
+//        $this->load->library('M_pdf');
+//   
+//        $pdf = $this->m_pdf->load();
+//        ob_end_clean();
+//        $pdf->useAdobeCJK = true;
+//        $pdf->setFooter('Page {PAGENO} of {nb}');
 
-        $pdf = $this->m_pdf->load();
-        ob_end_clean();
-        $pdf->useAdobeCJK = true;
-        $pdf->setFooter('Page {PAGENO} of {nb}');
-
-        $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
-        $pdf->WriteHTML($html);
-        $pdf->Output($pdfFilePath . ".pdf", "I");
+        echo $html = $this->load->view('userRecordManagement/workerOrderReceipt', $data, true);
+        //$pdf->WriteHTML($html);
+        // $pdf->Output($pdfFilePath . ".pdf", "I");
     }
 
     #28-oct-2015

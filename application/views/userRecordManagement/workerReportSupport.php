@@ -1,25 +1,23 @@
 
 <!-- Item name ######################################## -->
 <div style="width:47%;background:#C0C0C0;float: left;margin-top: 10px;padding: 0 10x;font-family: sans-serif">Items List</div>
-<div style="width:47%;background:#C0C0C0;float: right;margin-top: 0px;text-align: right;padding: 0 10x">Quantity : <?php echo $tag_data[$i]['quantity']; ?></div>
+<div style="width:47%;background:#C0C0C0;float: right;margin-top: 0px;text-align: right;padding: 0 10x">Quantity : <?php echo $orderDetails['total_quantity']; ?></div>
 <!-- fdghgf########################################################## -->
 <table class="invoiceTable table" id="footerTable" style="width: 100%;margin-top:0; border:1px solid rgb(157, 153, 150);font-family: sans-serif">
 
 
     <tbody style="font-size:10px">
-        <?php
-        for ($s = 0; $s < count($p_detail); $s++) {
-            $value = $p_detail[$s][0];
-            ?>
+       
 
 
             <tr class="invoiceTd" >
                 <td  rowspan="5" style="width:65px;" class="invoiceTd colspan"> 
-                    <img src="<?php echo image_server; ?>/nfw/small/<?php echo $value['image']; ?>" height="50px" width="50px">
+                    <img src="<?php echo $cvalue['item_image']; ?>" height="50px" width="50px">
                 </td>
             </tr>  
+           
             <tr class="invoiceTd" style="text-align:left">
-                <th class="invoiceTd"  style="text-align:left">Item Name</th> <td class="invoiceTd" >  <?php echo $value['item_name']; ?></td>
+                <th class="invoiceTd"  style="text-align:left">Item Name</th> <td class="invoiceTd" >  <?php echo $cvalue['title']; ?></td>
 
                 <td style='width: 300px;text-align: center' rowspan="4">
                     SWATCHES 
@@ -28,14 +26,14 @@
 
 
             <tr style="text-align:left">
-                <th class="invoiceTd"  style="text-align:left">Item Code/SKU</th> <td class="invoiceTd" >  <?php echo $value['title']; ?></td>
+                <th class="invoiceTd"  style="text-align:left">Item Code/SKU</th> <td class="invoiceTd" >  <?php echo $cvalue['title']; ?></td>
             </tr>
 
             <tr class="invoiceTd" >
-                <th class="invoiceTd"  style="text-align:left">Item Feature</th> <td class="invoiceTd" > <?php echo $value['product_speciality']; ?></td>
+                <th class="invoiceTd"  style="text-align:left">Item Feature</th> <td class="invoiceTd" > <?php echo $cvalue['product_speciality']; ?></td>
             </tr>
             <tr class="invoiceTd" >
-                <th class="invoiceTd"  style="text-align:left">Quantity</th> <td class="invoiceTd" > <?php echo $value['cquantity']; ?></td>
+                <th class="invoiceTd"  style="text-align:left">Quantity</th> <td class="invoiceTd" > <?php echo $cvalue['quantity']; ?></td>
             </tr>
             <tr style="    background-color: #C0C0C0;">
                 <td></td>
@@ -43,15 +41,14 @@
                 <td></td>
             </tr>
 
-        <?php } ?>
+  
 
 
     </tbody>  
 </table> 
-<!-- style##################################################################### -->
 <div style="background:#F5F5F5;width:100%;height:5px;font-family:sans-serif;margin-top:5px;font-size:12px;border:1px solid rgb(157, 153, 150);">
     <div style="padding:5px;text-align: center;font-size:15px;">
-        Style Details (#<?php echo $tag_data[$i]['style_id']; ?>)
+        Style Details: <?php echo ($cvalue['customization_data']); ?>
     </div>
 </div> 
 
@@ -67,7 +64,7 @@
     </thead>
     <tbody style="font-size:10px">
         <
-        <?php foreach ($tag_data[$i]['custom'] as $key => $value) { ?>
+        <?php foreach ($cvalue['customdata']['style'] as $key => $value) { ?>
 
             <?php
             if ($key == 'Wrist Watch') {

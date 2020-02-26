@@ -136,8 +136,7 @@ class User_model extends CI_Model {
         }
     }
 
-    
-     public function mailsetting_header($element) {
+    public function mailsetting_header($element) {
         $query = $this->db->query("SELECT * FROM `nfw_mail_template_setting`");
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -146,8 +145,7 @@ class User_model extends CI_Model {
             return end($data)[$element]; //format the array into json data
         }
     }
-    
-    
+
     public function mail_template($mailtype, $element) {
         $query = $this->db->query("SELECT * FROM nfw_mail_template where mail_type = '$mailtype'");
         if ($query->num_rows() > 0) {
@@ -157,8 +155,7 @@ class User_model extends CI_Model {
             return end($data)[$element]; //format the array into json data
         }
     }
-    
-    
+
     public function get_old_status($id) {
         $query = "select order_id,status,remark,op_date_time from nfw_order_status where order_id=$id";
         $query = $this->db->query($query);
@@ -464,15 +461,13 @@ class User_model extends CI_Model {
 #21-oct-2015
 #function for find tag,customization,measurement
 #update 26-10-2015
-    
-    
-    function getCartDataByOrderProduct($order_id, $product_id){
+
+    function getCartDataByOrderProduct($order_id, $product_id) {
         $this->db->where('order_id', $order_id);
         $this->db->where('product_id', $product_id);
         $query = $this->db->get('nfw_product_cart');
         return $query->row();
     }
-    
 
     function tag_custom_measurement($order_id) {
         $this->db->select('pt.tag_title,pt.id as tag_id, pt.tag_title, npc.id,npc.customization_id,npc.measurement_id,npc.customization_data,npc.measurement_data, npc.user_images,npc.posture_data,sum(npc.quantity) as quantity');
@@ -480,7 +475,7 @@ class User_model extends CI_Model {
         $this->db->join('nfw_product_tag as pt', 'npc.tag_id = pt.id');
         $this->db->where('npc.order_id', $order_id);
         $this->db->group_by('npc.customization_id,npc.measurement_id');
-         $this->db->order_by('npc.id');    
+        $this->db->order_by('npc.id');
         $query = $this->db->get();
 
         $cat_container = array();
@@ -511,9 +506,9 @@ class User_model extends CI_Model {
                     $temp2 = $this->product_detail($p_id['product_id']);
 
                     $cartproductobj = $this->getCartDataByOrderProduct($order_id, $p_id['product_id']);
-                    
-                    
-                    $temp2[0]['item_name'] = $cartproductobj ? $cartproductobj->tag_title :$row['tag_title'];
+
+
+                    $temp2[0]['item_name'] = $cartproductobj ? $cartproductobj->tag_title : $row['tag_title'];
                     $temp2[0]['cquantity'] = $p_id['quantity'];
                     array_push($temp, $temp2);
                 }
@@ -1034,6 +1029,74 @@ class User_model extends CI_Model {
 
         $result = $this->query_exe($query);
         return $result;
+    }
+
+    function getCustomizationDataById($custom_id) {
+        $this->db->where('id', $custom_id);
+        $query = $this->db->get('nfw_custom_form_data');
+        $customdata = $query->row();
+        $tempcustom = array("Style Profile" => "", "style" => array(), "extra_price" => array());
+        if ($customdata) {
+            $customDataArray = array();
+            $this->db->where('style_profile', $custom_id);
+            $query = $this->db->get('nfw_custom_form_data_attr');
+            $customdataattr = $query->result_array();
+            $tempcustom["Style Profile"] = $customdata->style_profile;
+            foreach ($customdataattr as $key1 => $value1) {
+                $tempcustom['style'][$value1['style_key']] = $value1['style_value'];
+                if ($value1['extra_price']) {
+                    $tempcustom['extra_price'][$value1['style_key']] = $value1['extra_price'];
+                }
+            }
+        }
+        return $tempcustom;
+    }
+
+    function getMeasurementDataById($measurementid) {
+        $this->db->where('id', $measurementid);
+        $query = $this->db->get('nfw_measurement_data');
+        $customdata = $query->row();
+        $tempcustom = array("Profile" => "", "meausrements" => array(), "posture" => array());
+        if ($customdata) {
+            $customDataArray = array();
+            $this->db->where('profile_id', $measurementid);
+            $query = $this->db->get('nfw_measurement_attr');
+            $customdataattr = $query->result_array();
+            $tempcustom["Profile"] = $customdata->measurement_profile;
+            foreach ($customdataattr as $key1 => $value1) {
+
+                if ($value1['measurement_type'] == 'measurement') {
+                    $tempcustom['meausrements'][$value1['measurement_key']] = $value1['measurement_value'];
+                }
+
+                if ($value1['measurement_type'] == 'posture') {
+                    $tempcustom['posture'][$value1['measurement_key']] = $value1['measurement_value'];
+                }
+            }
+        }
+        return $tempcustom;
+    }
+
+    function getOrderDetails($order_id) {
+        $this->db->where('id', $order_id);
+        $query = $this->db->get('nfw_product_order');
+        $orderDetails = $query->row_array();
+        $orderData = array();
+        $orderData['details'] = $orderDetails;
+        $this->db->where("order_id", $order_id);
+        $querycart = $this->db->get("nfw_product_cart");
+        $cartdata = $querycart->result_array();
+        $productlist = [];
+        foreach ($cartdata as $key => $value) {
+     
+            $measurementdata = $this->getMeasurementDataById($value['measurement_id']);
+            $customdata = $this->getCustomizationDataById($value['customization_id']);
+            $value['measurements'] = $measurementdata;
+            $value['customdata'] = $customdata;
+            array_push($productlist, $value);
+        }
+        $orderData['cartdata'] = $productlist;
+        return $orderData;
     }
 
 }

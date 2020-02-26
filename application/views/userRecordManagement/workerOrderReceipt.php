@@ -61,96 +61,72 @@ $wrist_watch = '';
     <body >
 
         <div>
-            <?php echo  pdf_header;?>
+            <?php echo pdf_header; ?>
         </div>   
         <hr></hr>
         <!---================================== Invoice header=================================----->
 
 
-        <div style="width:100%;height:50px;border:1px solid rgb(157, 153, 150);font-family: sans-serif;">
-            <div style="background:rgb(245, 245, 245);width:100%;padding:5px 5px;" >
-               <table style="width:100%;">
-                 <tr>
-                    <td style="font-size:16px;text-align: left;width:68%;float:left;font-family: sans-serif;"> Order Information for Tailor </td>
-                    <td style="font-size:14px;text-align: left;width:32%;float:left;font-family: sans-serif;padding-left:5px"> Previous Order No. : </td>
-                    </tr>
-              </table>
-            </div>
+        
 
-            <table style="font-family: sans-serif;font-size:14px;margin-left:1%;margin-top: 1%"> 
-                <tbody>
-                
-                
+        <table style="width:100%;height:50px;border:1px solid rgb(157, 153, 150);font-family: sans-serif;">
+            <tr>
+                <td colspan="2" style="width:50%">
+                    Order Information for Tailor 
 
-                    <tr>
-                        <td>Client</td> 
-                        <td>:</td>
-                        <td><span ><?php 
-                        echo $user_info['first_name'], " ", $user_info['middle_name'], " ", $user_info['last_name'], " (" . $user_info['registration_id'] . ")"; ?></span>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td>Order No.</td>
-                        <td>:</td>
-                        <td><span ><?php echo $orderNo[0]['order_no'] ?></span></td>
-                    </tr>
+                </td>
+                <td colspan="2" style="width:50%">
+                    Previous Order No. :
+                </td>
+            </tr>
+            <tr>
+                <td >Client</td>
+                <td ><?php echo $user_info['first_name'] . " " .$user_info['middle_name']. " ".$user_info['last_name'] ;?></td>
+                <td >Invoice No.:</td>
+                <td ><?php echo $orderDetails['invoice_no'];?></td>
+            </tr>
+            <tr>
+                <td >Order No.</td>
+                <td ><?php echo $orderDetails['order_no'];?></td>
+                <td >Date/Time</td>
+                <td ><?php echo $orderDetails['op_date'];?> / <?php echo $orderDetails['op_time'];?></td>
+            </tr>
+        </table>
 
 
-
-                </tbody>
-            </table> 
-            <table style="margin-left:68%;margin-top:-6%;font-family: sans-serif;font-size:14px">
-
-                <tbody>
-                    <tr >
-                        <td>Invoice No.</td>
-                        <td>:</td>
-                        <td><span style="text-align:left"><?php echo $invoice_info[0]['invoice_no']; ?></span></td>
-                    </tr>
-                    <tr >
-                        <td>Date/Time</td>
-                        <td>:</td>
-                        <td><span style="text-align:left"><?php echo $invoice_info[0]['op_date'] . '/' . $invoice_info[0]['op_time']; ?></span></td>
-                    </tr>
-                </tbody>
-            </table>  
-        </div>
         <!-- tag loop -->
         <?php
         $count = 0;
-      
-        for ($i = 0; $i < count($tag_data); $i++) {
-           
-            $p_detail = $tag_data[$i]['p_data'];
-            $item_id = $tag_data[$i]['tag_id'];
-                
+
+         foreach ($cartdata as $ckey => $cvalue) {
+
+         
+            $item_id = $cvalue['tag_id'];
+
             switch ($report_type) {
                 case 'all':
-                   include 'workerReportSupport.php';
-                   
+                    include 'workerReportSupport.php';
+
                     break;
                 case 'shirt':
                     $shirt = array('1', '7');
                     if (in_array($item_id, $shirt)) {
-                       
+
                         include 'workerReportSupport.php';
-                       
                     }
                     break;
                 case 'jacket':
                     $shirt = array('1', '7');
                     if (in_array($item_id, $shirt)) {
-                      
-                    }
-                    else{
-                          include 'workerReportSupport.php';
-                         
+                        
+                    } else {
+                        include 'workerReportSupport.php';
                     }
                     break;
             }
-           
         }
         ?>
         <!-- loop -->
+
     </body>
 </html>

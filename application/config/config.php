@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $baselink = 'http://'.$_SERVER['SERVER_NAME'];
-$baselinkmain = strpos($baselink, '192.168') ? $baselink.'/nf3/gitnitaFashionsAdmin' : $baselink.'/nitaFashionsAdmin';
+$baselinkmain = strpos($baselink, 'localhost') ? $baselink.'/nitaFashionsAdmin' : $baselink;
 
 $config['base_url'] = $baselinkmain; 
 

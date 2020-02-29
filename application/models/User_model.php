@@ -174,7 +174,7 @@ class User_model extends CI_Model {
         $query = "SELECT pc.item_image AS image, 
                    pc.product_id, pc.id AS cart_id, pc.user_id, pc.op_date, pc.quantity,  IF(pc.extra_price IS NULL,'0',pc.extra_price) as extra_price, pc.order_id, pc.item_code AS product, pc.sku,
                    pc.customization_id as style,pc.customization_data,pc.measurement_data,
-                   pc.measurement_id, pc.tag_id, ( pc.price * pc.quantity + IF(pc.extra_price IS NULL,'0',pc.extra_price)  * pc.quantity) AS total_price,
+                   pc.measurement_id, pc.tag_id, pc.price,  pc.total_price,
                    pc.price,pc.tag_title as item_name,pc.customization_id,pc.customization_data_price,pc.user_images,pc.posture_data
                    FROM nfw_product_cart AS pc 
                    WHERE pc.order_id = $id";

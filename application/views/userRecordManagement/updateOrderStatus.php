@@ -1,4 +1,4 @@
-<?php
+v<?php
 $this->load->view('layout/layoutTop');
 //print_r($billing_info);
 $invoiceData = $this->Product_model->get_table_information('nfw_order_invoice', 'order_id', $order_id);
@@ -555,7 +555,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
 
 
         <div class="invoice-company">
-            <span data-toggle="" data-placement="left" title="View Pdf"><a href="<?php echo base_url() ?>../frontend/views/viewOrDownloadOrderPdf.php?order_id=<?php echo $order_id ?>&user_id=<?php echo $user_info['id'] ?>&option=I"  class="btn btn-danger " target="_blank"><i class="fa fa-file-pdf-o"></i></a></span>
+            <span data-toggle="" data-placement="left" title="View Pdf"><a href="https://v1.nitafashions.com/views/viewOrDownloadOrderPdf.php?order_id=<?php echo $order_id ?>&user_id=<?php echo $user_info['id'] ?>&option=I"  class="btn btn-danger " target="_blank"><i class="fa fa-file-pdf-o"></i></a></span>
 
             <span class="pull-right" style="margin: 0px 5px"><a href="<?php echo base_url('index.php/UserRecordManagement/worker_order_receipt_pdf/' . $order_id . '/' . $user_info['id']); ?>/all" class="btn btn-primary" target="_blank">Combined Worker Report</a></span>
             <?php

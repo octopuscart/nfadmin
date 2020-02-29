@@ -150,7 +150,7 @@ $this->load->view('layout/layoutTop');
                                     $totalq += $value['total_quantity'];
                                     $totalg += explode('$', $value['total_price'])[1];
                                     echo '<td>' . $value['total_quantity'] . '</td>';
-                                    echo '<td>$' . number_format(explode('$', $value['total_price'])[1], 2, '.', '') . '</td>';
+                                    echo '<td>' . $value['total_price']. '</td>';
                                     echo '<td>' . $value['title'] . '<br/>' . $value['status_date'] . '</td>';
 //                                    echo '<td><a class="btn btn-xs btn-info" href="' . base_url('index.php/UserRecordManagement/order_full_detail/' . $value['order_id']) . '">Detail</a></td>';
                                     echo '<td><a href = "' . base_url('index.php/UserRecordManagement/update_order_status/' . $value['order_id']) . '/' . $value['user_id'] . '" class="btn btn-info btn-xs"> Update Now </a>

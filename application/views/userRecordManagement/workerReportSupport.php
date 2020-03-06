@@ -52,6 +52,7 @@
 </table> 
 <div style="background:#F5F5F5;width:100%;;font-family:sans-serif;margin-top:5px;font-size:12px;border:1px solid rgb(157, 153, 150);">
     <div style="padding:5px;text-align: center;font-size:15px;">
+      
         Style Details: <?php echo ($cvalue['customization_data']); ?>
     </div>
 </div> 
@@ -69,10 +70,11 @@
     <tbody style="font-size:10px">
 
         <?php
-        $customizId = $value['customization_id'];
-        if (($customizId > 0) && isset($cvalue['customdata'])) {
+        $customizId = $cvalue['customization_id'];
+        if (($customizId > 0)) {
             foreach ($cvalue['customdata']['style'] as $key => $value) {
                 ?>
+        
 
                 <?php
                 if ($key == 'Wrist Watch') {

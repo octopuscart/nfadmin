@@ -163,7 +163,14 @@ class UserRecordManagement extends CI_Controller {
 
     public function mailsending($order_id, $user_id) {
         $urlb = $this->urlpath();
-        redirect($urlb . "views/sendMail.php?order_id=$order_id&user_id=$user_id");
+        $url = "http://email.nitafashions.com/nfemail/views/sendMail.php?order_id=$order_id&user_id=$user_id&mail_type=1&mail_set=order";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        $data = curl_exec($curl);
+        curl_close($curl);
+//        redirect($urlb . "views/sendMail.php?order_id=$order_id&user_id=$user_id");
     }
 
     public function urlpath() {

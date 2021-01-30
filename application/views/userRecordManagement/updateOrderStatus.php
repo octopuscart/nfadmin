@@ -847,7 +847,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                                     if ($measurement_id > 0) {
                                                         // $finalData = $this->User_model->measurement_detail($measurement_id);
                                                         echo '<tbody>';
-                                                        $res1 = $this->User_model->getMeasurementDataById($value['measurement_id']);
+                                                        $res1 = $this->User_model->getMeasurementDataById($value['measurement_id'], $value['measurement_data']);
                                                         foreach ($res1['meausrements'] as $key2 => $value2) {
                                                             echo '<tr>';
                                                             echo '<td>' . $key2 . '</td>';

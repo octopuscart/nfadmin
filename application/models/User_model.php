@@ -1054,7 +1054,7 @@ class User_model extends CI_Model {
         return $tempcustom;
     }
 
-    function getMeasurementDataById($measurementid) {
+    function getMeasurementDataById($measurementid, $profilename) {
         $this->db->where('id', $measurementid);
         $query = $this->db->get('nfw_measurement_data');
         $customdata = $query->row();
@@ -1064,7 +1064,7 @@ class User_model extends CI_Model {
             $this->db->where('profile_id', $measurementid);
             $query = $this->db->get('nfw_measurement_attr');
             $customdataattr = $query->result_array();
-            $tempcustom["Profile"] = $customdata->measurement_profile;
+            $tempcustom["Profile"] = $profilename;
             foreach ($customdataattr as $key1 => $value1) {
 
                 if ($value1['measurement_type'] == 'measurement') {
@@ -1075,6 +1075,7 @@ class User_model extends CI_Model {
                     $tempcustom['posture'][$value1['measurement_key']] = $value1['measurement_value'];
                 }
             }
+             $tempcustom['meausrements']["Profile"] = $profilename; 
         }
         return $tempcustom;
     }
@@ -1091,7 +1092,7 @@ class User_model extends CI_Model {
         $productlist = [];
         foreach ($cartdata as $key => $value) {
 
-            $measurementdata = $this->getMeasurementDataById($value['measurement_id']);
+            $measurementdata = $this->getMeasurementDataById($value['measurement_id'], $value['measurement_data']);
             $customdata = $this->getCustomizationDataById($value['customization_id']);
             $value['measurements'] = $measurementdata;
             $value['customdata'] = $customdata;

@@ -834,7 +834,7 @@ class UserRecordManagement extends CI_Controller {
         $this->load->library('M_pdf');
 
         $pdf = $this->m_pdf->load();
-        ob_end_clean();
+//        ob_end_clean();
         $pdf->useAdobeCJK = true;
         $pdf->setFooter('Page {PAGENO} of {nb}');
 

@@ -148,7 +148,8 @@ $this->load->view('layout/layoutTop');
 
                                     echo '<td style="padding:0px"><table class="custom_table">' . implode("</tr><tr>", $temp2) . '</tr></table></td>';
                                     $totalq += $value['total_quantity'];
-                                    $totalg += explode('$', $value['total_price'])[1];
+                                   $orderprice = str_replace(",", "",  str_replace("$", "", $value['total_price']));
+                                    $totalg += $orderprice;
                                     echo '<td>' . $value['total_quantity'] . '</td>';
                                     echo '<td>' . $value['total_price']. '</td>';
                                     echo '<td>' . $value['title'] . '<br/>' . $value['status_date'] . '</td>';

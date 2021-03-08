@@ -37,7 +37,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
         padding: 8px;
         line-height: 0.42857143 !important;
         vertical-align: top;
-        //border-bottom: 1px solid;
+    
 
 
     }
@@ -904,7 +904,12 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         <div class="sub-price">
                             <small>SUBTOTAL</small>
 
-                            <span id="subtotalCost"><?php echo $orderData[0]['total_price']; ?></span>
+                            <span id="subtotalCost"><?php
+                            
+                 
+                            echo '$' . number_format($orderData[0]['sub_total'], 2, '.', '')
+                            
+                            ?></span>
                         </div>
                         <div class="sub-price">
                             <i class="fa fa-plus"></i>
@@ -971,9 +976,11 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                         <small style='    width: 100%;
                                padding-right: 32px;'>GRAND TOTAL</small>
                                <?php
-                               $order_amount = str_replace("$", "", $orderData[0]['total_price']) + $orderData[0]['shipping_amount'];
+                               
+                             
+                               $order_amount = $orderData[0]['total_price'];
                                ?> 
-                               <?php echo '$' . number_format($order_amount, 2, '.', ''); ?>
+                               <?php echo $order_amount; ?>
                     </span>  
 
                     </span>
@@ -999,6 +1006,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                 </tr>
                 <?php
                 $totalr = 0;
+                if($refundData){
                 if (count($refundData)) {
                     foreach ($refundData as $i => $v) {
                         echo "<tr>";
@@ -1014,6 +1022,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
 
                         echo "</tr>";
                     }
+                }
                 }
                 $order_amount = str_replace("$", "", $order_amount);
                 $order_amount = $order_amount - $totalr;

@@ -60,7 +60,7 @@
         $session_data = $this->session->userdata('logged_in');
        
         if (empty($session_data)) {
-            redirect('LoginAndLogout', 'refresh');
+//            redirect('LoginAndLogout', 'refresh');
         }
         ?>
         <!-- begin #page-loader -->
@@ -105,7 +105,7 @@
                                  $dateRange1 = date("Y-m-d") . " to " . date("Y-m-d");
                                  $quryrange1 = "'" . str_replace(" to ", "' and '", $dateRange1) . "'";
                                 $notification = $this->User_model->user_order_history("1",'');
-                                $len = count($notification);
+                                $len = $notification ? count($notification):0;
                                 if ($notification) {
                                     if (count($notification) < 5) {
                                         $len = count($notification);

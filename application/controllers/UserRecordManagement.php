@@ -240,7 +240,11 @@ class UserRecordManagement extends CI_Controller {
             'shipping_company' => '',
             'shipping_tel_no' => ''
         );
-        $data['shipping_detail'] = count($shipping_detail) ? end($shipping_detail) : $temparray;
+         $data['shipping_detail'] = $temparray;
+        if ($shipping_detail) {
+            $data['shipping_detail'] = count($shipping_detail) ? end($shipping_detail) : $temparray;
+        }
+
         // $query = "select ost.title as order_status,os.remark,os.op_date_time from nfw_order_status_tag as ost join nfw_old_order_status as os on os.status = ost.id where os.order_id = $id ";
         $data['order_status_record'] = $this->User_model->order_status_record($id);
 

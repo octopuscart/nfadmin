@@ -1,6 +1,6 @@
 </div>
 
-</div><?php ob_end_clean(); ?>
+</div>
 <!-- end #content -->  
 <!-- begin theme-panel -->
 

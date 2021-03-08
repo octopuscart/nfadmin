@@ -979,6 +979,8 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                                
                              
                                $order_amount = $orderData[0]['total_price'];
+                               
+                               $orderamountno = str_replace(",", "", str_replace("$", "", $order_amount));
                                ?> 
                                <?php echo $order_amount; ?>
                     </span>  
@@ -1025,7 +1027,7 @@ $orderData1 = $this->User_model->get_product_information($order_id);
                 }
                 }
                 $order_amount = str_replace("$", "", $order_amount);
-                $order_amount = $order_amount - $totalr;
+                $order_amount = $orderamountno - $totalr;
                 ?>
                 <tr>
                     <th></th>

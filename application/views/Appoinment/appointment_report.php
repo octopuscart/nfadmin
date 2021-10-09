@@ -32,6 +32,7 @@ $this->load->view('layout/layoutTop');
                 <tbody>
                     <?php
                     for ($i = 0; $i < count($data); $i++) {
+                        if(isset($data[$i])){
                         $res = $data[$i];
                      
                         ?>
@@ -64,7 +65,7 @@ $this->load->view('layout/layoutTop');
                         </tr>
 
 
-                    <?php } ?>
+                    <?php }} ?>
                 </tbody>
             </table>
 
